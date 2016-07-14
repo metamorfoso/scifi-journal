@@ -1,0 +1,38 @@
+<!doctype html>
+<head>
+  {% macro get_page_title() -%}
+    {% block title %}{% endblock %}
+  {%- endmacro %}
+
+  {% macro title() %}
+    {% set page_title = get_page_title() %}
+    {{ page_title }}
+  {% endmacro %}
+
+  {% macro description() %}
+    {% block description %}
+    {% endblock %}
+  {% endmacro %}
+
+  {% block meta %}
+    <meta property="og:type" content="website">
+
+    <title>{{ title() }}</title>
+    <meta property="og:title" content="{{ title() }}">
+
+    <meta name="description" content="{{ description() }}">
+    <meta property="og:description" content="{{ description() }}">
+
+    <meta name="keywords"
+          content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% endblock %}
+
+  {% stylesheet "site" %}
+</head>
+
+<body>
+{% block content %}{% endblock %}
+
+</body>

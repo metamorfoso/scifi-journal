@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+/cache
+/media/*
+/static
+/log
+/src/project/settings/local.py
+.idea/
+local.db
+/gunicorn.pid
+ghostdriver.log
+
+.coverage
