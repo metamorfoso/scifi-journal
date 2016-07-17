@@ -1,7 +1,6 @@
 from .base import *
-from .static import *
 
 try:
-    from .local import *
+    from .local_settings import *
 except ImportError:
     pass

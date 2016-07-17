@@ -4,9 +4,10 @@ __pycache__
 /media/*
 /static
 /log
-/src/project/settings/local.py
+/src/project/settings/local_settings.py
 .idea/
 local.db
+scifi-journal-dev.db
 /gunicorn.pid
 ghostdriver.log
 

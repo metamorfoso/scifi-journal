@@ -13,7 +13,7 @@ ADMINS = (
     ('numerical', 'dungeonmaster@numerical.co.nz'),
 )
 INTERNAL_IPS = ('127.0.0.1',)
-ALLOWED_HOSTS = ('dashboard.sunshinesolar.co.nz',)
+ALLOWED_HOSTS = ('',)
 
 MANAGERS = ADMINS
 
@@ -140,11 +140,8 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'memoize',
     'pipeline',
-    'sorl.thumbnail',
-    'psutil',
 
     # Our apps
-    'carousel',
 )
 
 # RAVEN_CONFIG = {
@@ -201,11 +198,3 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
 )
-
-THUMBNAIL_QUALITY = 90
-THUMBNAIL_PRESERVE_FORMAT = True
-THUMBNAIL_UPSCALE = True
-THUMBNAIL_CACHE_TIMEOUT = 1600
-THUMBNAIL_DUMMY = True
-THUMBNAIL_DUMMY_SOURCE = "http://placekitten.com/%(width)s/%(height)s"
-# THUMBNAIL_BACKEND = 'sorl.thumbnail.engines.wand_engine.Engine'

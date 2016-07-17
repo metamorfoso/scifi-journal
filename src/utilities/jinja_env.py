@@ -4,7 +4,6 @@ from django.template import defaultfilters
 from django.conf import settings
 
 from jinja2 import Environment, Markup
-from sorl.thumbnail import get_thumbnail
 
 
 def url(view, *args, **kwargs):
@@ -24,7 +23,6 @@ def environment(**options):
     env.globals.update({
         'static': staticfiles_storage.url,
         'url': url,
-        'get_thumbnail': get_thumbnail,
     })
     for setting in ('STATIC_URL', 'DEBUG'):
         env.globals.update({setting: getattr(settings, setting)})
