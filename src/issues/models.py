@@ -14,4 +14,3 @@ class Story(models.Model):
     author = models.ForeignKey(User)
     title = models.CharField(max_length=100)
     content = models.FileField(upload_to='submission_uploads/')
-
