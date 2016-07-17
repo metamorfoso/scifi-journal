@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "django/base.html" %}
 
 {% block content %}
     <h1>Scifi Journal</h1>
     <h3>Issues</h3>
     <ul>
         {% for i in issues %}
-            <li>{{ i }}</li>
+            <li><a href="{{ i.get_absolute_url() }}">{{ i }} {{ i.pub_date }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

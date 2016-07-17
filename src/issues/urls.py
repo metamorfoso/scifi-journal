@@ -5,7 +5,8 @@ from issues import views
 
 
 urlpatterns = [
-    url(r'^$', views.index)
+    url(r'^$', views.index),
+    url(r'^issue/(?P<issue_number>[\w-]+)$', views.issue, name="issue")
 ]
 
 urlpatterns += static(
