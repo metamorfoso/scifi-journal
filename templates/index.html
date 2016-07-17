@@ -2,5 +2,10 @@
 
 {% block content %}
     <h1>Scifi Journal</h1>
-    <p>Some {{ issues }} will appear here.</p>
+    <h3>Issues</h3>
+    <ul>
+        {% for i in issues %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
