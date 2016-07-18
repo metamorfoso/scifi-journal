@@ -33,6 +33,17 @@
 </head>
 
 <body>
-{% block content %}{% endblock %}
+
+<div id="site">
+    <div id="site-container">
+        {% block header %}{% endblock %}
+        {% block content %}{% endblock %}
+        {% block footer %}
+            <footer id="footer"></footer>
+        {% endblock %}
+    </div>
+</div>
+
+{% stylesheet "site" %}
 
 </body>

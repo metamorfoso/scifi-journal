@@ -2,6 +2,11 @@
 
 {% block content %}
     <h1>Scifi Journal</h1>
-    <a href="{{ current_issue.get_absolute_url() }}">Latest Issue</a>
-    <a href="{{ url_for('all_issues') }}">All Issues</a>
+        <div class="nav-link">
+            <a href="{{ current_issue.get_absolute_url() }}">Latest Issue</a>
+        </div>
+        <div class="nav-link">
+            <a href="{{ url('all_issues') }}">All Issues</a>
+        </div>
+
 {% endblock %}
