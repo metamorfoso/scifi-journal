@@ -3,5 +3,5 @@
 {% block content %}
     <h1>Scifi Journal</h1>
     <a href="{{ current_issue.get_absolute_url() }}">Latest Issue</a>
-    <a href="/issues/">All Issues</a>
+    <a href="{{ url_for('all_issues') }}">All Issues</a>
 {% endblock %}
