@@ -1,12 +1,28 @@
 from utilities.render import render
 from django.shortcuts import get_object_or_404
-from .models import Issue, Story
+from .models import Issue
 
 
 @render("django/index.html")
 def index(request):
     """
-    Landing page for the issues app
+    Landing page for the site
+
+    :param request:
+    :return:
+    """
+
+    current_issue = Issue.objects.latest('pub_date')
+
+    return dict(
+        current_issue=current_issue
+    )
+
+
+@render("django/issue/all_issues.html")
+def all_issues(request):
+    """
+    View to display all issues available for viewing
 
     :param request:
     :return: qs of all issues
@@ -19,10 +35,10 @@ def index(request):
     )
 
 
-@render("django/issue/issue.html")
-def issue(request, issue_number):
+@render("django/issue/single_issue.html")
+def single_issue(request, issue_number):
     """
-    Page for viewing individual issues of the journal
+    View to display individual issues
 
     :param request:
     :param issue_number:

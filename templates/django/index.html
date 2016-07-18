@@ -2,10 +2,6 @@
 
 {% block content %}
     <h1>Scifi Journal</h1>
-    <h3>Issues</h3>
-    <ul>
-        {% for i in issues %}
-            <li><a href="{{ i.get_absolute_url() }}">{{ i }} {{ i.pub_date }}</a></li>
-        {% endfor %}
-    </ul>
+    <a href="{{ current_issue.get_absolute_url() }}">Latest Issue</a>
+    <a href="/issues/">All Issues</a>
 {% endblock %}

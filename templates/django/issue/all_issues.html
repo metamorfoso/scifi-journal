@@ -1,0 +1,10 @@
+{% extends "django/base.html" %}
+
+{% block content %}
+    <h3>Issues</h3>
+    <ul>
+        {% for i in issues %}
+            <li><a href="{{ i.get_absolute_url() }}">{{ i }} {{ i.pub_date }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
