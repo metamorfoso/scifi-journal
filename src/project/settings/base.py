@@ -166,9 +166,7 @@ PIPELINE = dict(
     STYLESHEETS={
         'site': {
             'source_filenames': (
-                'c/lib/slick.css',
-                # 'c/lib/slick-theme.css',
-                'c/application.scss',
+                'c/application.sass',
             ),
             'output_filename': 'style/app.css',
             'extra_context': {

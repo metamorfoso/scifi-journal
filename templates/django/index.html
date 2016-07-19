@@ -1,7 +1,6 @@
-{% extends "django/base.html" %}
+{% extends "django/nav.html" %}
 
 {% block content %}
-    <h1>Scifi Journal</h1>
         <div class="nav-link">
             <a href="{{ current_issue.get_absolute_url() }}">Latest Issue</a>
         </div>
