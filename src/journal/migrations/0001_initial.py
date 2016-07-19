@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=100)),
                 ('content', models.FileField(upload_to='submission_uploads/')),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('issue', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='issues.Issue')),
+                ('issue', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='journal.Issue')),
             ],
         ),
     ]

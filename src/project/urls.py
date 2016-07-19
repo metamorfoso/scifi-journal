@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^admin$', RedirectView.as_view(url='/admin/', permanent=True)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^404$', page_not_found),
-    url(r'^', include("issues.urls"))
+    url(r'^', include("journal.urls"))
 ]
 
 urlpatterns += static(

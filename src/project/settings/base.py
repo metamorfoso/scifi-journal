@@ -142,7 +142,7 @@ INSTALLED_APPS = (
     'pipeline',
 
     # Our apps
-    'issues',
+    'journal',
 )
 
 # RAVEN_CONFIG = {

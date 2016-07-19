@@ -616,7 +616,7 @@
    * Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
    *   erik.eae.net/archives/2008/03/10/21.48.10/
 
-   * More here: github.com/Modernizr/Modernizr/issues/issue/21
+   * More here: github.com/Modernizr/Modernizr/journal/issue/21
    *
    * @access private
    * @returns {string} The string representing the vendor-specific style properties
@@ -650,7 +650,7 @@
   /**
    * createElement is a convenience wrapper around document.createElement. Since we
    * use createElement all over the place, this allows for (slightly) smaller code
-   * as well as abstracting away issues with creating elements in contexts other than
+   * as well as abstracting away journal with creating elements in contexts other than
    * HTML documents (e.g. SVG documents).
    *
    * @access private

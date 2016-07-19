@@ -9,14 +9,14 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('issues', '0005_auto_20160719_2239'),
+        ('journal', '0005_auto_20160719_2239'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='story',
             name='author',
-            field=models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, to='issues.Author'),
+            field=models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, to='journal.Author'),
             preserve_default=False,
         ),
     ]
