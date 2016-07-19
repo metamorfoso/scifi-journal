@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 class Issue(models.Model):
     pub_date = models.DateField(verbose_name='issue publication date')
     number = models.IntegerField(verbose_name='issue number')
+    introduction = models.TextField(default='', max_length=500)
+    # cover_image = models.ImageField(upload_to='cover_image_uploads/')
 
     def __str__(self):
         return "issue " + str(self.number)
@@ -19,7 +21,6 @@ class Issue(models.Model):
 
 class Story(models.Model):
     issue = models.ForeignKey(Issue)
-    submission_timestamp = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(User)
     title = models.CharField(max_length=100)
