@@ -22,10 +22,10 @@ def index(request):
 @render("django/issue/all_issues.html")
 def all_issues(request):
     """
-    View to display all journal available for viewing
+    View to display all issues available for viewing
 
     :param request:
-    :return: qs of all journal
+    :return: qs of all issues
     """
 
     issues = Issue.objects.all()
@@ -38,7 +38,7 @@ def all_issues(request):
 @render("django/issue/single_issue.html")
 def single_issue(request, issue_number):
     """
-    View to display individual journal
+    View to display individual issues
 
     :param request:
     :param issue_number:
