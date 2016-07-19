@@ -11,10 +11,10 @@ class Author(models.Model):
 
 
 class Issue(models.Model):
-    pub_date = models.DateField(verbose_name='issue publication date')
-    number = models.IntegerField(verbose_name='issue number')
+    pub_date = models.DateField(verbose_name="issue publication date")
+    number = models.IntegerField(verbose_name="issue number")
     introduction = models.TextField(max_length=500, blank=True)
-    cover_image = models.ImageField(upload_to='cover_image_uploads/', blank=True)
+    cover_image = models.ImageField(upload_to="cover_image_uploads/", blank=True)
 
     def __str__(self):
         return "issue " + str(self.number)
@@ -31,7 +31,10 @@ class Story(models.Model):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(Author)
     title = models.CharField(max_length=100)
-    content = models.FileField(upload_to='submission_uploads/')
+    content = models.FileField(upload_to="submission_uploads/")
+
+    class Meta:
+        verbose_name_plural = "stories"
 
     def __str__(self):
         return self.title
