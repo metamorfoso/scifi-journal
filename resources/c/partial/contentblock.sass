@@ -1,8 +1,13 @@
 
 #content-block
-  float: left
+  // Flex-related:
+  order: 2
+  flex: 1  // i.e. "grow to occupy one part", "shrink auto", "start at auto"
+  display: flex
+  flex-direction: row
+  // Everything else:
   box-sizing: border-box
-  border: dashed 1px blue
   height: 100vh
-  width: $contentblock-width
   padding-left: 2em
+  padding-right: 2em
+  border-left: solid 2px black

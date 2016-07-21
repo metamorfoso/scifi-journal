@@ -1,8 +1,10 @@
 
 #nav-block
-  float: left
+  // Flex-related:
+  order: 1
+  flex: 0 0 $navblock-width  // i.e. "don't grow", "don't shrink", "start at given width"
+  // Everything else:
   box-sizing: border-box
-  width: $navblock-width
   height: 100vh
-  border: dashed 1px green
   padding-left: 2em
+  padding-right: 2em
