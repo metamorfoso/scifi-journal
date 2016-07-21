@@ -40,3 +40,4 @@ class Story(models.Model):
         return self.title
 
 # TODO: Review model
+# TODO: Submissions model (as part of a submissions portal)
