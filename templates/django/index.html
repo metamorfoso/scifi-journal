@@ -1,11 +1,18 @@
 {% extends "django/nav.html" %}
 
 {% block content %}
-        <div class="nav-link">
-            <a href="{{ current_issue.get_absolute_url() }}">Latest Issue</a>
+
+    <div>
+        <h2>Current Issue</h2>
+        <h3>{{ current_issue }}</h3>
+        <div class="issue-contents">
+            <h4>Contents</h4>
+            <ul>
+                {% for story in stories %}
+                    <li>{{ story }}, {{ story.author }}</li>
+                {% endfor %}
+            </ul>
         </div>
-        <div class="nav-link">
-            <a href="{{ url('all_issues') }}">All Issues</a>
-        </div>
+    </div>
 
 {% endblock %}

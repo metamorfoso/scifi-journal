@@ -1,43 +1,47 @@
 <!doctype html>
 <head>
-  {% macro get_page_title() -%}
-    {% block title %}{% endblock %}
-  {%- endmacro %}
+    {% macro get_page_title() -%}
+        {% block title %}{% endblock %}
+    {%- endmacro %}
 
-  {% macro title() %}
-    {% set page_title = get_page_title() %}
-    {{ page_title }}
-  {% endmacro %}
+    {% macro title() %}
+        {% set page_title = get_page_title() %}
+        {{ page_title }}
+    {% endmacro %}
 
-  {% macro description() %}
-    {% block description %}
+    {% macro description() %}
+        {% block description %}
+        {% endblock %}
+    {% endmacro %}
+
+    {% block meta %}
+        <meta property="og:type" content="website">
+
+        <title>{{ title() }}</title>
+        <meta property="og:title" content="{{ title() }}">
+
+        <meta name="description" content="{{ description() }}">
+        <meta property="og:description" content="{{ description() }}">
+
+        <meta name="keywords"
+              content="">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% endblock %}
-  {% endmacro %}
 
-  {% block meta %}
-    <meta property="og:type" content="website">
-
-    <title>{{ title() }}</title>
-    <meta property="og:title" content="{{ title() }}">
-
-    <meta name="description" content="{{ description() }}">
-    <meta property="og:description" content="{{ description() }}">
-
-    <meta name="keywords"
-          content="">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% endblock %}
-
-  {% stylesheet "site" %}
+    {% stylesheet "site" %}
 </head>
 
 <body>
 
 <div id="site">
     <div id="site-container">
-        {% block header %}{% endblock %}
-        {% block content %}{% endblock %}
+        <div id="nav-block">
+            {% block header %}{% endblock %}
+        </div>
+        <div id="content-block">
+            {% block content %}{% endblock %}
+        </div>
         {% block footer %}
             <footer id="footer"></footer>
         {% endblock %}

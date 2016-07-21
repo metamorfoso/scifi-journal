@@ -17,7 +17,7 @@ class Issue(models.Model):
     cover_image = models.ImageField(upload_to="cover_image_uploads/", blank=True)
 
     def __str__(self):
-        return "issue " + str(self.number)
+        return "Issue " + str(self.number)
 
     @models.permalink
     def get_absolute_url(self):

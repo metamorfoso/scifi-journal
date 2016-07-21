@@ -1,14 +1,16 @@
-{% extends "django/base.html" %}
+{% extends "django/nav.html" %}
 
 {% block content %}
 
-    <h3>Issue {{ issue.number }}</h3>
+    <div>
+        <h3>Issue {{ issue.number }}</h3>
 
-    <h4>Contents</h4>
-    <ul>
-        {% for story in stories %}
-            <li>"{{ story }}", {{ story.author }}</li>
-        {% endfor %}
-    </ul>
+        <h4>Contents</h4>
+        <ul>
+            {% for story in stories %}
+                <li>"{{ story }}", {{ story.author }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 
 {% endblock %}

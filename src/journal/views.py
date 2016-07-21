@@ -13,9 +13,11 @@ def index(request):
     """
 
     current_issue = Issue.objects.latest('pub_date')
+    stories = current_issue.story_set.all()
 
     return dict(
-        current_issue=current_issue
+        current_issue=current_issue,
+        stories=stories
     )
 
 
@@ -53,3 +55,15 @@ def single_issue(request, issue_number):
         issue=requested_issue,
         stories=story_set
     )
+
+
+@render("django/about.html")
+def about(request):
+    """
+    An about page for the journal
+
+    :param request:
+    :return:
+    """
+
+    return dict()
