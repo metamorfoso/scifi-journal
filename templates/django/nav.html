@@ -2,17 +2,17 @@
 
 {% block header %}
     <header id="header">
-        <div>
-            <h1>Scifi Journal</h1>
-        </div>
-        <div class="nav-link">
-            <a href="{{ url('landing_page') }}">Home</a>
-        </div>
-        <div class="nav-link">
-            <a href="{{ url('all_issues') }}">All Issues</a>
-        </div>
-        <div class="nav-link">
-            <a href="{{ url('about') }}">About</a>
-        </div>
+        <h1>Scifi Journal</h1>
+        <ul>
+            <li class="nav-link">
+                <a href="{{ url('landing_page') }}">Home</a>
+            </li>
+            <li class="nav-link">
+                <a href="{{ url('all_issues') }}">All Issues</a>
+            </li>
+            <li class="nav-link">
+                <a href="{{ url('about') }}">About</a>
+            </li>
+        </ul>
     </header>
 {% endblock %}
