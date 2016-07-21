@@ -2,10 +2,10 @@
 
 {% block content %}
 
-    <div class="current-issue">
+    <div id="current-issue-container">
         <h3>Current Issue</h3>
         <h4>{{ current_issue }}</h4>
-        <div class="issue-contents">
+        <div id="issue-contents">
             <h4>Contents</h4>
             <ul>
                 {% for story in stories %}

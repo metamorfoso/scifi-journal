@@ -67,3 +67,18 @@ def about(request):
     """
 
     return dict()
+
+
+@render("django/submissions.html")
+def submissions(request):
+    """
+    Submissions portal
+
+    :param request:
+    :return:
+    """
+
+    # TODO: submissions portal
+    # Form to capture submission: title, author, file, contact details (email address)
+
+    return dict()
