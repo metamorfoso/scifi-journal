@@ -140,6 +140,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'memoize',
     'pipeline',
+    'num2words',
 
     # Our apps
     'journal',

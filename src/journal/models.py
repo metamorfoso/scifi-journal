@@ -1,4 +1,5 @@
 from django.db import models
+from num2words import num2words
 
 
 class Author(models.Model):
@@ -18,6 +19,10 @@ class Issue(models.Model):
 
     def __str__(self):
         return "Issue " + str(self.number)
+
+    @property
+    def pretty_name(self):
+        return "Issue " + num2words(self.number).title()
 
     @models.permalink
     def get_absolute_url(self):

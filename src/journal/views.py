@@ -21,8 +21,8 @@ def index(request):
     )
 
 
-@render("django/issue/all_issues.html")
-def all_issues(request):
+@render("django/issue/issue_archive.html")
+def issue_archive(request):
     """
     View to display all issues available for viewing
 
