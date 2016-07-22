@@ -18,11 +18,11 @@ class Issue(models.Model):
     cover_image = models.ImageField(upload_to="cover_image_uploads/", blank=True)
 
     def __str__(self):
-        return "Issue " + str(self.number)
+        return "issue %s" % str(self.number)
 
     @property
     def pretty_name(self):
-        return "Issue " + num2words(self.number).title()
+        return "Issue %s" % num2words(self.number).title()
 
     @models.permalink
     def get_absolute_url(self):
@@ -36,7 +36,7 @@ class Story(models.Model):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(Author)
     title = models.CharField(max_length=100)
-    content = models.FileField(upload_to="submission_uploads/")
+    content = models.FileField(upload_to="story_uploads/")
 
     class Meta:
         verbose_name_plural = "stories"
@@ -46,3 +46,20 @@ class Story(models.Model):
 
 # TODO: Review model
 # TODO: Submissions model (as part of a submissions portal)
+class Submitter(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=40)
+    email_address = models.EmailField()
+
+    def __str__(self):
+        return "%s, %s" % (self.last_name, self.first_name)
+
+
+class Submission(models.Model):
+    timestamp = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(Submitter)
+    title = models.CharField(max_length=100)
+    content = models.FileField(upload_to="submission_uploads/")
+
+    def __str__(self):
+        return self.title
