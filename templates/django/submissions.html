@@ -4,7 +4,19 @@
 
     <div id="submissions-container">
         <h3 class="section-heading">Submissions</h3>
-        <p>Submissions portal here</p>
+        {% if submission_successful %}
+            <p>Submission successful. Thank you.</p>
+        {% endif %}
+        <form action="{{ url('submissions') }}" method="post" id="submissions-form">
+            {{ csrf_input }}
+{#            <ul id="submission-form-fields">#}
+{#                {{ submission_form }}#}
+{#            </ul>#}
+            <ul id="submitter-form-fields">
+                {{ submitter_form }}
+            </ul>
+            <input type="submit" name="story_submission" value="Submit"/>
+        </form>
     </div>
 
 {% endblock %}

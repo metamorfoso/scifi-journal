@@ -1,6 +1,8 @@
 from utilities.render import render
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, HttpResponse
+from django.core.urlresolvers import reverse
 from .models import Issue
+from .forms import SubmissionForm, SubmitterForm
 
 
 @render("django/index.html")
@@ -78,7 +80,26 @@ def submissions(request):
     :return:
     """
 
-    # TODO: submissions portal
-    # Form to capture submission: title, author, file, contact details (email address)
+    if request.method == "POST":
+        # submission_form = SubmissionForm(request.POST)
+        submitter_form = SubmitterForm(request.POST)
 
-    return dict()
+        # Check that forms are valid
+        if submitter_form.is_valid():
+            new_submitter = submitter_form.save(commit=False)
+
+            # On success, return submission_successful=True (so template can display the
+            # thank-you message), and a fresh empty form.
+            return dict(
+                submission_successful=True,
+                submitter_form=SubmitterForm().as_ul()
+            )
+
+    else:
+        submitter_form = SubmitterForm().as_ul()  # render the formfields as unordered list items
+        # submitter_form = SubmitterForm().as_ul()
+
+    return dict(
+        # submission_form=submission_form,
+        submitter_form=submitter_form
+    )

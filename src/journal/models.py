@@ -44,8 +44,7 @@ class Story(models.Model):
     def __str__(self):
         return self.title
 
-# TODO: Review model
-# TODO: Submissions model (as part of a submissions portal)
+
 class Submitter(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
@@ -63,3 +62,6 @@ class Submission(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# TODO: Review model
