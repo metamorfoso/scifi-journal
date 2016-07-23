@@ -7,11 +7,11 @@
         {% if submission_successful %}
             <p>Submission successful. Thank you.</p>
         {% endif %}
-        <form action="{{ url('submissions') }}" method="post" id="submissions-form">
+        <form enctype="multipart/form-data" action="{{ url('submissions') }}" method="post" id="submissions-form">
             {{ csrf_input }}
-{#            <ul id="submission-form-fields">#}
-{#                {{ submission_form }}#}
-{#            </ul>#}
+            <ul id="submission-form-fields">
+                {{ submission_form }}
+            </ul>
             <ul id="submitter-form-fields">
                 {{ submitter_form }}
             </ul>

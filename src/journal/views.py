@@ -80,26 +80,27 @@ def submissions(request):
     :return:
     """
 
+    response = dict(
+        submission_successful=False,
+        submitter_form=SubmitterForm().as_ul(),
+        submission_form=SubmissionForm().as_ul()
+    )
+
     if request.method == "POST":
-        # submission_form = SubmissionForm(request.POST)
+        submission_form = SubmissionForm(request.POST, request.FILES)
         submitter_form = SubmitterForm(request.POST)
 
         # Check that forms are valid
-        if submitter_form.is_valid():
+        if submitter_form.is_valid() and submission_form.is_valid():
+            new_submission = submission_form.save(commit=False)
             new_submitter = submitter_form.save(commit=False)
 
+            print(new_submission, new_submitter)
+
             # On success, return submission_successful=True (so template can display the
-            # thank-you message), and a fresh empty form.
-            return dict(
-                submission_successful=True,
-                submitter_form=SubmitterForm().as_ul()
-            )
+            # thank-you message), and fresh empty forms.
+            response["submission_successful"] = True
 
-    else:
-        submitter_form = SubmitterForm().as_ul()  # render the formfields as unordered list items
-        # submitter_form = SubmitterForm().as_ul()
+            return response
 
-    return dict(
-        # submission_form=submission_form,
-        submitter_form=submitter_form
-    )
+    return response
