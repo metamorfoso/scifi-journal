@@ -46,8 +46,8 @@ class Story(models.Model):
 
 
 class Submitter(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=40)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=40, blank=True)
     email_address = models.EmailField()
 
     def __str__(self):

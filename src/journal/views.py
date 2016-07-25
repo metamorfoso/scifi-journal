@@ -1,7 +1,6 @@
 from utilities.render import render
-from django.shortcuts import get_object_or_404, redirect, HttpResponse
-from django.core.urlresolvers import reverse
-from .models import Issue
+from django.shortcuts import get_object_or_404
+from .models import Issue, Submission, Submitter
 from .forms import SubmissionForm, SubmitterForm
 
 
@@ -80,27 +79,37 @@ def submissions(request):
     :return:
     """
 
-    response = dict(
-        submission_successful=False,
-        submitter_form=SubmitterForm().as_ul(),
-        submission_form=SubmissionForm().as_ul()
+    # Default context: empty forms for the Submission and Submitter
+    context = dict(
+        submitter_form=SubmitterForm(),
+        submission_form=SubmissionForm()
     )
 
+    # Handle form submission
     if request.method == "POST":
         submission_form = SubmissionForm(request.POST, request.FILES)
         submitter_form = SubmitterForm(request.POST)
 
-        # Check that forms are valid
-        if submitter_form.is_valid() and submission_form.is_valid():
-            new_submission = submission_form.save(commit=False)
-            new_submitter = submitter_form.save(commit=False)
+        if submission_form.is_valid() and submitter_form.is_valid():
+            submission_result = submission_form.cleaned_data
+            submitter_result = submitter_form.cleaned_data
 
-            print(new_submission, new_submitter)
+            # If this email address used to submit in the past, use
+            # same Submitter instance
+            new_submitter, created = Submitter.objects.get_or_create(
+                email_address=submitter_result["email_address"]
+            )
 
-            # On success, return submission_successful=True (so template can display the
-            # thank-you message), and fresh empty forms.
-            response["submission_successful"] = True
+            # Save submission to db
+            Submission.objects.create(
+                title=submission_result["title"],
+                content=submission_result["content"],
+                author=new_submitter
+            )
 
-            return response
+            # Update context dict and return it
+            context["submission_successful"] = True
+            return context
 
-    return response
+    else:
+        return context
