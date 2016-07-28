@@ -7,7 +7,7 @@ class Submitter(models.Model):
     email_address = models.EmailField()
 
     def __str__(self):
-        return "%s, %s" % (self.last_name, self.first_name)
+        return self.email_address  # email is the only non-optional field
 
 
 class Submission(models.Model):
