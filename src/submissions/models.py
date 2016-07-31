@@ -15,6 +15,8 @@ class Submission(models.Model):
     author = models.ForeignKey(Submitter)
     title = models.CharField(max_length=100)
     content = models.FileField(upload_to="submission_uploads/")
+    author_notes = models.TextField(blank=True, max_length=3000)
+    editor_notes = models.TextField(blank=True, max_length=3000)
 
     def __str__(self):
         return self.title

@@ -37,6 +37,7 @@ class Story(models.Model):
     author = models.ForeignKey(Author)
     title = models.CharField(max_length=100)
     content = models.FileField(upload_to="story_uploads/")
+    author_notes = models.TextField(blank=True, max_length=3000)
 
     class Meta:
         verbose_name_plural = "stories"
