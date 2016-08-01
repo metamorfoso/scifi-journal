@@ -11,7 +11,7 @@ def index(request):
     :return:
     """
 
-    current_issue = Issue.objects.latest('pub_date')
+    current_issue = Issue.objects.filter(published=True).latest('pub_date')
     stories = current_issue.story_set.all()
 
     return dict(
@@ -29,7 +29,7 @@ def issue_archive(request):
     :return: qs of all issues
     """
 
-    issues = Issue.objects.all()
+    issues = Issue.objects.filter(published=True)
 
     return dict(
         issues=issues

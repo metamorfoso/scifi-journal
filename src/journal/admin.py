@@ -5,6 +5,7 @@ from utilities.admin_shortcuts import inline_factory, single_page_admin
 
 ISSUE_FIELDS = [
     'number',
+    'published',
     'pub_date'
 ]
 

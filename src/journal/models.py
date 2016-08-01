@@ -12,7 +12,7 @@ class Author(models.Model):
 
 
 class Issue(models.Model):
-    is_published = models.BooleanField(default=False)
+    published = models.BooleanField(default=False)
     pub_date = models.DateField(verbose_name="issue publication date")
     number = models.IntegerField(verbose_name="issue number")
     introduction = models.TextField(max_length=500, blank=True)
