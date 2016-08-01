@@ -4,9 +4,9 @@ from utilities.admin_shortcuts import inline_factory, single_page_admin
 
 
 ISSUE_FIELDS = [
-    'number',
-    'published',
-    'pub_date'
+    "number",
+    "published",
+    "pub_date"
 ]
 
 
@@ -25,6 +25,7 @@ admin.site.register(
 
 admin.site.register(
     Issue,
+    list_display=ISSUE_FIELDS,
     inlines=[inline_factory(Story)],
-    **single_page_admin(Issue)
+    # **single_page_admin(Issue)
 )

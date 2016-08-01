@@ -13,7 +13,7 @@ class Author(models.Model):
 
 class Issue(models.Model):
     published = models.BooleanField(default=False)
-    pub_date = models.DateField(verbose_name="issue publication date")
+    pub_date = models.DateField(verbose_name="issue publication date", blank=True)
     number = models.IntegerField(verbose_name="issue number")
     introduction = models.TextField(max_length=500, blank=True)
     cover_image = models.ImageField(upload_to="cover_image_uploads/", blank=True)
