@@ -2,13 +2,14 @@ from utilities.render import render
 from django.shortcuts import get_object_or_404
 from .models import Issue
 
+
 @render("django/index.html")
 def index(request):
     """
     Landing page for the site
 
     :param request:
-    :return:
+    :return: dict of current issue and qs of its stories:
     """
 
     current_issue = Issue.objects.filter(published=True).latest('pub_date')
@@ -26,7 +27,7 @@ def issue_archive(request):
     View to display all issues available for viewing
 
     :param request:
-    :return: qs of all issues
+    :return: dict of qs of all issues:
     """
 
     issues = Issue.objects.filter(published=True)
@@ -43,7 +44,7 @@ def single_issue(request, issue_number):
 
     :param request:
     :param issue_number:
-    :return: requested issue instance
+    :return: requested issue instance and a qs of its stories:
     """
 
     requested_issue = get_object_or_404(Issue, number=issue_number)
