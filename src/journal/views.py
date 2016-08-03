@@ -21,7 +21,7 @@ def index(request):
     )
 
 
-@render("django/issue/issue_archive.html")
+@render("django/journal/issue_archive.html")
 def issue_archive(request):
     """
     View to display all issues available for viewing
@@ -37,7 +37,7 @@ def issue_archive(request):
     )
 
 
-@render("django/issue/single_issue.html")
+@render("django/journal/single_issue.html")
 def single_issue(request, issue_number):
     """
     View to display individual issues

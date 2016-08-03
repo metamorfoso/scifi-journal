@@ -3,7 +3,7 @@ from .models import Submission, Submitter
 from .forms import SubmissionForm, SubmitterForm
 
 
-@render("django/submissions.html")
+@render("django/submissions/submissions.html")
 def submissions(request):
     """
     Submissions portal
@@ -46,3 +46,9 @@ def submissions(request):
 
     else:
         return context
+
+
+@render("django/submissions/editor_view.html")
+def editor_view(request):
+
+    return dict()
