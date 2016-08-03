@@ -1,4 +1,5 @@
 from utilities.render import render
+from django.contrib.auth.decorators import login_required
 from .models import Submission, Submitter
 from .forms import SubmissionForm, SubmitterForm
 
@@ -48,6 +49,7 @@ def submissions(request):
         return context
 
 
+@login_required()
 @render("django/submissions/editor_view.html")
 def editor_view(request):
 
