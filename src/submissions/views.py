@@ -53,4 +53,8 @@ def submissions(request):
 @render("django/submissions/editor_view.html")
 def editor_view(request):
 
-    return dict()
+    all_submissions = Submission.objects.all()
+
+    return dict(
+        submissions=all_submissions
+    )
