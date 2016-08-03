@@ -10,6 +10,12 @@ ISSUE_FIELDS = [
 ]
 
 
+class StoryInline(admin.TabularInline):
+    model = Story
+    fields = ["author", "title"]
+    readonly_fields = ["author", "title"]
+
+
 admin.site.register(
     Author,
     list_display=("last_name", "first_name"),
@@ -26,6 +32,6 @@ admin.site.register(
 admin.site.register(
     Issue,
     list_display=ISSUE_FIELDS,
-    inlines=[inline_factory(Story)],
+    inlines=[StoryInline],
     # **single_page_admin(Issue)
 )
