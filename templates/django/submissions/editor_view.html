@@ -6,9 +6,15 @@
 
         <h3>Outstanding Submissions</h3>
 
-        <ul>
+        <ul id="submissions-list">
             {% for submission in submissions %}
-                <li>{{ submission.title }} ({{ submission.author }})</li>
+                <li
+                    class="submission-row"
+                ><div
+                    class="submission-title"
+                >{{ submission.title }}</div><div
+                    class="submission-author"
+                >{{ submission.author }}</div></li>
             {% endfor %}
         </ul>
     </div>
