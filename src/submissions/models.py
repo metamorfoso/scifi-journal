@@ -33,5 +33,7 @@ class Submission(models.Model):
 
     status = models.IntegerField(default=0, choices=SUBMISSION_STATES)
 
+    archived = models.BooleanField(default=False)
+
     def __str__(self):
         return self.title

@@ -28,20 +28,26 @@ class SubmissionAdmin(admin.ModelAdmin):
     list_display = [
         "title",
         "author",
-        "status",
         "author_link",
-        "timestamp"
+        "timestamp",
+        "status",
+        "archived"
     ]
     list_select_related = True
 
     list_editable = [
-        "status"
+        "status",
+        "archived"
     ]
     actions = [
         mass_set_unassessed,
         mass_set_shortlisted,
         mass_set_rejected,
         mass_set_accepted
+    ]
+    list_filter = [
+        "archived",
+        "status"
     ]
 
     def author_link(self, submitter):
