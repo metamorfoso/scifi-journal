@@ -54,8 +54,8 @@ def submissions(request):
 
 
 @login_required()
-@render("django/submissions/publish.html")
-def publish(request):
+@render("django/submissions/publish_confirmation.html")
+def publish_confirmation(request):
     """
     View to confirm publication of a selection of submissions.
     :param request: with a querystring containing the ids of the submissions

@@ -28,7 +28,7 @@ mass_set_accepted.short_description = "Accept"
 
 def publish_selected(modeladmin, request, qs):
     selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
-    return HttpResponseRedirect("/publish/?ids=%s" % (",".join(selected)))
+    return HttpResponseRedirect("/publish_confirmation/?ids=%s" % (",".join(selected)))
 publish_selected.short_description = "Publish"
 
 
