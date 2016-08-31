@@ -1,6 +1,9 @@
 from utilities.render import render
 from django.shortcuts import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+
 from .models import Submission, Submitter
 from .forms import SubmissionForm, SubmitterForm
 
@@ -66,10 +69,18 @@ def publish(request):
     # Handle confirmation
     if request.method == "POST":
         for submission in submissions_to_publish:
-            submission.status = 3  # "Accepted" status
-            submission.save()
+            submission.publish()
         return HttpResponseRedirect("/admin/submissions/submission")
 
+    # Submitters need to have a first_name and second_name before Authors can be
+    # created based on them
+    incomplete_submitters = Submitter.objects.filter(
+        submission__in=submissions_to_publish
+    ).filter(
+        Q(first_name="") | Q(last_name="")
+    )
+
     return dict(
-        submissions_to_publish=submissions_to_publish
+        submissions_to_publish=submissions_to_publish,
+        incomplete_submitters=incomplete_submitters
     )

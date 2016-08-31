@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.urlresolvers import reverse
+from journal.models import Story, Issue
 
 
 UNASSESSED = 0
@@ -22,6 +24,12 @@ class Submitter(models.Model):
     def __str__(self):
         return self.email_address  # email is the only non-optional field
 
+    @property
+    def admin_url(self):
+        return reverse("admin:submissions_submitter_change", args=(self.id,))
+
+#     TODO: method to create Author instance based on Submitter
+
 
 class Submission(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
@@ -38,3 +46,18 @@ class Submission(models.Model):
 
     def __str__(self):
         return self.title
+
+    def publish(self):
+        # Update the appropriate fields on the Submission instance
+        self.status = ACCEPTED
+        self.published = True
+        self.archived = True
+        self.save()
+
+        # TODO: Create Story instance on publish
+        # # Create a new Story instance based on the Submission
+        # Story.objects.get_or_create(
+        #
+        #
+        # )
+        return

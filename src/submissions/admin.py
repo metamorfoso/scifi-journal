@@ -39,7 +39,8 @@ class SubmissionAdmin(admin.ModelAdmin):
         "author_link",
         "timestamp",
         "status",
-        "archived"
+        "archived",
+        "published"
     ]
     list_select_related = True
 
