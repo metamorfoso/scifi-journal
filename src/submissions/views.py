@@ -1,4 +1,5 @@
 from utilities.render import render
+from django.shortcuts import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Submission, Submitter
 from .forms import SubmissionForm, SubmitterForm
@@ -50,11 +51,25 @@ def submissions(request):
 
 
 @login_required()
-@render("django/submissions/editor_view.html")
-def editor_view(request):
+@render("django/submissions/publish.html")
+def publish(request):
+    """
+    View to confirm publication of a selection of submissions.
+    :param request: with a querystring containing the ids of the submissions
+    that are to be published.
+    :return: queryset of submissions or HttpResponseRedirect to admin
+    """
 
-    all_submissions = Submission.objects.all()
+    ids = list(map(lambda item: int(item), request.GET["ids"].split(",")))
+    submissions_to_publish = Submission.objects.filter(id__in=ids)
+
+    # Handle confirmation
+    if request.method == "POST":
+        for submission in submissions_to_publish:
+            submission.status = 3  # "Accepted" status
+            submission.save()
+        return HttpResponseRedirect("/admin/submissions/submission")
 
     return dict(
-        submissions=all_submissions
+        submissions_to_publish=submissions_to_publish
     )

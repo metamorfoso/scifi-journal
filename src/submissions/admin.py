@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.contrib.contenttypes.models import ContentType
 from .models import Submission, Submitter
 
 
@@ -24,6 +26,12 @@ def mass_set_accepted(modeladmin, request, qs):
 mass_set_accepted.short_description = "Accept"
 
 
+def publish_selected(modeladmin, request, qs):
+    selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+    return HttpResponseRedirect("/publish/?ids=%s" % (",".join(selected)))
+publish_selected.short_description = "Publish"
+
+
 class SubmissionAdmin(admin.ModelAdmin):
     list_display = [
         "title",
@@ -43,7 +51,8 @@ class SubmissionAdmin(admin.ModelAdmin):
         mass_set_unassessed,
         mass_set_shortlisted,
         mass_set_rejected,
-        mass_set_accepted
+        mass_set_accepted,
+        publish_selected
     ]
     list_filter = [
         "archived",

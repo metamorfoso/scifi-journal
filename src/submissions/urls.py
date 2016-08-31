@@ -8,5 +8,5 @@ from submissions import views
 urlpatterns = [
     url(r'^accounts/login/$', auth_views.login),
     url(r'^submissions/$', views.submissions, name="submissions"),
-    url(r'^editor_view/$', views.editor_view, name="editor_view")
+    url(r'^publish/$', views.publish, name="publish")
 ]

@@ -1,0 +1,25 @@
+{% extends "django/base.html" %}
+
+{% block content %}
+    <div id="publish-view-container">
+        <h2>Confirm Publication</h2>
+
+        <h3>The Following Submissions Will Be Published</h3>
+
+        <ul id="submissions-list">
+            {% for submission in submissions_to_publish %}
+                <li
+                    class="submission-row"
+                ><span
+                    class="submission-title"
+                >{{ submission.title }}</span> --- <span
+                    class="submission-author"
+                >{{ submission.author }}</span></li>
+            {% endfor %}
+        </ul>
+        <form method="post">
+            {{ csrf_input }}
+            <input type="submit" value="Confirm"/>
+        </form>
+    </div>
+{% endblock %}
