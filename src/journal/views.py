@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from .models import Issue
 
 
-@render("django/index.html")
+@render("index.html")
 def index(request):
     """
     Landing page for the site
@@ -21,7 +21,7 @@ def index(request):
     )
 
 
-@render("django/journal/issue_archive.html")
+@render("journal/issue_archive.html")
 def issue_archive(request):
     """
     View to display all issues available for viewing
@@ -37,7 +37,7 @@ def issue_archive(request):
     )
 
 
-@render("django/journal/single_issue.html")
+@render("journal/single_issue.html")
 def single_issue(request, issue_number):
     """
     View to display individual issues
@@ -57,7 +57,7 @@ def single_issue(request, issue_number):
     )
 
 
-@render("django/about.html")
+@render("about.html")
 def about(request):
     """
     An about page for the journal

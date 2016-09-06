@@ -1,9 +1,9 @@
-{% extends "django/base.html" %}
+{% extends "./admin/base_site.html" %}
 
 {% block content %}
     <div id="publish-view-container">
         <h3>Confirm Publication</h3>
-        {% if incomplete_submitters | length > 0 %}
+        {% if incomplete_submitters or length > 0 %}
             <h2>These submitters are missing info, can't be converted to authors:</h2>
             {% for submitter in incomplete_submitters %}
                 <ul id="incomplete-submitter-list">
@@ -27,7 +27,7 @@
                 {% endfor %}
             </ul>
             <form method="post">
-                {{ csrf_input }}
+                {% csrf_token %}
                 <input type="submit" value="Confirm"/>
             </form>
         {% endif %}

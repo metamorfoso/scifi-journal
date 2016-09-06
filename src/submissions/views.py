@@ -8,7 +8,7 @@ from .models import Submission, Submitter
 from .forms import SubmissionForm, SubmitterForm
 
 
-@render("django/submissions/submissions.html")
+@render("submissions/submissions.html")
 def submissions(request):
     """
     Submissions portal
@@ -54,7 +54,7 @@ def submissions(request):
 
 
 @login_required()
-@render("django/submissions/publish_confirmation.html")
+@render("publish_confirmation.html")
 def publish_confirmation(request):
     """
     View to confirm publication of a selection of submissions.
