@@ -54,8 +54,8 @@ def submissions(request):
 
 
 @login_required()
-@render("publish_confirmation.html")
-def publish_confirmation(request):
+@render("confirm_publication.html")
+def confirm_publication(request):
     """
     View to confirm publication of a selection of submissions.
     :param request: with a querystring containing the ids of the submissions

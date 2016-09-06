@@ -9,8 +9,8 @@ urlpatterns = [
     url(r'^accounts/login/$', auth_views.login),
     url(r'^submissions/$', views.submissions, name="submissions"),
     url(
-        r'^publish_confirmation/$',
-        views.publish_confirmation,
-        name="publish_confirmation"
+        r'^confirm_publication/$',
+        views.confirm_publication,
+        name="confirm_publication"
     )
 ]
