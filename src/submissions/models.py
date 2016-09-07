@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from journal.models import Story, Issue
+from journal.models import Story, Issue, Author
 
 
 UNASSESSED = 0
@@ -54,10 +54,18 @@ class Submission(models.Model):
         self.archived = True
         self.save()
 
-        # TODO: Create Story instance on publish
-        # # Create a new Story instance based on the Submission
-        # Story.objects.get_or_create(
-        #
-        #
-        # )
+        # Create a new Author instance based on the Submission's author (Submitter)
+        author, created = Author.objects.get_or_create(
+            first_name=self.author.first_name,
+            last_name=self.author.last_name
+        )
+
+        # Create a new Story instance based on the Submission
+        Story.objects.get_or_create(
+            issue=Issue.objects.filter(published=False)[0],
+            author=author,
+            title=self.title,
+            content=self.content,
+            author_notes=self.author_notes
+        )
         return

@@ -54,7 +54,7 @@ def submissions(request):
 
 
 @login_required()
-@render("confirm_publication.html")
+@render("confirm_publication.html")  # using dtl template directory instead of jinja2
 def confirm_publication(request):
     """
     View to confirm publication of a selection of submissions.
@@ -69,7 +69,9 @@ def confirm_publication(request):
     # Handle confirmation
     if request.method == "POST":
         for submission in submissions_to_publish:
+            # Publish submission
             submission.publish()
+
         return HttpResponseRedirect("/admin/submissions/submission")
 
     # Submitters need to have a first_name and second_name before Authors can be
