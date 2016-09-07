@@ -30,7 +30,7 @@ def issue_archive(request):
     :return: dict of qs of all issues:
     """
 
-    issues = Issue.objects.filter(published=True)
+    issues = Issue.objects.filter(published=True).order_by('-pub_date')
 
     return dict(
         issues=issues
@@ -57,14 +57,19 @@ def single_issue(request, issue_number):
     )
 
 
-@render("about.html")
-def about(request):
+@render("current.html")
+def current(request):
     """
-    An about page for the journal
+    View for current issue
 
     :param request:
     :return:
     """
 
-    return dict()
+    current_issue = Issue.objects.filter(published=True).latest('pub_date')
+    stories = current_issue.story_set.all()
 
+    return dict(
+        current_issue=current_issue,
+        stories=stories
+    )

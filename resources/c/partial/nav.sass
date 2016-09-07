@@ -1,21 +1,18 @@
-
-//#navlink-list
-//  box-sizing: border-box
-//  padding-left: 0em
-//
-//.navlink-item
-//  line-height: 2.5em
-//  font-size: 1.25em
-//  border-left: solid 1px black
-//  padding-left: 1.5em
-//
-//// Placeholder vertical alignment of headings for my sanity
-//#nav-heading
-//  padding-top: 15px
 #nav-block
-  height: 3em
-  border: 1px dashed red
-  #navlink-wrapper
-    .navlink-item
-      display: inline-block
-      margin: 0 2em
+  height: 4rem
+  background-color: $panel-color
+
+  #header
+    height: inherit
+    width: inherit
+
+    #navlink-wrapper
+      position: absolute
+      top: 2rem
+      transform: translateY(-50%)
+
+      .navlink-item
+        display: inline-block
+        margin: 0 1rem
+        color: white
+        font-size: 1.2rem

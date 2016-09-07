@@ -1,20 +1,17 @@
 {% extends "base.html" %}
 
 {% block header %}
-    <header id="header">
-        <div id="navlink-wrapper">
-            <p class="navlink-item">
-                <a href="{{ url('landing_page') }}">Current</a>
-            </p>
-            <p class="navlink-item">
-                <a href="{{ url('submissions') }}">Submissions</a>
-            </p>
-            <p class="navlink-item">
-                <a href="{{ url('archive') }}">Archive</a>
-            </p>
-            <p class="navlink-item">
-                <a href="{{ url('about') }}">About</a>
-            </p>
-        </div>
-    </header>
+  <header id="header">
+    <div id="navlink-wrapper">
+      <p class="navlink-item">
+        <a href="{{ url('landing_page') }}">Home</a>
+      </p>
+      <p class="navlink-item">
+        <a href="{{ url('submissions') }}">Submissions</a>
+      </p>
+      <p class="navlink-item">
+        <a href="{{ url('archive') }}">Archive</a>
+      </p>
+    </div>
+  </header>
 {% endblock %}

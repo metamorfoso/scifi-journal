@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^$', views.index, name="landing_page"),
     url(r'^journal/$', views.issue_archive, name="archive"),
     url(r'^issue/(?P<issue_number>[\w-]+)$', views.single_issue, name="issue"),
-    url(r'^about/$', views.about, name="about")
+    url(r'^current/$', views.current, name="current")
 ]
 
 urlpatterns += static(
