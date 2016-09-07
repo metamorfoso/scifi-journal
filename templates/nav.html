@@ -2,19 +2,19 @@
 
 {% block header %}
     <header id="header">
-        <ul id="navlink-list">
-            <li class="navlink-item">
+        <div id="navlink-wrapper">
+            <p class="navlink-item">
                 <a href="{{ url('landing_page') }}">Current</a>
-            </li>
-            <li class="navlink-item">
+            </p>
+            <p class="navlink-item">
                 <a href="{{ url('submissions') }}">Submissions</a>
-            </li>
-            <li class="navlink-item">
+            </p>
+            <p class="navlink-item">
                 <a href="{{ url('archive') }}">Archive</a>
-            </li>
-            <li class="navlink-item">
+            </p>
+            <p class="navlink-item">
                 <a href="{{ url('about') }}">About</a>
-            </li>
-        </ul>
+            </p>
+        </div>
     </header>
 {% endblock %}
