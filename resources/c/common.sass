@@ -1,3 +1,5 @@
+@import "constants"
+
 // Get rid of bullet points
 ul
   list-style: none
@@ -25,12 +27,35 @@ h1, h3
 p
   margin: 0
 
+ul
+  padding: 0
+
+
+.panel-outer
+  min-width: 25rem
+  max-width: 66%
+  width: 50%
+  //height: 26rem
+  background-color: $panel-color
+  display: inline-block
+  position: relative
+  margin-top: 5rem
+  text-align: center
+
 .panel-inner
   margin: 1rem
-  height: calc(100% - 2rem)
+  //height: calc(100% - 7rem)
+  width: calc(100% - 2rem)
   background-color: $panel-inner-color
-  position: absolute
+  position: relative
+  text-align: left
 
-  p
-    margin: 1rem
+  p, .text
+    position: relative
+    padding: 1rem
     line-height: 1.5em
+
+.panel-heading
+  margin: 2rem 0 2rem 0
+  color: white
+  font-size: 1.7em

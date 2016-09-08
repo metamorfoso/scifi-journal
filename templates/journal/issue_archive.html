@@ -1,12 +1,16 @@
 {% extends "nav.html" %}
 
 {% block content %}
-    <div id="issues-container">
-        <h3 class="section-heading">Issues</h3>
+  <div class="panel-outer">
+    <p class="panel-heading">ISSUES</p>
+    <div class="panel-inner">
+      <div class="text issue-list-wrapper">
         <ul>
-            {% for i in issues %}
-                <li><a href="{{ i.get_absolute_url() }}">{{ i.pretty_name }} ({{ i.pub_date }})</a></li>
-            {% endfor %}
+          {% for i in issues %}
+            <li><a href="{{ i.get_absolute_url() }}">{{ i.pretty_name }} ({{ i.pub_date }})</a></li>
+          {% endfor %}
         </ul>
+      </div>
     </div>
+  </div>
 {% endblock %}
