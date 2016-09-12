@@ -57,7 +57,7 @@ def single_issue(request, issue_number):
     )
 
 
-@render("current.html")
+@render("journal/single_issue.html")
 def current(request):
     """
     View for current issue
@@ -70,6 +70,6 @@ def current(request):
     stories = current_issue.story_set.all()
 
     return dict(
-        current_issue=current_issue,
+        issue=current_issue,
         stories=stories
     )

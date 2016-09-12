@@ -4,7 +4,7 @@
   <div class="panel-outer">
     <p class="panel-heading">ISSUES</p>
     <div class="panel-inner">
-      <div class="text issue-list-wrapper">
+      <div class="panel-content issue-list-wrapper">
         <ul>
           {% for i in issues %}
             <li><a href="{{ i.get_absolute_url() }}">{{ i.pretty_name }} ({{ i.pub_date }})</a></li>

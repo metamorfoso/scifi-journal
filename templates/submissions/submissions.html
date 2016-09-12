@@ -2,21 +2,35 @@
 
 {% block content %}
 
-    <div id="submissions-container">
-        <h3 class="section-heading">Submissions</h3>
+  <div id="submissions-container" class="panel-outer">
+    <p class="panel-heading">SUBMISSIONS</p>
+    <div class="panel-inner">
+      <div class="panel-content">
         {% if submission_successful %}
-            <p>Submission successful. Thank you.</p>
+          <p>Submission successful. Thank you.</p>
         {% endif %}
         <form enctype="multipart/form-data" action="{{ url('submissions') }}" method="post" id="submissions-form">
-            {{ csrf_input }}
-            <ul id="submission-form-fields">
-                {{ submission_form }}
-            </ul>
-            <ul id="submitter-form-fields">
-                {{ submitter_form }}
-            </ul>
-            <input type="submit" name="story_submission" value="Submit"/>
+          {{ csrf_input }}
+          <div class="submission-form-fields">
+            {% for field in submission_form %}
+              <div class="form-part">
+                <label>{{ field.label }}
+                  {{ field }}</label>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="submitter-form-fields">
+            {% for field in submitter_form %}
+              <div class="form-part">
+                <label>{{ field.label }}
+                  {{ field }}</label>
+              </div>
+            {% endfor %}
+          </div>
+          <input type="submit" name="story_submission" value="Submit" class="button"/>
         </form>
+      </div>
     </div>
+  </div>
 
 {% endblock %}

@@ -2,15 +2,18 @@
 
 {% block content %}
 
-    <div id="single-issue-container">
-        <h3 class="section-heading">Issue {{ issue.number }}</h3>
-
+  <div class="panel-outer">
+    <p class="panel-heading">ISSUE {{ issue.number }}</p>
+    <div class="panel-inner">
+      <div class="panel-content">
         <h4>Contents</h4>
         <ul>
-            {% for story in stories %}
-                <li>"{{ story }}", {{ story.author }}</li>
-            {% endfor %}
+          {% for story in stories %}
+            <li>"{{ story }}", {{ story.author }}</li>
+          {% endfor %}
         </ul>
+      </div>
     </div>
+  </div>
 
 {% endblock %}

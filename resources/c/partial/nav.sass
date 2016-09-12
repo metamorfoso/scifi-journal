@@ -1,12 +1,14 @@
 #nav-block
-  position: relative
+  position: fixed
   display: inline-block
   margin-top: 5rem
   height: 4rem
-  min-width: 25rem
-  max-width: 33vw
-  width: 33vw
+  min-width: 20rem
+  width: 66vw
   background-color: $panel-color
+
+  &:hover
+    z-index: 2
 
   #header
     height: inherit
@@ -16,9 +18,10 @@
       position: absolute
       top: 50%
       transform: translateY(-50%)
+      right: 0
 
       .navlink-item
-        display: inline-block
+        display: inline
         margin: 0 1rem
         color: white
-        font-size: 1.2rem
+        font-size: 1.5rem
