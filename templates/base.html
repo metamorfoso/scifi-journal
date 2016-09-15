@@ -1,52 +1,91 @@
 <!doctype html>
 <head>
-    {% macro get_page_title() -%}
-        {% block title %}{% endblock %}
-    {%- endmacro %}
+  {% macro get_page_title() -%}
+    {% block title %}{% endblock %}
+  {%- endmacro %}
 
-    {% macro title() %}
-        {% set page_title = get_page_title() %}
-        {{ page_title }}
-    {% endmacro %}
+  {% macro title() %}
+    {% set page_title = get_page_title() %}
+    {{ page_title }}
+  {% endmacro %}
 
-    {% macro description() %}
-        {% block description %}
-        {% endblock %}
-    {% endmacro %}
-
-    {% block meta %}
-        <meta property="og:type" content="website">
-
-        <title>{{ title() }}</title>
-        <meta property="og:title" content="{{ title() }}">
-
-        <meta name="description" content="{{ description() }}">
-        <meta property="og:description" content="{{ description() }}">
-
-        <meta name="keywords"
-              content="">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% macro description() %}
+    {% block description %}
     {% endblock %}
+  {% endmacro %}
 
-    {% stylesheet "site" %}
+  {% block meta %}
+    <meta property="og:type" content="website">
+
+    <title>{{ title() }}</title>
+    <meta property="og:title" content="{{ title() }}">
+
+    <meta name="description" content="{{ description() }}">
+    <meta property="og:description" content="{{ description() }}">
+
+    <meta name="keywords"
+          content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% endblock %}
+
+  {% stylesheet "site" %}
 </head>
 
 <body>
 
+<script src="https://code.jquery.com/jquery-3.1.0.slim.js"
+        integrity="sha256-L6ppAjL6jgtRmfiuigeEE5AwNI2pH/X9IBbPyanJeZw="
+        crossorigin="anonymous"></script>
+
 <div id="site">
-    <div id="site-container">
-        <div id="nav-block">
-            {% block header %}{% endblock %}
-        </div>
-        <div id="content-block">
-            {% block content %}{% endblock %}
-        </div>
-        {% block footer %}
-            <footer id="footer"></footer>
-        {% endblock %}
+  <div id="site-container" class="parallax">
+
+    <div id="nav-block">
+      {% block header %}{% endblock %}
     </div>
+    <div id="content-block">
+      {% block content %}{% endblock %}
+    </div>
+
+    {% block logo %}
+    {% endblock %}
+
+    {% block footer %}
+      <footer id="footer"></footer>
+    {% endblock %}
+  </div>
 </div>
+
+<script>
+  // Keep track of scroll top value just after latest scrolling
+  var lastScrollTop = 0;
+  // Get the elements that will need their class updated
+  var currentPanel = $('#current-panel');
+  var logoPanel = $('#logo-panel');
+
+  $(window).scroll(function () {
+    // Compare current scroll top value to last known one to work out scrolling direction
+    var scrollTop = $(this).scrollTop();
+    if (scrollTop > lastScrollTop) {
+      // downscroll code
+      currentPanel.removeClass('scrolling-up').addClass('scrolling-down');
+      console.log(scrollTop)
+    } else {
+      // upscroll code
+      currentPanel.removeClass('scrolling-down').addClass('scrolling-up');
+    }
+    // When scrolltop hits 215, logo panel needs to be fixed in place
+    if (scrollTop >=215) {
+      logoPanel.addClass('fix')
+    } else {
+      logoPanel.removeClass('fix')
+    }
+    // Update last known scroll top value
+    lastScrollTop = scrollTop;
+  });
+</script>
+
 
 {% stylesheet "site" %}
 

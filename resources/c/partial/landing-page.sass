@@ -1,20 +1,71 @@
+@media screen and (min-width: 1051px)
+  #current-panel
+    width: 20rem
+    height: 35rem
+    background-color: $panel-color
 
-#current-panel
-  width: 20rem
-  height: 35rem
-  background-color: $panel-color
+    //z-index: 3  // higher than nav default
 
-  display: inline-block
-  position: absolute
-  margin-top: 5rem
-  right: 0
-  text-align: center
+    display: inline-block
+    position: fixed
+    margin-top: 5rem
+    left: 41%
+    text-align: center
 
-  #current-cover
-    margin: auto 1rem 1rem 1rem
-    height: 28rem
-    width: 18rem
-    background-color: red
+    &.scrolling-down
+      -webkit-transition: margin-top 1s ease-out
+      -o-transition: margin-top 1s ease-out
+      -moz-transition: margin-top 1s ease-out
+      transition: margin-top 1s ease-out
+      margin-top: 10rem
 
-  &:hover
-    z-index: 5
+    &.scrolling-up
+      -webkit-transition: margin-top 1s ease-out
+      -o-transition: margin-top 1s ease-out
+      -moz-transition: margin-top 1s ease-out
+      transition: margin-top 1s ease-out
+      margin-top: 5rem
+
+
+    #current-cover
+      display: inline-block
+      margin: auto 1rem 1rem 1rem
+      height: 28rem
+      width: 18rem
+      background-color: red
+
+    &:hover
+      z-index: 5
+
+  #logo-panel
+    width: 20rem
+    height: 12rem
+    left: 70%
+
+    display: inline-block
+    position: absolute
+    margin-top: 10rem
+    text-align: center
+    background-color: $panel-color
+
+    // Hide it behind the nav on scrolldown
+    z-index: 1
+
+    &.fix
+      position: fixed
+      margin-top: -3.5rem
+
+    #logo
+      display: inline-block
+      width: 18rem
+      height: 10rem
+      margin: 1rem
+      background-color: #a30000
+      text-align: center
+
+      .temp-text
+        position: relative
+        display: inline-block
+        &.big
+          font-size: 3.5rem
+          color: #3f1ca2

@@ -17,7 +17,8 @@ def index(request):
 
     return dict(
         current_issue=current_issue,
-        stories=stories
+        stories=stories,
+        landing_page=True
     )
 
 

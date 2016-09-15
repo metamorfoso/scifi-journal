@@ -6,7 +6,7 @@ ul
   line-height: 1.5em
 
 // Disable default link styling
-a
+a, #logo-link
   text-decoration: none
   color: inherit
 
@@ -32,7 +32,7 @@ ul
 
 
 .panel-outer
-  z-index: 1
+  z-index: 3  // higher than nav's default z-index
   min-width: 20rem
   max-width: 66%
   width: 33vw
@@ -59,7 +59,6 @@ ul
 
     p
       padding: 1rem
-
 
 .panel-heading
   margin: 2rem 0 2rem 0

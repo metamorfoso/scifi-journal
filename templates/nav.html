@@ -3,14 +3,16 @@
 {% block header %}
   <header id="header">
     <div id="navlink-wrapper">
+      {% if not landing_page %}
+        <p class="navlink-item">
+          <a href="{{ url('landing_page') }}">HOME</a>
+        </p>
+      {% endif %}
       <p class="navlink-item">
-        <a href="{{ url('archive') }}">Archive</a>
+        <a href="{{ url('archive') }}">ARCHIVE</a>
       </p>
       <p class="navlink-item">
-        <a href="{{ url('landing_page') }}">Home</a>
-      </p>
-      <p class="navlink-item">
-        <a href="{{ url('submissions') }}">Submissions</a>
+        <a href="{{ url('submissions') }}">SUMBISSIONS</a>
       </p>
     </div>
   </header>

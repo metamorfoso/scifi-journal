@@ -2,23 +2,30 @@
   position: fixed
   display: inline-block
   margin-top: 5rem
-  height: 4rem
+  height: 6rem
   min-width: 20rem
-  width: 66vw
+  //width: calc(100vw - 20rem)
+  width: 100vw
   background-color: $panel-color
 
+  z-index: 4  // so the logo-panel can slide underneath
+
   &:hover
-    z-index: 2
+    z-index: 4
+    width: 100vw
 
   #header
     height: inherit
     width: inherit
+    text-align: left
 
     #navlink-wrapper
-      position: absolute
+      position: relative
       top: 50%
       transform: translateY(-50%)
-      right: 0
+      display: inline-block
+      line-height: 1rem
+      left: 70.5%  // to match and scale with logo-panel
 
       .navlink-item
         display: inline
