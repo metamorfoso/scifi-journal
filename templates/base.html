@@ -39,7 +39,7 @@
         crossorigin="anonymous"></script>
 
 <div id="site">
-  <div id="site-container" class="parallax">
+  <div id="site-container" >
 
     <div id="nav-block">
       {% block header %}{% endblock %}
@@ -70,7 +70,6 @@
     if (scrollTop > lastScrollTop) {
       // downscroll code
       currentPanel.removeClass('scrolling-up').addClass('scrolling-down');
-      console.log(scrollTop)
     } else {
       // upscroll code
       currentPanel.removeClass('scrolling-down').addClass('scrolling-up');

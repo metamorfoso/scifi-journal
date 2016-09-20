@@ -49,11 +49,16 @@
     </div>
   </div>
 
-  <a href="{{ url('current') }}">
-    <div id="current-panel">
-      <p class="panel-heading">CURRENT ISSUE</p>
-      <div id="current-cover"/>
-    </div>
-  </a>
+  <div id="current-panel">
+    <a href="{{ url('current') }}"><p class="panel-heading">CURRENT ISSUE</p></a>
+    <a href="{{ url('current') }}">
+      {% if current_issue.cover_image %}
+        <img id="current-cover" src="{{ current_issue.cover_image.url }}" />
+      {% else %}
+        <div id="current-cover"/>
+      {% endif %}
+    </a>
+  </div>
+
 
 {% endblock %}
