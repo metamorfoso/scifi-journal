@@ -12,8 +12,13 @@ def index(request):
     :return: dict of current issue and qs of its stories:
     """
 
-    current_issue = Issue.objects.filter(published=True).latest('pub_date')
-    stories = current_issue.story_set.all()
+    published_issues = Issue.objects.filter(published=True)
+    if published_issues.exists():
+        current_issue = published_issues.latest('pub_date')
+        stories = current_issue.story_set.all()
+    else:
+        current_issue = None
+        stories = None
 
     return dict(
         current_issue=current_issue,

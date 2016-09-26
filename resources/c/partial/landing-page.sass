@@ -1,6 +1,6 @@
 @media screen and (min-width: 1051px)
   #current-panel
-    width: 20rem
+    width: $current-panel-width
     height: 35rem
     background-color: $panel-color
 
@@ -9,8 +9,9 @@
     display: inline-block
     position: fixed
     margin-top: 5rem
-    left: 41%
+    right: 36vw
     text-align: center
+    //margin-left: $gap
 
     &.scrolling-down
       -webkit-transition: margin-top 1s ease-out
@@ -42,7 +43,7 @@
 
     width: 20rem
     height: 12rem
-    left: 70%
+    right: 6vw
 
     display: inline-block
     position: absolute
@@ -58,7 +59,7 @@
 
     #logo
       display: inline-block
-      width: 18rem
+      width: $logo-panel-width
       height: 10rem
       margin: 1rem
       background-color: #a30000
