@@ -2,11 +2,9 @@
 
 {% block logo %}
   <div id="logo-panel">
-    <a id="logo-link" href="/">
-      <div id="logo">
-        <h2 class="temp-text big">SPONGE</h2>
-      </div>
-    </a>
+    <div id="logo">
+      <h2 class="temp-text big">SPONGE</h2>
+    </div>
   </div>
 {% endblock %}
 
@@ -53,7 +51,7 @@
     <a href="{{ url('current') }}"><p class="panel-heading">CURRENT ISSUE</p></a>
     <a href="{{ url('current') }}">
       {% if current_issue.cover_image %}
-        <img id="current-cover" src="{{ current_issue.cover_image.url }}" />
+        <img id="current-cover" src="{{ current_issue.cover_image.url }}"/>
       {% else %}
         <div id="current-cover"/>
       {% endif %}
