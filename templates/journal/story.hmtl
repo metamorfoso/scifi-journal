@@ -1,0 +1,12 @@
+{% extends "nav.html" %}
+
+{% block content %}
+
+  <div class="panel-outer">
+    <p class="panel-heading">Story</p>
+    <div class="panel-inner">
+
+    </div>
+  </div>
+
+{% endblock %}

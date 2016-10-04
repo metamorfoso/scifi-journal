@@ -1,5 +1,6 @@
 from django.db import models
 from num2words import num2words
+from autoslug import AutoSlugField
 
 
 class Author(models.Model):
@@ -33,12 +34,27 @@ class Issue(models.Model):
         return self.story_set.all()
 
 
+def autoslug_populate_from(instance):
+    return instance.title
+
+
+def autoslug_slugify(value):
+    return value.replace(' ', '-')
+
+
 class Story(models.Model):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(Author)
     title = models.CharField(max_length=100)
     content = models.FileField(upload_to="story_uploads/")
     author_notes = models.TextField(blank=True, max_length=3000)
+
+    slug = AutoSlugField(
+        populate_from=autoslug_populate_from,
+        unique_with=['author__first_name', 'author__last_name'],
+        slugify=autoslug_slugify,
+        always_update=True
+    )
 
     class Meta:
         verbose_name_plural = "stories"

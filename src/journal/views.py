@@ -1,6 +1,7 @@
 from utilities.render import render
 from django.shortcuts import get_object_or_404
-from .models import Issue
+from django.http import HttpResponse
+from .models import Issue, Story
 
 
 @render("index.html")
@@ -78,4 +79,20 @@ def current(request):
     return dict(
         issue=current_issue,
         stories=stories
+    )
+
+
+@render("journal/story.hmtl")
+def story_view(request, story_id):
+    """
+    View for displaying a PDF of a requested story
+
+    :param request:
+    :param story_id:
+    :return:
+    """
+    # response = HttpResponse(content_type='application/pdf')
+    story = Story.objects.get(id=story_id)
+    return dict(
+        story=story
     )
