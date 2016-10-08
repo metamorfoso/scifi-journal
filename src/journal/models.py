@@ -9,7 +9,7 @@ class Author(models.Model):
     bio = models.TextField(max_length=250, blank=True)
 
     def __str__(self):
-        return "%s, %s" % (self.last_name, self.first_name)
+        return "%s %s" % (self.first_name, self.last_name)
 
 
 class Issue(models.Model):
@@ -38,10 +38,6 @@ def autoslug_populate_from(instance):
     return instance.title
 
 
-def autoslug_slugify(value):
-    return value.replace(' ', '-')
-
-
 class Story(models.Model):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(Author)
@@ -52,7 +48,6 @@ class Story(models.Model):
     slug = AutoSlugField(
         populate_from=autoslug_populate_from,
         unique_with=['author__first_name', 'author__last_name'],
-        slugify=autoslug_slugify,
         always_update=True
     )
 
@@ -61,6 +56,11 @@ class Story(models.Model):
 
     def __str__(self):
         return self.title
+
+    @models.permalink
+    def get_absolute_url(self):
+        return "view_story", (self.slug,)
+
 
 
 # TODO: Review model

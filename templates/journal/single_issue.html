@@ -9,7 +9,7 @@
         <h4>Contents</h4>
         <ul>
           {% for story in stories %}
-            <li>"{{ story }}", {{ story.author }}</li>
+            <li><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
           {% endfor %}
         </ul>
       </div>

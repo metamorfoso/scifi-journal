@@ -83,16 +83,26 @@ def current(request):
 
 
 @render("journal/story.hmtl")
-def story_view(request, story_id):
+def view_story(request, slug):
     """
     View for displaying a PDF of a requested story
 
     :param request:
-    :param story_id:
+    :param slug:
     :return:
     """
-    # response = HttpResponse(content_type='application/pdf')
-    story = Story.objects.get(id=story_id)
+    story = Story.objects.get(slug=slug)
+    issue = story.issue
+
+    lines_to_exclude = ['\r', '\n', '\r\n']
+
+    initial_lines = story.content.readlines()
+    encoded_lines = list(map(lambda l: str(l, 'utf-8'), initial_lines))
+    print(encoded_lines)
+    no_blanks = list(filter(lambda l: l not in lines_to_exclude, encoded_lines))
+
     return dict(
-        story=story
+        story=story,
+        issue=issue,
+        paragraphs=no_blanks,
     )
