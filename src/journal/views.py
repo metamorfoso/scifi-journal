@@ -98,7 +98,6 @@ def view_story(request, slug):
 
     initial_lines = story.content.readlines()
     encoded_lines = list(map(lambda l: str(l, 'utf-8'), initial_lines))
-    print(encoded_lines)
     no_blanks = list(filter(lambda l: l not in lines_to_exclude, encoded_lines))
 
     return dict(
