@@ -23,6 +23,18 @@
         </ul>
       </div>
     </div>
+
+{#    <div id="cover-panel">#}
+{#      {% if issue.cover_image %}#}
+{#        <a href="{{ url('current') }}"><img id="current-cover" src="{{ issue.cover_image.url }}"/></a>#}
+{#      {% else %}#}
+{#        <a href="{{ url('current') }}">#}
+{#          <div id="current-cover"/>#}
+{#        </a>#}
+{#      {% endif %}#}
+{#    </div>#}
+
   </div>
+
 
 {% endblock %}
