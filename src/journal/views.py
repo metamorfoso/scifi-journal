@@ -64,6 +64,24 @@ def single_issue(request, issue_number):
     )
 
 
+def download_issue(request, issue_number, format):
+    """
+    View for downloading the file stored in an Issue's pdf FileField
+    :param request:
+    :param issue_number:
+    :return PDF document:
+    """
+
+    requested_issue = get_object_or_404(Issue, number=issue_number)
+    file = getattr(requested_issue, format)
+    filename = "sponge-issue-%s.pdf" % str(requested_issue.number)
+
+    response = HttpResponse(file, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=%s' % filename
+
+    return response
+
+
 @render("journal/single_issue.html")
 def current(request):
     """

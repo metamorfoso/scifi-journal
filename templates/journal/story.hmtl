@@ -11,19 +11,19 @@
     </div>
   </div>
 
-  <div class="panel-outer contents-panel">
-    <p class="panel-heading">ISSUE {{ issue.number }}</p>
-    <div class="panel-inner">
-      <div class="panel-content">
-        <h4>CONTENTS</h4>
-        <ul>
-          {% for story in issue.story_set.all() %}
-            <li><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
-          {% endfor %}
-        </ul>
+  <div id="contents-actions-container">
+    <div class="panel-outer contents-panel">
+      <div class="panel-inner">
+        <div class="panel-content">
+          <h4>CONTENTS [{{ issue.pretty_name }}]</h4>
+          <ul>
+            {% for story in issue.story_set.all() %}
+              <li><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
-
   </div>
 
 

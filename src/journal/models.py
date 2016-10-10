@@ -19,12 +19,15 @@ class Issue(models.Model):
     introduction = models.TextField(max_length=500, blank=True)
     cover_image = models.ImageField(upload_to="cover_image_uploads/", blank=True)
 
+    pdf = models.FileField(verbose_name="issue as PDF document", blank=True, null=True)
+    epub = models.FileField(verbose_name="issue as an epub document", blank=True, null=True)
+
     def __str__(self):
         return "issue %s" % str(self.number)
 
     @property
     def pretty_name(self):
-        return "Issue %s" % num2words(self.number).title()
+        return "ISSUE %s" % num2words(self.number).upper()
 
     @models.permalink
     def get_absolute_url(self):
@@ -60,7 +63,6 @@ class Story(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return "view_story", (self.slug,)
-
 
 
 # TODO: Review model

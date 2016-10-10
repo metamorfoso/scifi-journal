@@ -1,9 +1,9 @@
-//#single-issue-container
-//  height: inherit
-//  width: inherit
+$pdf-button-colour: #a30000
+$epub-button-colour: #2d793c
+
 .cover-panel
-  width: 35rem
-  height: 59rem
+  width: 60vh
+  height: calc(100vh + 5rem)
   background-color: $panel-color
 
   display: block
@@ -16,6 +16,34 @@
   #issue-cover
     display: inline-block
     margin: auto 1rem 1rem 1rem
-    height: 52rem
-    width: 33rem
+    height: calc(100vh - 2rem)
+    width: calc(60vh - 2rem)
     background-color: red
+
+#contents-actions-container
+  .download
+    height: 70px
+    width: 44.4%
+    display: inline-block
+    border: 0
+    padding: 0
+    box-sizing: border-box
+    &.pdf
+      margin: 0 0.5rem 1rem 1rem
+      background-color: $pdf-button-colour
+      &:hover
+        background-color: lighten($pdf-button-colour, 20)
+        color: black
+    &.epub
+      margin: 0 1rem 1rem 0.5rem
+      background-color: $epub-button-colour
+      &:hover
+        background-color: lighten($epub-button-colour, 20)
+        color: black
+
+    .button-text
+      font-size: 1.6rem
+      top: 25%
+      position: relative
+      &.small
+        font-size: 1.2rem
