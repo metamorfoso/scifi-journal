@@ -7,15 +7,22 @@ $epub-button-colour: #2d793c
   background-color: $panel-color
 
   display: block
-  position: absolute
-  margin-top: 5rem
+  position: relative
+  margin: 0
   left: 15vw
   text-align: center
   z-index: 5
 
+  transform: translateY(5rem)  // instead of margin, which affects the nav's position
+
+  .panel-heading
+    margin: 0
+    padding: 2rem
+
   #issue-cover
+    position: relative
     display: inline-block
-    margin: auto 1rem 1rem 1rem
+    margin: 0 1rem 1rem 1rem
     height: calc(100vh - 2rem)
     width: calc(60vh - 2rem)
     background-color: red
