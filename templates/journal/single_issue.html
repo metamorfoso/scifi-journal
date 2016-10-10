@@ -6,7 +6,7 @@
     <p class="panel-heading">ISSUE {{ issue.number }}</p>
     <div class="panel-inner">
       <div class="panel-content">
-        <h4>Contents</h4>
+        <h4>CONTENTS</h4>
         <ul>
           {% for story in stories %}
             <li><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>

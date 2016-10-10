@@ -15,7 +15,7 @@
     <p class="panel-heading">ISSUE {{ issue.number }}</p>
     <div class="panel-inner">
       <div class="panel-content">
-        <h4>Contents</h4>
+        <h4>CONTENTS</h4>
         <ul>
           {% for story in issue.story_set.all() %}
             <li><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
@@ -23,16 +23,6 @@
         </ul>
       </div>
     </div>
-
-{#    <div id="cover-panel">#}
-{#      {% if issue.cover_image %}#}
-{#        <a href="{{ url('current') }}"><img id="current-cover" src="{{ issue.cover_image.url }}"/></a>#}
-{#      {% else %}#}
-{#        <a href="{{ url('current') }}">#}
-{#          <div id="current-cover"/>#}
-{#        </a>#}
-{#      {% endif %}#}
-{#    </div>#}
 
   </div>
 
