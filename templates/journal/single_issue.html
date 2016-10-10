@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <div class="panel-outer">
+  <div class="panel-outer contents-panel">
     <p class="panel-heading">ISSUE {{ issue.number }}</p>
     <div class="panel-inner">
       <div class="panel-content">
@@ -14,6 +14,15 @@
         </ul>
       </div>
     </div>
+  </div>
+
+  <div class="cover-panel">
+    <p class="panel-heading">{{ issue.pretty_name }}</p>
+    {% if issue.cover_image %}
+      <img id="issue-cover" src="{{ issue.cover_image.url }}"/>
+    {% else %}
+      <div id="issue-cover"/>
+    {% endif %}
   </div>
 
 {% endblock %}

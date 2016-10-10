@@ -10,7 +10,7 @@ project_path = partial(os.path.join, PROJECT_ROOT)
 DEBUG = False
 
 ADMINS = (
-    ('numerical', 'dungeonmaster@numerical.co.nz'),
+    ('admin', 'ivanign04@gmail.com'),
 )
 INTERNAL_IPS = ('127.0.0.1',)
 ALLOWED_HOSTS = ('',)
@@ -20,10 +20,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sunshinesolar',
-        'USER': 'sunshinesolar',
-        'PASSWORD': 'iamthesolar,youarethesun,Iamabs000rbin_u',
-        'HOST': 'nbcwebsystems.ckviw37mueku.ap-southeast-2.rds.amazonaws.com',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'CONN_MAX_AGE': 600,
     }
 }
