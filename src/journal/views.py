@@ -1,6 +1,7 @@
 from utilities.render import render
 from django.shortcuts import get_object_or_404
-from .models import Issue
+from django.http import HttpResponse
+from .models import Issue, Story
 
 
 @render("index.html")
@@ -63,6 +64,24 @@ def single_issue(request, issue_number):
     )
 
 
+def download_issue(request, issue_number, format):
+    """
+    View for downloading the file stored in an Issue's pdf FileField
+    :param request:
+    :param issue_number:
+    :return PDF document:
+    """
+
+    requested_issue = get_object_or_404(Issue, number=issue_number)
+    file = getattr(requested_issue, format)
+    filename = "sponge-issue-%s.pdf" % str(requested_issue.number)
+
+    response = HttpResponse(file, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=%s' % filename
+
+    return response
+
+
 @render("journal/single_issue.html")
 def current(request):
     """
@@ -78,4 +97,29 @@ def current(request):
     return dict(
         issue=current_issue,
         stories=stories
+    )
+
+
+@render("journal/story.hmtl")
+def view_story(request, slug):
+    """
+    View for displaying a PDF of a requested story
+
+    :param request:
+    :param slug:
+    :return:
+    """
+    story = Story.objects.get(slug=slug)
+    issue = story.issue
+
+    lines_to_exclude = ['\r', '\n', '\r\n']
+
+    initial_lines = story.content.readlines()
+    encoded_lines = list(map(lambda l: str(l, 'utf-8'), initial_lines))
+    no_blanks = list(filter(lambda l: l not in lines_to_exclude, encoded_lines))
+
+    return dict(
+        story=story,
+        issue=issue,
+        paragraphs=no_blanks,
     )

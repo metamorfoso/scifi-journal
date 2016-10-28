@@ -64,7 +64,41 @@ ul
   color: white
   font-size: 1.7rem
 
+#contents-actions-container
+  // same as panel
+  min-width: 22.5rem
+  width: 33vw
+  background-color: $panel-color
+  display: inline-block
+  //position: relative
+  margin-top: 5rem
+  text-align: center
+
+  position: fixed
+  top: 0
+  right: 4vw
+  z-index: 1
+  .contents-panel
+
+    &:hover
+      z-index: 1
+
 .button
   border: 1px solid black
   &:hover
     background-color: $button-color
+
+#site-container
+  #footer
+    position: absolute
+    text-align: right
+    margin: 0
+    bottom: 0
+    right: 0
+    line-height: 1rem
+    width: 100vw
+
+    background-color: $panel-color
+    #signature
+      margin: 1rem
+      color: white

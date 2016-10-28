@@ -62,7 +62,7 @@ class Submission(models.Model):
 
         # Create a new Story instance based on the Submission
         Story.objects.get_or_create(
-            issue=Issue.objects.filter(published=False)[0],
+            issue=Issue.objects.filter(published=False).first(),
             author=author,
             title=self.title,
             content=self.content,

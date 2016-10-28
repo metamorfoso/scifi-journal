@@ -1,0 +1,30 @@
+{% extends "nav.html" %}
+
+{% block content %}
+
+  <div class="panel-outer story-panel">
+    <p class="panel-heading">{{ story.title }} -- {{ story.author }}</p>
+    <div class="panel-inner">
+      {% for paragraph in paragraphs %}
+        <p class="story-paragraph">{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="contents-actions-container">
+    <div class="panel-outer contents-panel">
+      <div class="panel-inner">
+        <div class="panel-content">
+          <h4>CONTENTS [{{ issue.pretty_name }}]</h4>
+          <ul>
+            {% for story in issue.story_set.all() %}
+              <li><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -11,6 +11,7 @@ pillow
 whitenoise==2.0.6
 django-pipeline
 Wand
+django-autoslug
 
 # Production ------------------------------------------------------------------
 psycopg2
