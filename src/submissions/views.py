@@ -35,6 +35,8 @@ def submissions(request):
             # If this email address used to submit in the past, use
             # same Submitter instance; otherwise create new
             new_submitter, created = Submitter.objects.get_or_create(
+                first_name=submission_result["first_name"],
+                last_name=submission_result["last_name"],
                 email_address=submitter_result["email_address"]
             )
 
