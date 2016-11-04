@@ -88,17 +88,32 @@ ul
   &:hover
     background-color: $button-color
 
-#site-container
-  #footer
-    position: absolute
-    text-align: right
-    margin: 0
-    bottom: 0
-    right: 0
-    line-height: 1rem
-    width: 100vw
+#footer
+  position: absolute
+  text-align: right
+  margin: 0
+  bottom: 0
+  right: 0
+  line-height: 1rem
+  width: 100vw
 
-    background-color: $panel-color
-    #signature
-      margin: 1rem
-      color: white
+  background-color: $panel-color
+  #signature
+    font-size: 0.8rem
+    margin: 1rem
+    color: white
+
+#logo
+  display: inline-block
+  width: $logo-panel-width
+  height: 10rem
+  margin: 1rem
+  background-color: #a30000
+  text-align: center
+
+  .temp-text
+    position: relative
+    display: inline-block
+    &.big
+      font-size: 3.5rem
+      color: #3f1ca2

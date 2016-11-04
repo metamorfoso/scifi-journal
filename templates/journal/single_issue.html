@@ -7,9 +7,9 @@
       <div class="panel-inner">
         <div class="panel-content">
           <h4>CONTENTS [{{ issue.pretty_name }}]</h4>
-          <ul>
+          <ul class="contents-list">
             {% for story in stories %}
-              <li><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
+              <li class="contents-item"><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
             {% endfor %}
           </ul>
         </div>
