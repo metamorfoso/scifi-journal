@@ -1,0 +1,56 @@
+$pdf-button-colour: #a30000
+$epub-button-colour: #2d793c
+
+.cover-panel
+  width: 60vh
+  height: calc(100vh + 5rem)
+  background-color: $panel-color
+
+  display: block
+  position: relative
+  margin: 0
+  left: 15vw
+  text-align: center
+  z-index: 5
+
+  transform: translateY(5rem)  // instead of margin, which affects the nav's position
+
+  .panel-heading
+    margin: 0
+    padding: 2rem
+
+  #issue-cover
+    position: relative
+    display: inline-block
+    margin: 0 1rem 1rem 1rem
+    height: calc(100vh - 2rem)
+    width: calc(60vh - 2rem)
+    background-color: red
+
+#contents-actions-container
+  .download
+    height: 70px
+    width: 44.4%
+    display: inline-block
+    border: 0
+    padding: 0
+    box-sizing: border-box
+    &.pdf
+      margin: 0 0.5rem 1rem 1rem
+      background-color: $pdf-button-colour
+      &:hover
+        background-color: lighten($pdf-button-colour, 20)
+        color: black
+    &.epub
+      margin: 0 1rem 1rem 0.5rem
+      background-color: $epub-button-colour
+      &:hover
+        background-color: lighten($epub-button-colour, 20)
+        color: black
+
+    .button-text
+      font-size: 1.6rem
+      top: 25%
+      position: relative
+      &.small
+        font-size: 1.2rem
