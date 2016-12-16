@@ -2,7 +2,7 @@ import os
 
 PROJECT_ROOT = os.path.dirname(__file__)
 
-bind = "127.0.0.1"
+bind = "127.0.0.1:80"
 workers = 3
 loglevel = "INFO"
 proc_name = "django_sponge"

@@ -12,3 +12,4 @@ scifi-journal-dev.db
 ghostdriver.log
 
 .coverage
+.python-version
