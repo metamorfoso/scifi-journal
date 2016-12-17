@@ -33,6 +33,7 @@ p
   z-index: 4  // higher than nav's default z-index
   min-width: 22.5rem
   width: 33vw
+  height: 100%
   background-color: $panel-color
   display: inline-block
   position: relative
@@ -42,20 +43,20 @@ p
   &:hover
     z-index: 10
 
-.panel-inner
-  margin: 1rem
-  width: calc(100% - 2rem)
-  background-color: $panel-inner-color
-  position: relative
-  text-align: left
-
-  .panel-content
+  .panel-inner
+    margin: 1rem
+    width: calc(100% - 2rem)
+    background-color: $panel-inner-color
     position: relative
-    padding: 1rem
-    line-height: 1.5em
+    text-align: left
 
-    p
+    .panel-content
+      position: relative
       padding: 1rem
+      line-height: 1.5em
+
+      p
+        padding: 1rem
 
 .panel-heading
   margin: 2.07rem 0 2.08rem 0
@@ -97,7 +98,7 @@ p
 
   background-color: $panel-color
   #signature
-    font-size: 0.8rem
+    font-size: 0.7rem
     margin: 1rem
     color: white
 
