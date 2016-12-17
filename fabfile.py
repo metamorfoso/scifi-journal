@@ -30,11 +30,8 @@ def deploy(no_migrate=False):
     with cd(env.project), prefix(env.workon):
         run('pip install -r requirements.txt --upgrade')
         if not no_migrate:
-            run('./manage.py migrate')
-        run('npm install')
-        run('npm run clean')
-        run('npm run dist')
-        run('./manage.py collectstatic --noinput')
+            run('python manage.py migrate')
+        run('python manage.py collectstatic --noinput')
 
     clear_cache()
     restart()
