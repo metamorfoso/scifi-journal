@@ -100,7 +100,7 @@ def current(request):
     )
 
 
-@render("journal/story.hmtl")
+@render("journal/story.html")
 def view_story(request, slug):
     """
     View for displaying a PDF of a requested story
