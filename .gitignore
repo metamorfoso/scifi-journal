@@ -2,8 +2,8 @@ __pycache__
 *.pyc
 /cache
 /media/*
-/static
 /log
+/static
 /src/project/settings/local_settings.py
 .idea/
 local.db
