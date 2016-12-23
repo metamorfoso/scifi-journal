@@ -1,15 +1,14 @@
 __pycache__
 *.pyc
+/static/*
 /cache
 /media/*
 /log
-/static
 /src/project/settings/local_settings.py
 .idea/
 local.db
 scifi-journal-dev.db
 /gunicorn.pid
 ghostdriver.log
-
 .coverage
 .python-version
