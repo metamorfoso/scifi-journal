@@ -1,13 +1,5 @@
 {% extends "nav.html" %}
 
-{% block logo %}
-  <div id="logo-panel">
-    <div id="logo">
-      <h2 class="temp-text big">SPONGE</h2>
-    </div>
-  </div>
-{% endblock %}
-
 {% block content %}
 
   <div id="about-panel" class="panel-outer">
@@ -15,38 +7,44 @@
     <div class="panel-inner">
       <div class="panel-content">
         <p>
-          Sponge is an online magazine for science fiction and speculative fiction, based in the post-apocalpytic city of Christchurch, New Zealand. We publish short stories, poetry, and reviews of science fiction from New Zealand and Pacific writers, with a particular focus on new and emerging writers.
+          Sponge is an online magazine for science fiction and speculative fiction, based in the post-apocalpytic city
+          of Christchurch, New Zealand. We publish short stories, poetry, and reviews of science fiction from New
+          Zealand and Pacific writers, with a particular focus on new and emerging writers.
         </p>
         <p>
-          The magazine is available to read online or to download as a pdf or epub copy. We would also love to have audio versions of our magazine so if you enjoy one of our stories, please record yourself reading it and send it to us at info@sponge.nz
+          The magazine is available to read online or to download as a pdf or epub copy. We would also love to have
+          audio versions of our magazine so if you love one of our stories, please record yourself reading it and send
+          it to us at info@sponge.nz
         </p>
         <p>
-         <b>Sponge is currently open for submissions!</b><br/>
-         </p>
-         <p>
-         We are looking for weird and wonderful stories for our second issue, and artwork for the cover. 
+          <b>Sponge is currently open for submissions!</b><br/>
         </p>
         <p>
-          Please submit your stories, poetry, or reviews through the submissions portal on the website. Information about manuscript formating and other submission guidelines can be found on the submissions page.
+          We are looking for weird and wonderful stories for our second issue, and artwork for the cover.
         </p>
-        <p>Special thanks to Ivan Ignatov for designing and building this website and to Ben Uffindel for coming up with the name.</p>
+        <p>
+          Please submit your stories, poetry, or reviews through the submissions portal on the website. Information
+          about manuscript formating and other submission guidelines can be found on the submissions page.
+        </p>
+        <p>Special thanks to Ivan Ignatov for designing and building this website and to Ben Uffindel for coming up with
+          the name.</p>
       </div>
     </div>
   </div>
 
   <div id="current-panel">
-    {% if current_issue %}
-      <a href="{{ url('current') }}"><p class="panel-heading">CURRENT ISSUE</p>
-    {% else %}
-      <p class="panel-heading">CURRENT ISSUE</p>
-    {% endif %}
+
     {% if current_issue.cover_image %}
-      <img id="current-cover" src="{{ current_issue.cover_image.url }}"/>
+      <a href="{{ url('current') }}"><img id="current-cover" src="{{ current_issue.cover_image.url }}"/></a>
     {% else %}
-      <div id="current-cover"/>
+      <div id="current-cover"></div>
     {% endif %}
-    </a>
   </div>
 
+  <div id="logo-panel">
+    <div id="logo">
+      <h2 class="temp-text big">SPONGE</h2>
+    </div>
+  </div>
 
 {% endblock %}

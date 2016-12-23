@@ -12,7 +12,6 @@ whitenoise==2.0.6
 django-pipeline
 Wand
 
-
 # Production ------------------------------------------------------------------
 psycopg2
 raven==5.11.1

@@ -13,7 +13,7 @@ ADMINS = (
     ('admin', 'ivanign04@gmail.com'),
 )
 INTERNAL_IPS = ('127.0.0.1',)
-ALLOWED_HOSTS = ('',)
+ALLOWED_HOSTS = ('52.62.2.21',)  # TODO: add domain name to this list when we have one
 
 MANAGERS = ADMINS
 

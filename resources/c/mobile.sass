@@ -1,97 +1,79 @@
-// tablet
+// Phone
 @media screen and (max-width: 1080px)
+  // Fit wrappers to the whole screen
   #content-block, #nav-block
     width: 100vw
-
-  #content-block
-    height: auto
-    .contents-panel
-      display: none
-    .panel-outer
-      width: 100vw
-      max-width: 100vw
-      margin-top: 16rem
+    margin: 0
+    top: 0
 
   #nav-block
+    z-index: 5
+    #navlink-wrapper
+      width: 100vw
+      right: 0
+      left: 0
+      text-align: center
+
+  .panel-outer
+    display: inline-block
+    width: 100vw
     margin: 0
-    z-index: 10
-    #header
+    z-index: 0
+
+    &:hover
+      z-index: 0
+
+  // Use flex to order elements appropriately
+  .panel-content
+    font-size: 1.7rem
+  #content-block
+    display: flex
+    flex-direction: column
+
+    #logo-panel
+      order: 1
+      background-color: $panel-color
       text-align: center
-      #navlink-wrapper
-        right: 0
-        left: 0
+      margin-top: 5rem
 
-  //.panel-outer
-  //  width: 75vw
-  //  max-width: 100vw
-  //  margin-top: 16rem
-
-  #current-panel
-    display: block
-    margin-top: 2rem
-    width: 100vw
-    background-color: $panel-color
-    #current-cover
-      width: 80vw
-      margin-bottom: 10vw
-
-
-  #logo-panel
-    position: absolute
-    top: 5rem
-    left: 50vw
-    transform: translateX(-10rem)
-
-    width: 20rem
-    height: 12rem
-
-    display: block
-    text-align: center
-    background-color: $panel-color
-
-    #logo
-      display: inline-block
-      width: $logo-panel-width
-      height: 10rem
-      margin: 1rem
-      background-color: #a30000
+    #current-panel
+      order: 2
+      background-color: $panel-color
       text-align: center
-
-      .temp-text
-        position: relative
+      #current-cover
+        width: calc(100% - 2rem)
         display: inline-block
-        &.big
-          font-size: 3.5rem
-          color: #3f1ca2
+        margin: auto 1rem 1rem 1rem
 
+    #about-panel
+      order: 4
 
-// phone
-@media screen and (max-width: 770px)
-  #content-block, #nav-block
-    width: 100vw
+    .cover-panel
+      display: none  // don't show cover in single issue view when on mobile
 
-  //#content-block
-  //  height: auto
-  //  text-align: center
-  //.contents-panel
-  //  display: none
-  //.panel-outer
-  //  width: 100vw
-  //  max-width: 100vw
-  //  position: absolute
-  //
-  //#nav-block
-  //  margin: 0
-  //  z-index: 10
+    .story-panel
+      order: 3
+      margin-top: 9rem
+      font-size: 1.6rem
+      .panel-heading
+        font-size: 2rem
 
-  //.panel-outer
-  //  position: absolute
-  //  width: 100%
-  //  top: 42rem
-  //  left: 0
+    #contents-actions-container
+      position: relative
+      width: 100vw
+      left: 0
+      right: 0
+      order: 5
+      display: flex
+      flex-direction: column
+      text-align: center
 
-  #current-panel
-    //display: inline-block
-    //position: absolute
-    //right: auto
-    //top: 14rem
+      .contents-item
+        padding: 0.5rem 0
+
+      .download
+        width: calc(100vw - 2rem)
+        margin: 0 1rem 1rem 1rem
+
+    #footer
+      order: 10
