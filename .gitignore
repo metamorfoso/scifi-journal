@@ -1,6 +1,8 @@
 __pycache__
 *.pyc
-/static/*
+/static/c/*
+/static/j/*
+/static/admin/*
 /cache
 /media/*
 /log
