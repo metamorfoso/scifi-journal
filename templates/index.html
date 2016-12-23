@@ -3,7 +3,9 @@
 {% block content %}
 
   <div id="about-panel" class="panel-outer">
-    <p class="panel-heading">ABOUT</p>
+    <p class="panel-heading">
+        <img class="nav-image" style="height:1.5rem;width:auto" src="/media/nav-images/about.png" alt="about"/>
+    </p>
     <div class="panel-inner">
       <div class="panel-content">
         <p>
@@ -24,24 +26,23 @@
         </p>
         <p>
           Please submit your stories, poetry, or reviews through the submissions portal on the website. Information
-          about manuscript formating and other submission guidelines can be found on the submissions page.
+          about manuscript formatting and other submission guidelines can be found on the submissions page.
         </p>
-        <p>Special thanks to Ivan Ignatov for designing and building this website and to Ben Uffindel for coming up with
+        <p>Special thanks to Ivan Ignatov for designing and building this website and to Ben Uffindell for coming up with
           the name.</p>
       </div>
     </div>
   </div>
-
+  
   <div id="current-panel">
-
     {% if current_issue.cover_image %}
       <a href="{{ url('current') }}"><img id="current-cover" src="{{ current_issue.cover_image.url }}"/></a>
     {% else %}
       <div id="current-cover"></div>
     {% endif %}
   </div>
-
-  <div id="logo-panel">
+    
+    <div id="logo-panel">
     <div id="logo">
       <h2 class="temp-text big">SPONGE</h2>
     </div>
