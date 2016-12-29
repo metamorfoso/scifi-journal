@@ -20,6 +20,7 @@ class Issue(models.Model):
     cover_image = models.ImageField(upload_to="cover_image_uploads/", blank=True)
 
     pdf = models.FileField(verbose_name="issue as PDF document", blank=True, null=True)
+    mobi = models.FileField(verbose_name="issue as Mobi document", blank=True, null=True)
     epub = models.FileField(verbose_name="issue as an epub document", blank=True, null=True)
 
     def __str__(self):
