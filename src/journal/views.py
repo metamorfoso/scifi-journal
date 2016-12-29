@@ -60,7 +60,8 @@ def single_issue(request, issue_number):
 
     return dict(
         issue=requested_issue,
-        stories=story_set
+        stories=story_set,
+        single_issue = True
     )
 
 
@@ -96,7 +97,8 @@ def current(request):
 
     return dict(
         issue=current_issue,
-        stories=stories
+        stories=stories,
+        single_issue = True
     )
 
 

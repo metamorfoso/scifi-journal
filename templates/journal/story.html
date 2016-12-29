@@ -2,23 +2,40 @@
 
 {% block content %}
 
-  <div class="panel-outer story-panel">
-    <p class="panel-heading">{{ story.title }} - {{ story.author }}</p>
+  <div id="story-panel" class="panel-outer">
+    <p class="panel-heading-title">{{ story.title.upper() }}</p>
+    <p class="panel-heading-author">{{ story.author }}</p>
     <div class="panel-inner">
+      <div class="panel-content">
+      <img class="logo" src="{{static('images/logo.png')}}"/>
       {% for paragraph in paragraphs %}
         <p class="story-paragraph">{{ paragraph }}</p>
       {% endfor %}
+      </div>
     </div>
   </div>
 
   <div id="contents-actions-container">
     <div class="panel-outer contents-panel">
       <div class="panel-inner">
-        <div class="panel-content">
-          <h4>CONTENTS [{{ issue.pretty_name }}]</h4>
+        <div style="top:0px" class="panel-content">
+          <p class="issue-heading">{{issue.pretty_name}}</p>
           <ul>
-            {% for story in issue.story_set.all() %}
-              <li><a href="{{ story.get_absolute_url() }}"><i>{{ story }}</i> - {{ story.author }}</a></li>
+            {% for title in issue.story_set.all() %}
+                {% if title|string() == story.title|string() %}
+                <li style="color:#e62400">
+                {% else %}
+                <li>
+                {% endif %}  
+                  <div class="story-title">
+                    <a href="{{ title.get_absolute_url() }}">
+                        <i>{{ title }}</i>
+                    </a> 
+                  </div>                    
+                  <div class="story-author">             
+                    {{ story.author }}
+                  </div>
+              </li>
             {% endfor %}
           </ul>
         </div>

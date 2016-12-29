@@ -1,19 +1,29 @@
 @import "constants"
 
-
+ul
+  list-style-type: decimal
+  
 // Get rid of bullet points on certain lists
 ul.unformatted
   list-style: none
   line-height: 1.5em
   padding: 0
-
+  
+.story-title
+  padding-left: 1rem
+  font-size: 18px
+  
+.story-author
+  padding: 0 0 1rem 1rem
+  font-size: 15px
+  
 // Disable default link styling
 a, #logo-link
   text-decoration: none
   color: inherit
 
 a:hover
-  color: #a30000
+  color: #e62400
   cursor: pointer
 
 // Remove margin on headings so they can be positioned predictably
@@ -60,9 +70,20 @@ p
         padding: 1rem
 
 .panel-heading
-  margin: 2.07rem 0 2.08rem 0
+  margin: 1.87rem 0 1.98rem 0
   color: white
-  font-size: 1.7rem
+  font-size: 2rem
+
+.panel-heading-title  
+  margin: 1.85rem 0 0 0
+  color: white
+  font-size: 2rem
+  font-family: vanadine
+  
+.panel-heading-author
+  color: white
+  font-size: 1rem
+  font-family: vanadine
 
 
 #contents-actions-container
@@ -109,7 +130,7 @@ p
   width: $logo-panel-width
   height: 10rem
   margin: 1rem
-  background-color: #a30000
+  background-color: transparent
   text-align: center
 
   .temp-text
@@ -118,3 +139,4 @@ p
     &.big
       font-size: 3.5rem
       color: #3f1ca2
+      

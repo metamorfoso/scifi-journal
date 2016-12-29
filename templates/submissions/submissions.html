@@ -2,10 +2,13 @@
 
 {% block content %}
 
-  <div class="panel-outer guidelines-panel">
-    <p class="panel-heading"><img style="height:1.5rem;width:auto" src="/media/nav-images/submission_guidelines.png" alt="submission guidelines"/></p>
+  <div id="guidelines-panel" class="panel-outer">
+    <p class="panel-heading">
+    Submission Guidelines
+    </p>
     <div class="panel-inner">
       <div class="panel-content">
+      <img class="logo" src="{{static('images/logo.png')}}"/>
         <p>Sponge is looking for original science fiction and speculative fiction from New Zealand and Pacific writers.
           This means that (for now) you can only submit to Sponge if you are a citizen of New Zealand or the Pacific, or
           if you are a resident of this area. If you are unsure whether this means you, please look at the map at the
@@ -25,9 +28,9 @@
           not about what you do or do not put in your story, but the attitude you bring to your writing. We want to
           publish stories that are quirky and different, that play with form and push the boundaries of science fiction.
           Most importantly, we want to publish stories that say something about what it means to live in the Pacific and
-          how our culture, society, and evironments shapes the stories we tell.</p>
+          how our culture, society, and environments shapes the stories we tell.</p>
 
-        <img style="width:80%;padding:15px" src="../static/map.jpg"/>
+        <img class="map" src="{{static('images/map.jpg')}}"/>
 
       </div>
     </div>
@@ -35,7 +38,7 @@
   <div id="contents-actions-container">
     <div id="submissions-container" class="panel-outer contents-panel">
       <div class="panel-inner">
-        <div class="panel-content">
+        <div class="panel-content" style="top:0px">
 
           {% if submission_successful %}
             <p>Submission successful. Thank you.</p>
