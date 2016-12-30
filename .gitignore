@@ -10,6 +10,6 @@ local.db
 scifi-journal-dev.db
 /gunicorn.pid
 ghostdriver.log
-
+.DS_Store
 .coverage
 .python-version
