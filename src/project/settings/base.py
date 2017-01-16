@@ -13,18 +13,17 @@ ADMINS = (
     ('admin', 'ivanign04@gmail.com'),
 )
 INTERNAL_IPS = ('127.0.0.1',)
-ALLOWED_HOSTS = ('52.62.2.21',)  # TODO: add domain name to this list when we have one
+ALLOWED_HOSTS = ('52.62.2.21', 'sponge.nz', 'www.sponge.nz',)
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'CONN_MAX_AGE': 600,
+        'NAME': 'sponge',
+        'USER': 'spongeuser',
+        'PASSWORD': 'SpongeCake???',
+        'HOST': 'localhost',
     }
 }
 
@@ -192,6 +191,8 @@ PIPELINE = dict(
     CSS_COMPRESSOR='pipeline.compressors.cssmin.CSSMinCompressor',
     JS_COMPRESSOR='pipeline.compressors.uglifyjs.UglifyJSCompressor'
 )
+
+PIPELINE['SASS_BINARY'] = '/usr/local/bin/sass'
 
 STATICFILES_STORAGE = 'project.staticfiles_storage.GzipManifestPipelineStorage'
 STATICFILES_FINDERS = (
