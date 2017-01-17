@@ -31,7 +31,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': 'miracle-yeah.2foko5.cfg.apse2.cache.amazonaws.com:11211',
-        'KEY_PREFIX': 'SUNSHINE'
+        'KEY_PREFIX': 'SPONGE'
     }
 }
 
@@ -161,7 +161,7 @@ EMAIL_HOST_USER = 'marbonbros'
 EMAIL_HOST_PASSWORD = 'b3t_t3rlat3_thann3v3r'
 DEFAULT_FROM_EMAIL = 'system@marbonbros.com'
 SERVER_EMAIL = 'system@marbonbros.com'
-EMAIL_SUBJECT_PREFIX = "[sunshinesolar] "
+EMAIL_SUBJECT_PREFIX = "[sponge] "
 
 PIPELINE = dict(
     STYLESHEETS={
