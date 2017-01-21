@@ -13,18 +13,17 @@ ADMINS = (
     ('admin', 'ivanign04@gmail.com'),
 )
 INTERNAL_IPS = ('127.0.0.1',)
-ALLOWED_HOSTS = ('52.62.2.21',)  # TODO: add domain name to this list when we have one
+ALLOWED_HOSTS = ('52.62.2.21', 'sponge.nz', 'www.sponge.nz',)
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'CONN_MAX_AGE': 600,
+        'NAME': 'sponge',
+        'USER': 'spongeuser',
+        'PASSWORD': 'SpongeCake???',
+        'HOST': 'localhost',
     }
 }
 
@@ -32,7 +31,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': 'miracle-yeah.2foko5.cfg.apse2.cache.amazonaws.com:11211',
-        'KEY_PREFIX': 'SUNSHINE'
+        'KEY_PREFIX': 'SPONGE'
     }
 }
 
@@ -162,7 +161,7 @@ EMAIL_HOST_USER = 'marbonbros'
 EMAIL_HOST_PASSWORD = 'b3t_t3rlat3_thann3v3r'
 DEFAULT_FROM_EMAIL = 'system@marbonbros.com'
 SERVER_EMAIL = 'system@marbonbros.com'
-EMAIL_SUBJECT_PREFIX = "[sunshinesolar] "
+EMAIL_SUBJECT_PREFIX = "[sponge] "
 
 PIPELINE = dict(
     STYLESHEETS={
@@ -171,6 +170,7 @@ PIPELINE = dict(
                 'c/application.sass',
             ),
             'output_filename': 'style/app.css',
+			
             'extra_context': {
                 'media': 'screen,projection,print',
             },
@@ -192,6 +192,8 @@ PIPELINE = dict(
     CSS_COMPRESSOR='pipeline.compressors.cssmin.CSSMinCompressor',
     JS_COMPRESSOR='pipeline.compressors.uglifyjs.UglifyJSCompressor'
 )
+
+PIPELINE['SASS_BINARY'] = '/usr/local/bin/sass'
 
 STATICFILES_STORAGE = 'project.staticfiles_storage.GzipManifestPipelineStorage'
 STATICFILES_FINDERS = (

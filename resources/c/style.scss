@@ -13,8 +13,8 @@ body {
 
 @font-face {
   font-family: 'Vanadine';
-  src: url('resources/fonts/Vanadine Bold.ttf');
-  src: local('resources/fonts/Vanadine Bold.ttf')
+  src: url("../fonts/Vanadine.ttf") format('truetype');
+  
 }
 
 .nodrag {
@@ -70,3 +70,6 @@ header .logo {
     width: 50vw;
 }
 
+.sponge {
+    padding-top: 3rem;
+}

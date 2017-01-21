@@ -1,10 +1,8 @@
 __pycache__
 *.pyc
-/static/c/*
-/static/j/*
-/static/admin/*
 /cache
 /media/*
+/static
 /log
 /src/project/settings/local_settings.py
 .idea/
@@ -12,5 +10,6 @@ local.db
 scifi-journal-dev.db
 /gunicorn.pid
 ghostdriver.log
+.DS_Store
 .coverage
 .python-version
