@@ -170,6 +170,7 @@ PIPELINE = dict(
                 'c/application.sass',
             ),
             'output_filename': 'style/app.css',
+			
             'extra_context': {
                 'media': 'screen,projection,print',
             },

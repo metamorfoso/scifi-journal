@@ -1,5 +1,5 @@
-$pdf-button-colour: #a30000
-$epub-button-colour: #2d793c
+$pdf-button-colour: #e600a2
+$epub-button-colour: #006ce6
 
 .cover-panel
   width: 60vh
@@ -29,24 +29,28 @@ $epub-button-colour: #2d793c
 
 #contents-actions-container
   .download
-    height: 70px
-    width: 44.4%
+    height: 40px
+    width: 20%
     display: inline-block
     border: 0
-    padding: 0
+    padding: 0 0 0.5rem 0
+    text-align: center
     box-sizing: border-box
+    font-family: Vanadine
+    font-size: 15px
+    color: white
+    border-radius: 0.5rem
     &.pdf
-      margin: 0 0.5rem 1rem 1rem
+      margin: 0 1rem 1rem 2.5rem
       background-color: $pdf-button-colour
       &:hover
         background-color: lighten($pdf-button-colour, 20)
-        color: black
     &.epub
-      margin: 0 1rem 1rem 0.5rem
+      float: right
+      margin: 0 2.5rem 1rem 1rem
       background-color: $epub-button-colour
       &:hover
         background-color: lighten($epub-button-colour, 20)
-        color: black
 
     .button-text
       font-size: 1.6rem

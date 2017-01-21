@@ -11,6 +11,12 @@ body {
   @extend .font-steroids
 }
 
+@font-face {
+  font-family: 'Vanadine';
+  src: url("../fonts/Vanadine.ttf") format('truetype');
+  
+}
+
 .nodrag {
   -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
   -webkit-user-select: none;
@@ -19,6 +25,11 @@ body {
 
   -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
   user-drag: none;
+}
+
+.panel-heading, .navlink-item {
+  font-family: Vanadine;
+
 }
 
 img {
@@ -30,4 +41,35 @@ img {
 
 h2 {
   font-size: 1rem;
+}
+
+.nav-image {
+    height: 1.5rem;
+    width: auto;
+}
+
+.logo {
+    position: relative;
+    height: 10rem;
+    width: auto;
+    left: -1rem;
+}
+
+header .logo {
+    float: left;
+    left: 0.9rem;
+    top: -2.8rem;
+
+}
+.panel-content {
+    position: relative;
+    top: -10rem;
+}
+
+#guidelines-panel {
+    width: 50vw;
+}
+
+.sponge {
+    padding-top: 3rem;
 }

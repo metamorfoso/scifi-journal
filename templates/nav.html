@@ -2,17 +2,20 @@
 
 {% block header %}
   <header id="header">
+    {% if single_issue %}
+        <img class="logo" src="{{ static('images/logo.png') }}"/>
+    {% endif %}
     <div id="navlink-wrapper">
       {% if not landing_page %}
         <p class="navlink-item">
-          <a href="{{ url('landing_page') }}">HOME</a>
+          <a href="{{ url('landing_page') }}">Home</a>
         </p>
       {% endif %}
       <p class="navlink-item">
-        <a href="{{ url('archive') }}">ARCHIVE</a>
+        <a href="{{ url('archive') }}">Archive</a>
       </p>
       <p class="navlink-item">
-        <a href="{{ url('submissions') }}">SUBMISSIONS</a>
+        <a href="{{ url('submissions') }}">Submissions</a>
       </p>
     </div>
   </header>

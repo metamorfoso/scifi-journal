@@ -5,16 +5,23 @@
   <div id="contents-actions-container">
     <div class="panel-outer contents-panel">
       <div class="panel-inner">
-        <div class="panel-content">
-          <h4>CONTENTS [{{ issue.pretty_name }}]</h4>
+        <div style="top:0px" class="panel-content">
           <ul class="contents-list">
             {% for story in stories %}
-              <li class="contents-item"><a href="{{ story.get_absolute_url() }}">"{{ story }}" -- {{ story.author }}</a></li>
+              <li>
+                  <div class="story-title">
+                    <a href="{{ story.get_absolute_url() }}"><i>{{ story }}</i></a> 
+                  </div>
+                  <div class="story-author">             
+                    {{ story.author }}
+                  </div>
+              </li>
             {% endfor %}
           </ul>
+          
         </div>
-      </div>
-    </div>
+      
+    
 
     {#  Only make download buttons active if there are files to download  #}
     {% if issue.pdf %}
@@ -22,21 +29,22 @@
           class="download pdf"
           href="{{ url('download_issue', issue.number, 'pdf') }}"
       ><span class="button-text">PDF</span></a>
-    {% else %}
-      <a
-          class="download pdf"
-      ><span class="button-text small">PDF [Forthcoming]</span></a>
+    {% endif %}
+    {% if issue.mobi %}
+        <a
+          class="download mobi"
+          href="{{ url('download_issue', issue.number, 'mobi') }}"
+      ><span class="button-text">MOBI</span></a>
+    
     {% endif %}
     {% if issue.epub %}
       <a
           class="download epub"
           href="{{ url('download_issue', issue.number, 'epub') }}"
       ><span class="button-text">EPUB</span></a>
-    {% else %}
-      <a
-          class="download epub"
-      ><span class="button-text small">EPUB [Forthcoming]</span></a>
-    {% endif %}
+    {% endif %}    
+    </div>
+    </div>
   </div>
 
   <div class="cover-panel">
