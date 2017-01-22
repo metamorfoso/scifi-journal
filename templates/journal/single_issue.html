@@ -18,32 +18,30 @@
               </li>
             {% endfor %}
           </ul>
+
+          <div class="download-btn-wrapper">
+            {#  Only make download buttons active if there are files to download  #}
+            {%- if issue.pdf %}
+              {#-  -#}
+              <a href="{{ url('download_issue', issue.number, 'pdf') }}"
+              ><div class="download pdf"><span class="button-text">PDF</span></div></a>
+              {#-  -#}
+            {% endif -%}
+            {% if issue.mobi %}
+              {#-  -#}
+              <a href="{{ url('download_issue', issue.number, 'mobi') }}"
+              ><div class="download mobi"><span class="button-text">MOBI</span></div></a>
+              {#-  -#}
+            {% endif -%}
+            {%- if issue.epub %}{#-  -#}
+              <a href="{{ url('download_issue', issue.number, 'epub') }}"
+              ><div class="download epub"><span class="button-text">EPUB</span></div></a>
+              {#-  -#}
+            {% endif -%}
+          </div>
           
         </div>
-      
-    
-
-    {#  Only make download buttons active if there are files to download  #}
-    {% if issue.pdf %}
-      <a
-          class="download pdf"
-          href="{{ url('download_issue', issue.number, 'pdf') }}"
-      ><span class="button-text">PDF</span></a>
-    {% endif %}
-    {% if issue.mobi %}
-        <a
-          class="download mobi"
-          href="{{ url('download_issue', issue.number, 'mobi') }}"
-      ><span class="button-text">MOBI</span></a>
-    
-    {% endif %}
-    {% if issue.epub %}
-      <a
-          class="download epub"
-          href="{{ url('download_issue', issue.number, 'epub') }}"
-      ><span class="button-text">EPUB</span></a>
-    {% endif %}    
-    </div>
+      </div>
     </div>
   </div>
 

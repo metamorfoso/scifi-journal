@@ -6,11 +6,13 @@
     <div class="panel-inner">
       <div class="panel-content issue-list-wrapper">
         <img class="logo" src="{{static('images/logo.png')}}"/>
-        <ul class="unformatted">
-          {% for i in issues %}
-            <li><a href="{{ i.get_absolute_url() }}">{{ i.pretty_name }} ({{ i.pub_date }})</a></li>
-          {% endfor %}
-        </ul>
+        <div class="issue-list-wrapper">
+          <ul class="issue-list unformatted">
+            {% for i in issues %}
+              <li><a href="{{ i.get_absolute_url() }}">{{ i.pretty_name }} ({{ i.pub_date }})</a></li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
