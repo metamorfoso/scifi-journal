@@ -9,14 +9,11 @@
     height: 35rem
     background-color: $panel-color
 
-    //z-index: 3  // higher than nav default
-
     display: inline-block
     position: fixed
     margin-top: 5rem
     right: 36vw
     text-align: center
-    //margin-left: $gap
 
     &.scrolling-down
       -webkit-transition: margin-top 1s ease-out
@@ -61,3 +58,4 @@
     &.fix
       position: fixed
       top: -1.5rem
+      z-index: 10

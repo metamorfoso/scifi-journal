@@ -4,35 +4,51 @@
 
   <div id="guidelines-panel" class="panel-outer">
     <p class="panel-heading">
-    Submission Guidelines
+      Submission Guidelines
     </p>
     <div class="panel-inner">
       <div class="panel-content">
-      <img class="logo" src="{{static('images/logo.png')}}"/>
-        <p>Sponge is looking for original science fiction and speculative fiction from New Zealand and Pacific writers.
-          This means that (for now) you can only submit to Sponge if you are a citizen of New Zealand or the Pacific, or
-          if you are a resident of this area. If you are unsure whether this means you, please look at the map at the
+        <p>Sponge is looking for original science fiction and speculative
+          fiction from New Zealand and Pacific writers.
+          This means that (for now) you can only submit to Sponge if you are a
+          citizen of New Zealand or the Pacific, or
+          if you are a resident of this area. If you are unsure whether this
+          means you, please look at the map at the
           bottom of this page.</p>
-        <p>You can submit to Sponge by filling out the submission form on this page. We are not picky about how you
-          format your submission as long as it is clear and easy to read. To us this means:
+        <p>You can submit to Sponge by filling out the submission form on this
+          page. We are not picky about how you
+          format your submission as long as it is clear and easy to read. To us
+          this means:
         <ul class="submissions-list">
           <li>Left aligned text</li>
-          <li>A normal font like Times New Roman (or Courier if you prefer monospaced)</li>
+          <li>A normal font like Times New Roman (or Courier if you prefer
+            monospaced)
+          </li>
           <li>Consistent punctuation</li>
         </ul>
-		<p>And that's it!</p>
-        <p>You may submit you story as a doc, docx, txt, or rdf file (basically anything that is editable). If you
-          are submitting an artwork for our cover, please send through a high-quality png or jpeg file (atleast 1000
+        <p>And that's it!</p>
+        <p>You may submit you story as a doc, docx, txt, or rdf file (basically
+          anything that is editable). If you
+          are submitting an artwork for our cover, please send through a
+          high-quality png or jpeg file (atleast 1000
           pixels on its widest length and 300dpi)</p>
-        <p>At Sponge we are pretty flexible about what we consider a science fiction or speculative fiction story. It's
-          not about what you do or do not put in your story, but the attitude you bring to your writing. We want to
-          publish stories that are quirky and different, that play with form and push the boundaries of science fiction.
-          Most importantly, we want to publish stories that say something about what it means to live in the Pacific and
-          how our culture, society, and environments shapes the stories we tell.</p>
-		<p>If you are not sure whether your story fits this criteria, send it to us anyway! We endevour to give as much feedback as we can to those who submit to us.</p>
-
-        <img class="map" src="{{static('images/map.jpg')}}"/>
-
+        <p>At Sponge we are pretty flexible about what we consider a science
+          fiction or speculative fiction story. It's
+          not about what you do or do not put in your story, but the attitude
+          you bring to your writing. We want to
+          publish stories that are quirky and different, that play with form
+          and push the boundaries of science fiction.
+          Most importantly, we want to publish stories that say something about
+          what it means to live in the Pacific and
+          how our culture, society, and environments shapes the stories we
+          tell.</p>
+        <p>If you are not sure whether your story fits this criteria, send it
+          to us anyway! We endevour to give as much feedback as we can to those
+          who submit to us.
+        </p>
+        {#-  -#}
+        <img class="map" src="{{ static('images/map.jpg') }}"/>
+        {#-  -#}
       </div>
     </div>
   </div>
@@ -44,7 +60,8 @@
           {% if submission_successful %}
             <p>Submission successful. Thank you.</p>
           {% endif %}
-          <form enctype="multipart/form-data" action="{{ url('submissions') }}" method="post" id="submissions-form">
+          <form enctype="multipart/form-data" action="{{ url('submissions') }}"
+                method="post" id="submissions-form">
             {{ csrf_input }}
             <div class="submission-form-fields">
               {% for field in submission_form %}
@@ -62,7 +79,8 @@
                 </div>
               {% endfor %}
             </div>
-            <input type="submit" name="story_submission" value="Submit" class="button"/>
+            <input type="submit" name="story_submission" value="Submit"
+                   class="submit button"/>
           </form>
         </div>
       </div>

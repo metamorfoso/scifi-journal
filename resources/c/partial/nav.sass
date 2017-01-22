@@ -6,28 +6,20 @@
   min-width: 20rem
   width: 100vw
   background-color: $panel-color
+  text-align: right
 
-  z-index: 4  // so the logo-panel can slide underneath
+  z-index: 2  // so that 'sponge' can slide underneath
 
-  &:hover
-    z-index: 4
-    width: 100vw
+  #navlink-wrapper
+    position: relative
+    top: 50%
+    right: 5vw
+    transform: translateY(-50%)
+    display: inline-block
+    line-height: 1rem
 
-  #header
-    height: inherit
-    width: inherit
-    text-align: right
-
-    #navlink-wrapper
-      position: relative
-      top: 50%
-      right: 6vw
-      transform: translateY(-50%)
-      display: inline-block
-      line-height: 1rem
-
-      .navlink-item
-        display: inline
-        margin: 0 1rem
-        color: white
-        font-size: 2rem
+    .navlink-item
+      display: inline
+      margin: 0 1rem
+      color: white
+      font-size: 2rem
