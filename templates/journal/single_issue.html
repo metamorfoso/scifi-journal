@@ -6,16 +6,16 @@
     <div class="panel-outer contents-panel">
       <div class="panel-inner">
         <div style="top:0px" class="panel-content">
+          {% if issue.introduction %}
+            <p>{{ issue.introduction }}</p>
+          {% endif %}
           <ul class="contents-list">
-            {% if issue.introduction %}
-              <p>{{ issue.introduction }}</p>
-            {% endif %}
             {% for story in stories %}
               <li>
                   <div class="story-title">
-                    <a href="{{ story.get_absolute_url() }}"><i>{{ story }}</i></a> 
+                    <a href="{{ story.get_absolute_url() }}"><i>{{ story }}</i></a>
                   </div>
-                  <div class="story-author">             
+                  <div class="story-author">
                     {{ story.author }}
                   </div>
               </li>
@@ -51,7 +51,7 @@
               {#-  -#}
             {% endif -%}
           </div>
-          
+
         </div>
       </div>
     </div>
