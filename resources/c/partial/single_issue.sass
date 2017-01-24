@@ -31,15 +31,15 @@ $mobi-button-colour: #006b00
 #contents-actions-container
   .download-btn-wrapper
     text-align: left
-    padding: 0 1rem
+    padding: 0 1rem 1rem 1rem
     .download
       height: 40px
       width: 33.3%
       display: inline-block
-      border: 0
       padding: 0 0 0.5rem 0
       text-align: center
       box-sizing: border-box
+
       color: white
       &.pdf
         background-color: $pdf-button-colour
@@ -57,6 +57,11 @@ $mobi-button-colour: #006b00
       &.greyedout
         background-color: darkgrey
 
+      &.edge
+        border: 1px solid $panel-color
+      &.centre
+        border-top: 1px solid $panel-color
+        border-bottom: 1px solid $panel-color
 
       .button-text
         font-size: 1.6rem
