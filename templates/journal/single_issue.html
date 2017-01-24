@@ -7,6 +7,9 @@
       <div class="panel-inner">
         <div style="top:0px" class="panel-content">
           <ul class="contents-list">
+            {% if issue.introduction %}
+              <p>{{ issue.introduction }}</p>
+            {% endif %}
             {% for story in stories %}
               <li>
                   <div class="story-title">
@@ -26,16 +29,25 @@
               <a href="{{ url('download_issue', issue.number, 'pdf') }}"
               ><div class="download pdf"><span class="button-text">PDF</span></div></a>
               {#-  -#}
+            {% else -%}
+              <div class="download greyedout"><span class="button-text">PDF</span></div>
+              {#-  -#}
             {% endif -%}
             {% if issue.mobi %}
               {#-  -#}
               <a href="{{ url('download_issue', issue.number, 'mobi') }}"
               ><div class="download mobi"><span class="button-text">MOBI</span></div></a>
               {#-  -#}
+            {% else -%}
+              <div class="download greyedout"><span class="button-text">MOBI</span></div>
+              {#-  -#}
             {% endif -%}
             {%- if issue.epub %}{#-  -#}
               <a href="{{ url('download_issue', issue.number, 'epub') }}"
               ><div class="download epub"><span class="button-text">EPUB</span></div></a>
+              {#-  -#}
+            {% else -%}
+              <div class="download greyedout"><span class="button-text">EPUB</span></div>
               {#-  -#}
             {% endif -%}
           </div>
