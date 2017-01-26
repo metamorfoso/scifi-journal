@@ -20,22 +20,32 @@
         <div style="top:0px" class="panel-content">
           <p class="issue-heading">{{issue.pretty_name}}</p>
           <ul>
-            {% for title in issue.story_set.all() %}
+            {% for iterated_story in stories_in_issue %}
+              <li class="{% if iterated_story == story %}current-story{% endif %}">
+                <a href="{{ iterated_story.get_absolute_url() }}"><div class="story-title">
+                  <i>{{ iterated_story }}</i>
+                </div>
+                <div class="story-author">
+                  {{ iterated_story.author }}
+                </div></a>
+              </li>
+            {% endfor %}
+            <!-- {% for title in issue.story_set.all() %}
                 {% if title|string() == story.title|string() %}
                 <li style="color:#e62400">
                 {% else %}
                 <li>
-                {% endif %}  
+                {% endif %}
                   <div class="story-title">
                     <a href="{{ title.get_absolute_url() }}">
                         <i>{{ title }}</i>
-                    </a> 
-                  </div>                    
-                  <div class="story-author">             
+                    </a>
+                  </div>
+                  <div class="story-author">
                     {{ story.author }}
                   </div>
               </li>
-            {% endfor %}
+            {% endfor %} -->
           </ul>
         </div>
       </div>

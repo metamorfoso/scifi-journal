@@ -12,12 +12,12 @@
           <ul class="contents-list">
             {% for story in stories %}
               <li>
-                  <div class="story-title">
-                    <a href="{{ story.get_absolute_url() }}"><i>{{ story }}</i></a>
+                  <a href="{{ story.get_absolute_url() }}"><div class="story-title">
+                    <i>{{ story }}</i>
                   </div>
                   <div class="story-author">
                     {{ story.author }}
-                  </div>
+                  </div></a>
               </li>
             {% endfor %}
           </ul>
