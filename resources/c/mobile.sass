@@ -1,5 +1,7 @@
 // Phone
 @media screen and (max-width: 1080px)
+  .logo-wrapper
+    display: none
   // Fit wrappers to the whole screen
   #content-block, #nav-block
     width: 100vw
@@ -8,16 +10,23 @@
 
   #nav-block
     z-index: 5
+    width: 100vw
     #navlink-wrapper
-      width: 100vw
+      width: 100%
       right: 0
       left: 0
       text-align: center
+      .navlink-item
+        margin: 0
+        padding: 0 1rem
+
+  #content-block
+    margin-top: 5rem
 
   .panel-outer
     display: inline-block
     width: 100vw
-    margin: 0
+    margin: 2rem 0
     z-index: 0
 
     &:hover
@@ -25,19 +34,15 @@
 
   // Use flex to order elements appropriately
   .panel-content
-    font-size: 1.7rem
   #content-block
     display: flex
     flex-direction: column
 
     #logo-panel
-      order: 1
-      background-color: $panel-color
-      text-align: center
-      margin-top: 5rem
+      display: none
 
     #current-panel
-      order: 2
+      order: 4
       background-color: $panel-color
       text-align: center
       #current-cover
@@ -46,35 +51,37 @@
         margin: auto 1rem 1rem 1rem
 
     #about-panel
-      order: 4
+      order: 2
+      .panel-heading
+        display: none
 
     .cover-panel
       // don't show cover in single issue view when on mobile
       display: none
 
-    .story-panel
+    #story-panel
       order: 3
-      margin-top: 9rem
-      font-size: 1.6rem
       .panel-heading
         font-size: 2rem
+      .story-paragraph
+        margin: 0 1rem
 
     #contents-actions-container
       position: relative
-      width: 100vw
       left: 0
       right: 0
       order: 5
       display: flex
       flex-direction: column
       text-align: center
+      margin: 0
 
       .contents-item
         padding: 0.5rem 0
 
-      .download
-        width: calc(100vw - 2rem)
-        margin: 0 1rem 1rem 1rem
+    // Override specific panel widths
+    #guidelines-panel, #story-panel, #contents-actions-container
+      width: 100%
 
     #footer
       order: 10
