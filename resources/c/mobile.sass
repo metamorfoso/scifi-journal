@@ -56,7 +56,7 @@
     display: inline-block
     width: 100vw
     margin: 0
-    z-index: 0
+    z-index: 1
 
     &:hover
       z-index: 0
@@ -71,8 +71,10 @@
     flex-direction: column
     margin-top: 5rem
 
-    #logo-panel
-      display: none
+    #large-logo-panel
+      border-left: 1rem solid $panel-color
+      border-right: 1rem solid $panel-color
+      z-index: 0
 
     #current-panel
       order: 4
@@ -85,10 +87,6 @@
 
     #about-panel
       order: 2
-      .panel-heading
-        display: none
-      .panel-inner
-        margin-top: 0
 
     .cover-panel
       // don't show cover in single issue view when on mobile
