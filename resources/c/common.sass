@@ -1,5 +1,9 @@
 @import "constants"
 
+#content-block
+  min-height: 150vh
+  z-index: 2
+
 ul
   list-style-type: decimal
 
@@ -111,18 +115,31 @@ p
 
 #footer
   position: absolute
-  text-align: right
-  margin: 0
-  bottom: 0
+  margin: 2rem 0 0 0
   right: 0
-  line-height: 1rem
+  height: 15rem
   width: 100vw
+  font-family: Vanadine
+  box-sizing: border-box
+  text-align: right
 
   background-color: $panel-color
   #signature
-    font-size: 0.7rem
-    margin: 1rem
+    display: inline-block
+    width: 66%
+    font-size: 1.2rem
+    font-weight: 900
+    margin: 0
+    padding: 2.8rem 0
     color: white
+    #credits, #license, #contact
+      display: inline-block
+      vertical-align: middle
+      width: 25%
+      margin: 0
+      text-align: left
+      li
+        margin: 0.7rem
 
 .logo-wrapper
   position: absolute

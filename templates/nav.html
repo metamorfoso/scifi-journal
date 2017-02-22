@@ -7,18 +7,19 @@
   <a href="#" class="menu-button" id="menuButton">
     <span class="burger-icon"></span>
   </a>
-  <div id="navlink-wrapper">
-    {% if not landing_page %}
-      <p class="navlink-item">
-        <a href="{{ url('landing_page') }}">Home</a>
-      </p>
-    {% endif %}
+  <div id="navlink-wrapper" {% if landing_page %}class="landing"{% endif %}>
+
+    <p id="home-link" class="navlink-item {% if landing_page %}hidden{% endif %}">
+      <a href="{{ url('landing_page') }}">Home</a>
+    </p>
+
     <p class="navlink-item">
       <a href="{{ url('archive') }}">Archive</a>
     </p>
     <p class="navlink-item">
       <a href="{{ url('submissions') }}">Submissions</a>
     </p>
+
   </div>
 
   <div id="mobileMenu">

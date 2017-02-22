@@ -8,18 +8,28 @@
   background-color: $panel-color
   text-align: right
 
-  z-index: 2  // so that 'sponge' can slide underneath
+  z-index: 2  // so that logo can slide underneath
 
   #navlink-wrapper
     position: relative
     top: 50%
-    right: 5vw
     transform: translateY(-50%)
+    text-align: right
+    margin: 0 4.5vw
     display: inline-block
     line-height: 1rem
+    width: 50vw
+
+    &.landing
+
+      width: 31vw
+      margin: 0 1vw
+      text-align: center
 
     .navlink-item
       display: inline
-      margin: 0 1rem
+      padding: 0 1vw
       color: white
       font-size: 2rem
+      &.hidden
+        display: none

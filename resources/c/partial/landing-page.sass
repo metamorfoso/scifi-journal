@@ -3,22 +3,26 @@
   #content-block.landing
     min-height: 85rem
 
+  #about-panel
+    width: $about-panel-width
+    margin-right: 1vw
+
   #current-panel
     width: $current-panel-width
-    height: 35rem
+    height: auto
     background-color: $panel-color
 
     display: inline-block
     position: fixed
-    margin-top: 5rem
-    right: 36vw
+    margin: 5rem 5vw 0 5vw
+    left: 33vw
     text-align: center
 
     #current-cover
       display: inline-block
       margin: auto 1rem 1rem 1rem
-      height: 28rem
-      width: 18rem
+      width: calc(25vw - 2rem)
+      height: 35vw
       background-color: red
 
     &:hover
@@ -27,9 +31,11 @@
   #large-logo-panel
     top: 12rem
 
-    width: 20rem
+    // width: 20rem
+    width: 31vw
+    margin: 0 1vw
     height: 12rem
-    right: 4.5vw
+    right: 0
 
     display: inline-block
     position: absolute
@@ -42,4 +48,5 @@
     &.fix
       position: fixed
       top: -1.5rem
-      z-index: 10
+    .sponge
+      width: 20rem
