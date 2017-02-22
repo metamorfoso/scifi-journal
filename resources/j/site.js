@@ -6,38 +6,46 @@ var logoPanel = $('#large-logo-panel');
 
 // Function for making the logo panel appear as if it's scrolling
 // at half speed when in mobile view
-var transformLogoPanel = function (destination) {
+var transformLogoPanel = function (yDelta) {
   // Only proceed if viewport is mobile-sized
   if(Modernizr.mq('(max-width: 1080px)')) {
     logoPanel.css({
-      '-webkit-transform' : 'translateY(' + destination + 'px)',
-      '-moz-transform'    : 'translateY(' + destination + 'px)',
-      '-ms-transform'     : 'translateY(' + destination + 'px)',
-      '-o-transform'      : 'translateY(' + destination + 'px)',
-      'transform'         : 'translateY(' + destination + 'px)'
+      '-webkit-transform' : 'translateY(' + yDelta + 'px)',
+      '-moz-transform'    : 'translateY(' + yDelta + 'px)',
+      '-ms-transform'     : 'translateY(' + yDelta + 'px)',
+      '-o-transform'      : 'translateY(' + yDelta + 'px)',
+      'transform'         : 'translateY(' + yDelta + 'px)'
     });
   }
+}
+
+var transformCurrentPanel = function (yDelta) {
+  currentPanel.css({
+    'transform' : 'translateY(' + yDelta + 'px)'
+  });
 }
 
 $(window).scroll(function () {
     // Compare current scroll top value to last known one to work out scrolling direction
     var scrollTop = $(this).scrollTop();
-    var destination = scrollTop / 2  // destination for logo panel in mobile view
-    if (scrollTop > lastScrollTop) {
-        // downscroll
-        currentPanel.removeClass('scrolling-up').addClass('scrolling-down');
-        transformLogoPanel(destination);
-    } else {
-        // upscroll
-        currentPanel.removeClass('scrolling-down').addClass('scrolling-up');
-        transformLogoPanel(destination);
+    var logoYDelta = scrollTop / 2  // destination for logo panel in mobile view
+    var currentPanelYDelta = scrollTop / 2
+    if (scrollTop != lastScrollTop) {
+        transformLogoPanel(logoYDelta);
     }
-    // When scrolltop hits 215, logo panel needs to be fixed in place
-    if (scrollTop >= 215) {
-        logoPanel.addClass('fix')
+
+    // When scrolltop hits 185, logo panel needs to be fixed in place
+    if (scrollTop >= 185) {
+        logoPanel.addClass('fix');
     } else {
-        logoPanel.removeClass('fix')
+        logoPanel.removeClass('fix');
     }
+
+    // Transform current panel until user has scrolled 190 px down
+    if (scrollTop <= 190) {
+      transformCurrentPanel(currentPanelYDelta);
+    }
+
     // Update last known scroll top value
     lastScrollTop = scrollTop;
 });

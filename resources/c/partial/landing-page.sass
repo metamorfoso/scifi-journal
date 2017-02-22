@@ -1,8 +1,7 @@
 @media screen and (min-width: 1081px)
-  #about-panel
-    min-height: 54rem
-    .panel-inner
-      min-height: 52rem
+  // Give enough space to scroll through
+  #content-block.landing
+    min-height: 85rem
 
   #current-panel
     width: $current-panel-width
@@ -14,21 +13,6 @@
     margin-top: 5rem
     right: 36vw
     text-align: center
-
-    &.scrolling-down
-      -webkit-transition: margin-top 1s ease-out
-      -o-transition: margin-top 1s ease-out
-      -moz-transition: margin-top 1s ease-out
-      transition: margin-top 1s ease-out
-      margin-top: 10rem
-
-    &.scrolling-up
-      -webkit-transition: margin-top 1s ease-out
-      -o-transition: margin-top 1s ease-out
-      -moz-transition: margin-top 1s ease-out
-      transition: margin-top 1s ease-out
-      margin-top: 5rem
-
 
     #current-cover
       display: inline-block

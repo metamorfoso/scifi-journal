@@ -42,7 +42,7 @@
     <div id="nav-block">
       {% block header %}{% endblock %}
     </div>
-    <div id="content-block">
+    <div id="content-block" {% if landing_page %}class="landing"{% endif %}>
       {% block content %}{% endblock %}
     </div>
 
