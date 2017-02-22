@@ -179,7 +179,7 @@ PIPELINE = dict(
     JAVASCRIPT={
         'app': {
             'source_filenames': (
-                'j/lib/modernizr.js',
+                'j/lib/modernizr-mq.js',
                 'j/lib/jquery.js',
                 'j/lib/raven.js',
                 'j/lib/slick.js',

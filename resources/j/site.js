@@ -7,14 +7,16 @@ var logoPanel = $('#large-logo-panel');
 // Function for making the logo panel appear as if it's scrolling
 // at half speed when in mobile view
 var transformLogoPanel = function (destination) {
-  // logoPanel.css('transform', 'translateY(' + dest + 'px)');
-  logoPanel.css({
-    '-webkit-transform' : 'translateY(' + destination + 'px)',
-    '-moz-transform'    : 'translateY(' + destination + 'px)',
-    '-ms-transform'     : 'translateY(' + destination + 'px)',
-    '-o-transform'      : 'translateY(' + destination + 'px)',
-    'transform'         : 'translateY(' + destination + 'px)'
-  });
+  // Only proceed if viewport is mobile-sized
+  if(Modernizr.mq('(max-width: 1080px)')) {
+    logoPanel.css({
+      '-webkit-transform' : 'translateY(' + destination + 'px)',
+      '-moz-transform'    : 'translateY(' + destination + 'px)',
+      '-ms-transform'     : 'translateY(' + destination + 'px)',
+      '-o-transform'      : 'translateY(' + destination + 'px)',
+      'transform'         : 'translateY(' + destination + 'px)'
+    });
+  }
 }
 
 $(window).scroll(function () {
@@ -24,12 +26,10 @@ $(window).scroll(function () {
     if (scrollTop > lastScrollTop) {
         // downscroll
         currentPanel.removeClass('scrolling-up').addClass('scrolling-down');
-        logoPanel.removeClass('scrolling-up').addClass('scrolling-down');
         transformLogoPanel(destination);
     } else {
         // upscroll
         currentPanel.removeClass('scrolling-down').addClass('scrolling-up');
-        logoPanel.removeClass('scrolling-down').addClass('scrolling-up');
         transformLogoPanel(destination);
     }
     // When scrolltop hits 215, logo panel needs to be fixed in place
