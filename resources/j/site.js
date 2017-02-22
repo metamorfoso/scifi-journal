@@ -5,10 +5,10 @@ var currentPanel = $('#current-panel');
 var logoPanel = $('#large-logo-panel');
 
 // Function for making the logo panel appear as if it's scrolling
-// at half speed when in mobile view
-var transformLogoPanel = function (yDelta) {
+// at half speed -- only in mobile view
+var transformMobileLogoPanel = function (yDelta) {
   // Only proceed if viewport is mobile-sized
-  if(Modernizr.mq('(max-width: 1080px)')) {
+  if(Modernizr.mq('(max-width: 1081px)')) {
     logoPanel.css({
       '-webkit-transform' : 'translateY(' + yDelta + 'px)',
       '-moz-transform'    : 'translateY(' + yDelta + 'px)',
@@ -19,32 +19,46 @@ var transformLogoPanel = function (yDelta) {
   }
 }
 
+// Function for making the current issue panel move downards when the user
+// scrolls the page down -- only in non-mobile
 var transformCurrentPanel = function (yDelta) {
-  currentPanel.css({
-    'transform' : 'translateY(' + yDelta + 'px)'
-  });
+  // Only proceed if viewport is NOT mobile-sized
+  if(Modernizr.mq('(min-width: 1081px)')) {
+    currentPanel.css({
+      'transform'         : 'translateY(' + yDelta + 'px)',
+      '-webkit-transform' : 'translateY(' + yDelta + 'px)',
+      '-moz-transform'    : 'translateY(' + yDelta + 'px)',
+      '-ms-transform'     : 'translateY(' + yDelta + 'px)',
+      '-o-transform'      : 'translateY(' + yDelta + 'px)'
+    });
+  }
 }
 
+// Track scrolling and trigger desired behaviour at appropriate points
 $(window).scroll(function () {
-    // Compare current scroll top value to last known one to work out scrolling direction
+    // Compare current scrollTop value to last known one to work out scrolling direction
     var scrollTop = $(this).scrollTop();
-    var logoYDelta = scrollTop / 2  // destination for logo panel in mobile view
-    var currentPanelYDelta = scrollTop / 2
-    if (scrollTop != lastScrollTop) {
-        transformLogoPanel(logoYDelta);
-    }
+    var logoYDelta = scrollTop / 2  // how much to move logo panel by (in mobile view)
+    var currentPanelYDelta = scrollTop / 2 // how much to move current issue panel (in non-mobile view)
 
-    // When scrolltop hits 185, logo panel needs to be fixed in place
-    if (scrollTop >= 185) {
+    // if (scrollTop != lastScrollTop) {
+    //     transformMobileLogoPanel(logoYDelta);
+    // }
+
+    // When scrollTop hits 220, logo panel needs to be fixed in place (non-mobile)
+    if (scrollTop >= 220  && Modernizr.mq('(min-width: 1081px)')) {
         logoPanel.addClass('fix');
     } else {
         logoPanel.removeClass('fix');
     }
 
-    // Transform current panel until user has scrolled 190 px down
+    // Transform current panel until user has scrolled downward 190px
     if (scrollTop <= 190) {
       transformCurrentPanel(currentPanelYDelta);
     }
+
+    // Transform logo panel (mobile) on every scrolling action
+    transformMobileLogoPanel(logoYDelta);
 
     // Update last known scroll top value
     lastScrollTop = scrollTop;
