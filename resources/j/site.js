@@ -23,3 +23,14 @@ $(window).scroll(function () {
     // Update last known scroll top value
     lastScrollTop = scrollTop;
 });
+
+// handle mobile menu clicks
+var menuButton = document.getElementById('menuButton');
+var mobileMenu = document.getElementById('mobileMenu');
+var navBlock = document.getElementById('nav-block');
+menuButton.addEventListener('click', function (e) {
+  menuButton.classList.toggle('is-active');
+  mobileMenu.classList.toggle('display');
+  navBlock.classList.toggle('invert-colours');
+  e.preventDefault();
+});

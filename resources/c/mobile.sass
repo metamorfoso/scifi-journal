@@ -1,4 +1,5 @@
-// Phone
+@import "./lib/burger"
+
 @media screen and (max-width: 1080px)
   .logo-wrapper
     display: none
@@ -9,16 +10,44 @@
     top: 0
 
   #nav-block
-    z-index: 5
+    z-index: 100
     width: 100vw
+    height: 5rem
+    text-align: center
     #navlink-wrapper
-      width: 100%
-      right: 0
-      left: 0
-      text-align: center
-      .navlink-item
-        margin: 0
-        padding: 0 1rem
+      display: none
+    &.invert-colours
+      background-color: white
+
+  .menu-button
+    display: inline-block
+    padding: 1.2rem
+    background-color: inherit
+  .burger-icon
+    @include burger(40px, 3px, 12px, white)
+  .menu-button.is-active .burger-icon
+    @include burger-to-cross($panel-color)
+
+  #mobileMenu.display
+    display: block
+    position: fixed
+    z-index: 1
+    top: 5rem
+    width: 100vw
+    height: calc(100vh - 4rem)
+    text-align: center
+    background-color: $panel-color
+    box-sizing: border-box
+    border-left: 1rem solid white
+    border-right: 1rem solid white
+    // border-bottom: 1rem solid white
+    .mobile-link-list
+      margin: 5rem 0
+      .mobile-link
+        padding: 2rem 0
+        color: white
+        font-size: 2rem
+        font-family: Vanadine
 
   #content-block
     margin-top: 5rem
@@ -26,17 +55,21 @@
   .panel-outer
     display: inline-block
     width: 100vw
-    margin: 2rem 0
+    margin: 0
     z-index: 0
 
     &:hover
       z-index: 0
+
+    .panel-heading
+      margin: 1rem 0
 
   // Use flex to order elements appropriately
   .panel-content
   #content-block
     display: flex
     flex-direction: column
+    margin-top: 5rem
 
     #logo-panel
       display: none
@@ -54,6 +87,8 @@
       order: 2
       .panel-heading
         display: none
+      .panel-inner
+        margin-top: 0
 
     .cover-panel
       // don't show cover in single issue view when on mobile

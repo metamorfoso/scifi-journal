@@ -2,21 +2,21 @@
 
 ul
   list-style-type: decimal
-  
+
 // Get rid of bullet points on certain lists
 ul.unformatted
   list-style: none
   line-height: 1.5em
   padding: 0
-  
+
 .story-title
   padding-left: 1rem
   font-size: 18px
-  
+
 .story-author
   padding: 0 0 1rem 1rem
   font-size: 15px
-  
+
 // Disable default link styling
 a, #logo-link
   text-decoration: none
@@ -39,9 +39,13 @@ h1, h3
 p
   margin: 0
 
+// Don't display mobile menu by default
+#mobileMenu
+  display: none
 
 .panel-outer
-  z-index: 4  // higher than nav's default z-index
+  // higher than nav's default z-index
+  z-index: 4
   min-width: 22.5rem
   width: 33vw
   //height: 100%
@@ -74,12 +78,12 @@ p
   color: white
   font-size: 2rem
 
-.panel-heading-title  
+.panel-heading-title
   margin: 1.85rem 0 0 0
   color: white
   font-size: 2rem
   font-family: vanadine
-  
+
 .panel-heading-author
   color: white
   font-size: 1rem

@@ -4,6 +4,9 @@
   {#    {% if single_issue %}#}
   {#        <img class="logo" src="{{ static('images/logo.png') }}"/>#}
   {#    {% endif %}#}
+  <a href="#" class="menu-button" id="menuButton">
+    <span class="burger-icon"></span>
+  </a>
   <div id="navlink-wrapper">
     {% if not landing_page %}
       <p class="navlink-item">
@@ -17,4 +20,16 @@
       <a href="{{ url('submissions') }}">Submissions</a>
     </p>
   </div>
+
+  <div id="mobileMenu">
+    <ul class="mobile-link-list unformatted">
+      {% if not landing_page %}
+      <li class="mobile-link"><a href="{{ url('landing_page') }}">Home</a></li>
+      {% endif %}
+      <li class="mobile-link"><a href="{{ url('archive') }}">Archive</a></li>
+      <li class="mobile-link"><a href="{{ url('submissions') }}">Submissions</a></li>
+      <li class="mobile-link"><a href="{{ url('current') }}">Current Issue</a></li>
+    </ul>
+  </div>
+
 {% endblock %}
