@@ -39,20 +39,24 @@ $(window).scroll(function () {
     // Compare current scrollTop value to last known one to work out scrolling direction
     var scrollTop = $(this).scrollTop();
     var logoYDelta = scrollTop / 2  // how much to move logo panel by (in mobile view)
-    var currentPanelYDelta = scrollTop / 2 // how much to move current issue panel (in non-mobile view)
+    var currentPanelYDelta = scrollTop / 2  // how much to move current issue panel (in non-mobile view)
+    console.log(scrollTop)
 
-    // if (scrollTop != lastScrollTop) {
-    //     transformMobileLogoPanel(logoYDelta);
-    // }
-
-    // When scrollTop hits 220, logo panel needs to be fixed in place (non-mobile)
-    if (scrollTop >= 220  && Modernizr.mq('(min-width: 1081px)')) {
-        logoPanel.addClass('fix');
+    // Fix logo panel in place when scrollTop hits 220 (non-mobile)
+    if (scrollTop >= 220 && Modernizr.mq('(min-width: 1081px)')) {
+      logoPanel.addClass('fix');
     } else {
-        logoPanel.removeClass('fix');
+      logoPanel.removeClass('fix');
     }
 
-    // Transform current panel until user has scrolled downward 190px
+    // Fix current panel in place when scrollTop hits 550 (non-mobile)
+    if (scrollTop >= 550 && Modernizr.mq('(min-width: 1081px)')) {
+      currentPanel.addClass('fix');
+    } else {
+      currentPanel.removeClass('fix');
+    }
+
+    // Transform current panel until user has scrolled downward 190px (mobile)
     if (scrollTop <= 190) {
       transformCurrentPanel(currentPanelYDelta);
     }
