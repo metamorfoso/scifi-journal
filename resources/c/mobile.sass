@@ -34,7 +34,7 @@
     z-index: 1
     top: 5rem
     width: 100vw
-    height: calc(100vh - 4rem)
+    height: calc(110vh - 4rem)
     text-align: center
     background-color: $panel-color
     box-sizing: border-box
@@ -59,7 +59,7 @@
     z-index: 1
 
     &:hover
-      z-index: 0
+      z-index: 1
 
     .panel-heading
       margin: 1rem 0
@@ -91,6 +91,13 @@
     .cover-panel
       // don't show cover in single issue view when on mobile
       display: none
+
+    // The purple outer panel shouldn't extend past the top of the inner
+    // for some panels (those without headings), so as to not meld with
+    // the fixed nav-block and look bad when scrolling.
+    .contents-panel
+      .panel-inner
+        margin-top: 0
 
     #story-panel
       order: 3

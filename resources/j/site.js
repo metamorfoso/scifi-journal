@@ -20,7 +20,6 @@ var transformLogoPanel = function (destination) {
 $(window).scroll(function () {
     // Compare current scroll top value to last known one to work out scrolling direction
     var scrollTop = $(this).scrollTop();
-    console.log(scrollTop)
     var destination = scrollTop / 2  // destination for logo panel in mobile view
     if (scrollTop > lastScrollTop) {
         // downscroll
