@@ -40,8 +40,6 @@ $(window).scroll(function () {
     var scrollTop = $(this).scrollTop();
     var logoYDelta = scrollTop / 2  // how much to move logo panel by (in mobile view)
     var currentPanelYDelta = scrollTop / 2  // how much to move current issue panel (in non-mobile view)
-    console.log(scrollTop)
-
     // Fix logo panel in place when scrollTop hits 220 (non-mobile)
     if (scrollTop >= 220 && Modernizr.mq('(min-width: 1081px)')) {
       logoPanel.addClass('fix');
