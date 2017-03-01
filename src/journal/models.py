@@ -1,6 +1,7 @@
 from django.db import models
 from num2words import num2words
 from autoslug import AutoSlugField
+import datetime
 
 
 class Author(models.Model):
@@ -28,7 +29,11 @@ class Issue(models.Model):
 
     @property
     def pretty_name(self):
-        return "ISSUE %s" % num2words(self.number).upper()
+        return "Issue %s" % num2words(self.number).title()
+
+    @property
+    def pretty_pub_date(self):
+        return "%s, %s" % (self.pub_date.strftime("%B"), self.pub_date.year)
 
     @models.permalink
     def get_absolute_url(self):

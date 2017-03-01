@@ -8,7 +8,9 @@
         <div class="issue-list-wrapper">
           <ul class="issue-list unformatted">
             {% for i in issues %}
-              <li><a href="{{ i.get_absolute_url() }}">{{ i.pretty_name }} ({{ i.pub_date }})</a></li>
+              <li>
+                <a href="{{ i.get_absolute_url() }}">{{ i.pretty_name }} ({{ i.pretty_pub_date }})</a>
+              </li>
             {% endfor %}
           </ul>
         </div>

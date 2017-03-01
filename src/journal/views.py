@@ -2,6 +2,7 @@ from utilities.render import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from .models import Issue, Story
+from num2words import num2words
 
 
 @render("index.html")
@@ -16,13 +17,16 @@ def index(request):
     published_issues = Issue.objects.filter(published=True)
     if published_issues.exists():
         current_issue = published_issues.latest('pub_date')
+        forthcoming_issue = num2words(current_issue.number + 1).title()
         stories = current_issue.story_set.all()
     else:
         current_issue = None
+        forthcoming_issue = One
         stories = None
 
     return dict(
         current_issue=current_issue,
+        forthcoming_issue=forthcoming_issue,
         stories=stories,
         landing_page=True
     )
