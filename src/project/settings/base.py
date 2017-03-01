@@ -1,7 +1,9 @@
 import os
 from functools import partial
-
 import raven
+
+# Switch between being open and closed submissions
+TAKING_SUBMISSIONS = False
 
 SRC_ROOT = os.path.dirname(__file__)
 PROJECT_ROOT = os.path.abspath(os.path.join(SRC_ROOT, '..', '..', '..'))

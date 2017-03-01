@@ -16,8 +16,12 @@
           The magazine will soon be available to read online or to download as a pdf, mobi, or epub. We also plan to make an audio version of our magazine so if you are accepted to Sponge we will ask you to record a reading of your story. These will later be available for free on <a href="https://bandcamp.com">Band Camp</a>.
         </p>
         <p>
-          Sponge is currently closed for submissions
-        </p>        
+          <span class="bold">
+            {% if not TAKING_SUBMISSIONS %}Sponge is currently closed for submissions.
+            {% else %}Sponge is currently open for submissions!
+            {% endif %}
+          </span>
+        </p>
         <p>
           At the moment we are working through the stories that we recieved during our first submissions call. We hope to have our first issue available to you from early-to-mid April.
         </p>
@@ -40,7 +44,7 @@
     {% endif %}
   </div>
 
-  <div id="large-logo-panel">    
+  <div id="large-logo-panel">
     <img class="sponge" src="{{static('images/sponge.png')}}"/>
   </div>
 
