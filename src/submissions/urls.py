@@ -6,10 +6,10 @@ from submissions import views
 
 
 urlpatterns = [
-    url(r'^accounts/login/$', auth_views.login),
-    url(r'^submissions/$', views.submissions, name="submissions"),
+    url(r'^accounts/login$', auth_views.login),
+    url(r'^submissions$', views.submissions, name="submissions"),
     url(
-        r'^confirm_publication/$',
+        r'^confirm_publication$',
         views.confirm_publication,
         name="confirm_publication"
     )

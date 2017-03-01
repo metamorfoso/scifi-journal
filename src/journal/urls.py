@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^download_issue/(?P<issue_number>[\w-]+)/(?P<format>[\w\-]+)$',
         views.download_issue,
         name="download_issue"),
-    url(r'^current/$', views.current, name="current"),
+    url(r'^current$', views.current, name="current"),
     url(r'^view_story/(?P<slug>[\w\-]+)$', views.view_story, name="view_story")
 ]
 
