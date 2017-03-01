@@ -6,7 +6,7 @@ from journal import views
 
 urlpatterns = [
     url(r'^$', views.index, name="landing_page"),
-    url(r'^journal/$', views.issue_archive, name="archive"),
+    url(r'^archive$', views.issue_archive, name="archive"),
     url(r'^issue/(?P<issue_number>[\w-]+)$', views.single_issue, name="issue"),
     url(r'^download_issue/(?P<issue_number>[\w-]+)/(?P<format>[\w\-]+)$',
         views.download_issue,
