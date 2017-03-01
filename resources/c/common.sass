@@ -13,6 +13,9 @@ ul.unformatted
   line-height: 1.5em
   padding: 0
 
+.bold
+  font-weight: 700
+
 .story-title
   padding-left: 1rem
   font-size: 18px
@@ -21,14 +24,17 @@ ul.unformatted
   padding: 0 0 1rem 1rem
   font-size: 15px
 
-// Disable default link styling
-a, #logo-link
-  text-decoration: none
+// Link styling
+a
+  text-decoration: underline
   color: inherit
 
 a:hover
   color: #e62400
   cursor: pointer
+
+#logo-link, .navlink
+  text-decoration: none
 
 // Remove margin on headings so they can be positioned predictably
 h1, h3

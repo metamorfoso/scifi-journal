@@ -8,46 +8,66 @@
     </p>
     <div class="panel-inner">
       <div class="panel-content">
-        <p>Sponge is looking for original science fiction and speculative
+        <p>
+          Sponge is looking for original science fiction and speculative
           fiction from New Zealand and Pacific writers.
           This means that (for now) you can only submit to Sponge if you are a
           citizen of New Zealand or the Pacific, or
           if you are a resident of this area. If you are unsure whether this
           means you, please look at the map at the
-          bottom of this page.</p>
-
-		<p class="sub-heading">Submissions</p>
-        <p>You can submit to Sponge by filling out the submission form on this
-          page. Submissions must be unpublished, but can be simultaneous (you can submit the story to other journals/magazines at the same time). Please limit your submissions to a maximum of three pieces at a time.</p>
-			<p>By submitting you are giving permission to us to publish your story, but the intellectual property and copyright remains with you. If you do at some point want to remove your story from the website (before or after acceptance and publishing) we would be happy to discuss this with you.</p>
-			<p style="font-weight:bold">The deadline for submissions to Issue One is 28 Feb 2017.</p>
-		  <p>Unfortunately there is currently no payment for work in Sponge, although this is something we plan to move towards in future. Donations to this cause (particularly in the magnitude of a million) are very welcome!</p>
-		  <p>At the moment Sponge is looking for:</p>
-		  <ul class="submissions-list">
-			<li>Poetry of up to a page in length</li>
-			<li>Short stories from 1500 - 5000 words</li>
-			<li>Non-fiction reviews of published New Zealand and Pacific Sci-Fi of up to 600 words</li>
-			<li>Artworks which could be used for our cover (e.g portrait, colourful, loosly related to science fiction)</li>
-		  </ul>
-		  <p class="sub-heading">Formatting</p>
-		  <p>We are not picky about how you
+          bottom of this page.
+        </p>
+        {% if not TAKING_SUBMISSIONS %}
+          <p><b>Note:</b> Sponge is currently closed for submissions.</p>
+        {% endif %}
+        <p class="sub-heading">Submissions</p>
+        <p>
+          During submission rounds, you can submit to Sponge by filling out the submission form on this
+          page. Submissions must be unpublished, but can be simultaneous (you can submit the story to
+          other journals/magazines at the same time). Please limit your submissions to a maximum of
+          three pieces at a time.
+        </p>
+        <p>
+          By submitting you are giving permission to us to publish your story, but the intellectual
+          property and copyright remains with you. If you do at some point want to remove your story
+          from the website (before or after acceptance and publishing) we would be happy to discuss
+          this with you.
+        </p>
+	      <p>
+          Unfortunately there is currently no payment for work in Sponge, although this is something
+          we plan to move towards in future. Donations to this cause (particularly in the magnitude
+          of a million) are very welcome!
+        </p>
+	      <p>Sponge publishes:</p>
+  		  <ul class="submissions-list">
+    			<li>Poetry of up to a page in length</li>
+    			<li>Short stories from 1500 - 5000 words</li>
+    			<li>Non-fiction reviews of published New Zealand and Pacific Sci-Fi of up to 600 words</li>
+    			<li>Artworks which could be used for our cover (e.g portrait, colourful, loosly related to science fiction)</li>
+  		  </ul>
+  		  <p class="sub-heading">Formatting</p>
+  		  <p>
+          We are not picky about how you
           format your submission as long as it is clear and easy to read. To us
-          this means:</p>
+          this means:
+        </p>
         <ul class="submissions-list">
           <li>Left aligned text</li>
-          <li>A normal font like Times New Roman (or Courier if you prefer
-            monospaced)
-          </li>
+          <li>A normal font like Times New Roman (or Courier if you prefer monospaced)</li>
           <li>Consistent punctuation</li>
         </ul>
         <p>And that's it!</p>
-        <p>You may submit you story as a doc, docx, txt, or rdf file (basically
+        <p>
+          Work can be submitted as a doc, docx, txt, or rdf file (basically
           anything that is editable). If you
           are submitting an artwork for our cover, please send through a
           high-quality png or jpeg file (at least 1000
-          pixels on its widest length and 300dpi)</p>
-		  <p class="sub-heading">Content</p>
-        <p>At Sponge we are pretty flexible about what we consider a science
+          pixels on its widest length and 300dpi). You may email these to us directly if
+          you would like to send multiple images
+        </p>
+	      <p class="sub-heading">Content</p>
+        <p>
+          At Sponge we are pretty flexible about what we consider a science
           fiction or speculative fiction story. It's
           not about what you do or do not put in your story, but the attitude
           you bring to your writing. We want to
@@ -55,16 +75,20 @@
           and push the boundaries of science fiction.
           Most importantly, we want to publish stories that say something about
           what it means to live in the Pacific and
-          how our culture, society, and environments shapes the stories we
-          tell.</p>
-        <p>If you are not sure whether your story fits this criteria, send it
+          how our culture, society, and environments shapes the stories we tell.
+        </p>
+        <p>
+          If you are not sure whether your story fits this criteria, send it
           to us anyway! We endeavor to give as much feedback as we can to those
           who submit to us.
         </p>
         <p class="sub-heading">Submission Area</p>
         <img class="map" src="{{ static('images/map.jpg') }}"/>
         <p class="sub-heading">Contact</p>
-		<p>For any questions or suggestions please contact us at <a href="mailto:editor@sponge.nz">editor@sponge.nz</a>.</p>
+	      <p>
+          For any questions or suggestions please contact us at
+          <a href="mailto:editor@sponge.nz">editor@sponge.nz</a>.
+        </p>
       </div>
     </div>
   </div>
@@ -95,8 +119,13 @@
                 </div>
               {% endfor %}
             </div>
-            <input type="submit" name="story_submission" value="Submit"
-                   class="submit button"/>
+            <input
+              {% if not TAKING_SUBMISSIONS %}disabled {% endif %}
+              type="submit"
+              name="story_submission"
+              value="{% if not TAKING_SUBMISSIONS %}SUBMISSIONS CURRENTLY CLOSED{% else %}SUBMIT{% endif %}"
+              class="submit button {% if not TAKING_SUBMISSIONS %}submissions-closed{% endif %}"
+            />
           </form>
         </div>
       </div>
