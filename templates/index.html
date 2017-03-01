@@ -29,10 +29,10 @@
           </span>
         </p>
         <p>
-          {% if not TAKING_SUBMISSIONS %}
-            At the moment we are working through the stories that we recieved during our submissions
-            call for Issue {{ forthcoming_issue }}. We hope to have it available to you in early-to-mid
-            April.
+          {% if PREPARING_NEXT_ISSUE and not TAKING_SUBMISSIONS %}
+            At the moment we are working through the stories that we recieved during our
+            submissions call for Issue {{ forthcoming_issue }}. We hope to have it
+            available to you in early-to-mid April.
           {% else %}
             Please submit your stories, poetry, or reviews through the
             <a href="{{ url('submissions') }}">submissions page</a>.

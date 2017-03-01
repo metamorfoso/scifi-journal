@@ -24,7 +24,7 @@ def environment(**options):
         'static': staticfiles_storage.url,
         'url': url,
     })
-    for setting in ('STATIC_URL', 'DEBUG', 'TAKING_SUBMISSIONS'):
+    for setting in ('STATIC_URL', 'DEBUG', 'TAKING_SUBMISSIONS', 'PREPARING_NEXT_ISSUE'):
         env.globals.update({setting: getattr(settings, setting)})
 
     env.filters.update({

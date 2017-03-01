@@ -2,8 +2,11 @@ import os
 from functools import partial
 import raven
 
-# Switch between being open and closed submissions
+# ############################ Journal Settings ############################# #
 TAKING_SUBMISSIONS = False
+PREPARING_NEXT_ISSUE = True
+
+# ########################### Application Settings ########################## #
 
 SRC_ROOT = os.path.dirname(__file__)
 PROJECT_ROOT = os.path.abspath(os.path.join(SRC_ROOT, '..', '..', '..'))
