@@ -6,10 +6,8 @@
     <p class="panel-heading-title">{{ story.title.upper() }}</p>
     <p class="panel-heading-author">{{ story.author }}</p>
     <div class="panel-inner">
-      <div class="panel-content">
-      {% for paragraph in paragraphs %}
-        <p class="story-paragraph">{{ paragraph }}</p>
-      {% endfor %}
+      <div class="panel-content">      
+        {{ story.content | safe }}    
       </div>
     </div>
   </div>

@@ -46,7 +46,7 @@ class Story(models.Model):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(Author)
     title = models.CharField(max_length=100)
-    content = models.FileField(upload_to="story_uploads/")
+    content = models.TextField(max_length=30000, blank=True)
     author_notes = models.TextField(blank=True, max_length=3000)
 
     slug = AutoSlugField(
