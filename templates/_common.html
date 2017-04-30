@@ -1,0 +1,10 @@
+{% macro thumbnail(image, dimensions, crop="center", format="JPEG", alt="") %}
+
+  {% if image %}
+
+    {% set tn = get_thumbnail(image, dimensions, crop=crop, format=format) %}
+    <img src="{{ tn.url }}"
+         alt="{{ alt }}"
+         class="orient_{% if tn.x > tn.y %}land{% else %}port{% endif %}">
+  {% endif %}
+{% endmacro %}
