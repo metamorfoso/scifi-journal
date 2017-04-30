@@ -25,9 +25,12 @@ $mobi-button-colour: #006b00
     position: relative
     display: inline-block
     margin: 0 1rem 1rem 1rem
-    height: calc(100vh - 2rem)
+    // height: calc(100vh - 2rem)
     width: calc(60vh - 2rem)
-    background-color: red
+
+    &.no-image
+      height: calc(100vh - 2rem)
+      background-color: red
 
 #contents-actions-container
   z-index: 0

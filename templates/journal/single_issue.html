@@ -1,4 +1,5 @@
 {% extends "nav.html" %}
+{% from "_common.html" import thumbnail %}
 
 {% block content %}
 
@@ -60,9 +61,9 @@
   <div class="cover-panel">
     <p class="panel-heading">{{ issue.pretty_name }}</p>
     {% if issue.cover_image %}
-      <img id="issue-cover" src="{{ issue.cover_image.url }}"/>
+      <div id="issue-cover">{{ thumbnail(issue.cover_image, "320x464") }}</div>
     {% else %}
-      <div id="issue-cover"></div>
+      <div id="issue-cover" class="no-image"></div>
     {% endif %}
   </div>
 
