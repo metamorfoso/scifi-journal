@@ -60,8 +60,8 @@ class SubmissionAdmin(admin.ModelAdmin):
         "status"
     ]
 
-    def author_link(self, submitter):
-        url = reverse("admin:submissions_submitter_change", args=(submitter.id,))
+    def author_link(self, submission):
+        url = reverse("admin:submissions_submitter_change", args=(submission.author.id,))
         return '<a href="%s">%s</a>' % (url, "Go to submitter")
     author_link.allow_tags = True
 
