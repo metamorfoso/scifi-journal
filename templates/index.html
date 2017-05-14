@@ -9,16 +9,15 @@
     <div class="panel-inner">
       <div class="panel-content">
         <p>
-          Sponge is an online magazine for science fiction and speculative fiction, based in the
+          Sponge is an online journal for science fiction and speculative fiction, based in the
           post-apocalpytic city of Christchurch, New Zealand. We publish short stories, poetry,
           and reviews of science fiction from New Zealand and Pacific writers, with a particular
           focus on new and emerging writers.
         </p>
         <p>
-          The magazine will soon be available to read online or to download as a pdf, mobi, or epub.
-          We also plan to make an audio version of our magazine so if you are accepted to Sponge we
-          will ask you to record a reading of your story. These will later be available for free on
-          <a href="https://bandcamp.com">Band Camp</a>.
+          Our first issue is finally here! You can read it online or download it as a PDF, MOBI, or EPUB.
+          We also plan to release an audio version of the issue (voiced by our talented authors). This will be soon available on
+          <a style="text-decoration:underline" href="https://bandcamp.com">Band Camp</a>.
         </p>
         <p>
           <span class="bold">
@@ -36,12 +35,12 @@
             available to you in early-to-mid April.
           {% else %}
             Please submit your stories, poetry, or reviews through the
-            <a href="{{ url('submissions') }}">submissions page</a>.
+            <a style="text-decoration:underline" href="{{ url('submissions') }}">submissions page</a>.
           {% endif %}
         </p>
 	      <p>
-          In the meantime, you can subscribe to our mailing list to keep up-to-date, or if you
-          have any questions please contact <a href="mailto:editor@sponge.nz">editor@sponge.nz</a>.
+          To subscribe to our mailing list, or if you
+          have any questions please contact <a style="text-decoration:underline" href="mailto:editor@sponge.nz">editor@sponge.nz</a>.
         </p>
         <p>
           Special thanks to Ivan Ignatov for designing and building this website and to Ben Uffindell
@@ -55,8 +54,9 @@
 
     <p class="panel-heading">Current Issue</p>
 
-    {% if current_issue.cover_image %}
-      <a href="{{ url('current') }}"><div id="current-cover">{{ thumbnail(current_issue.cover_image, "320x464") }}</div></a>
+   {% if cover %}
+      <a href="{{ url('current') }}"><div id="current-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div></a>
+
     {% else %}
       <div id="current-cover"></div>
     {% endif %}

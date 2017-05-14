@@ -1,7 +1,7 @@
 from utilities.render import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
-from .models import Issue, Story
+from .models import Issue, Story, Cover
 from num2words import num2words
 
 
@@ -17,18 +17,21 @@ def index(request):
     published_issues = Issue.objects.filter(published=True)
     if published_issues.exists():
         current_issue = published_issues.latest('pub_date')
+        cover = Cover.objects.get(issue=current_issue)
         forthcoming_issue = num2words(current_issue.number + 1).title()
         stories = current_issue.story_set.all()
     else:
         current_issue = None
         forthcoming_issue = One
         stories = None
+        cover = None
 
     return dict(
         current_issue=current_issue,
         forthcoming_issue=forthcoming_issue,
         stories=stories,
-        landing_page=True
+        landing_page=True,
+        cover = cover
     )
 
 
@@ -59,12 +62,15 @@ def single_issue(request, issue_number):
     """
 
     requested_issue = get_object_or_404(Issue, number=issue_number)
+        
+    cover = Cover.objects.get(issue=issue_number)    
 
-    story_set = requested_issue.get_story_set()
+    story_set = requested_issue.get_story_set().order_by('number')
 
     return dict(
         issue=requested_issue,
-        stories=story_set
+        stories=story_set,
+        cover = cover
     )
 
 
@@ -96,11 +102,13 @@ def current(request):
     """
 
     current_issue = Issue.objects.filter(published=True).latest('pub_date')
-    stories = current_issue.story_set.all()
+    stories = current_issue.story_set.all().order_by('number')
+    cover = Cover.objects.get(issue = current_issue)
 
     return dict(
         issue=current_issue,
-        stories=stories
+        stories=stories,
+        cover = cover
     )
 
 
@@ -115,7 +123,7 @@ def view_story(request, slug):
     """
     story = Story.objects.get(slug=slug)
     issue = story.issue    
-    story_set = issue.story_set.all()
+    story_set = issue.story_set.all().order_by('number')
 
     return dict(
         story=story,

@@ -22,16 +22,32 @@ $mobi-button-colour: #006b00
     padding: 2rem
 
   #issue-cover
+    z-index: -1
     position: relative
     display: inline-block
     margin: 0 1rem 1rem 1rem
     // height: calc(100vh - 2rem)
     width: calc(60vh - 2rem)
-
     &.no-image
       height: calc(100vh - 2rem)
       background-color: red
-
+    
+  #cover-info
+    position: absolute
+    display: none
+    width: calc(60vh - 2rem)
+    height: 5rem
+    margin: 0 1rem 1rem 1rem
+    background-color: $panel-color
+    margin-top: 200px
+    color: white
+    opacity: 0.8
+    padding-top: 1rem
+    
+    #cover-title
+      font-style: italic
+    
+    
 #contents-actions-container
   z-index: 0
   .download-btn-wrapper
