@@ -27,7 +27,7 @@
                   {% else %}
                     <div class="story-author">
                         {{ story.author }}
-                    </div>                      
+                    </div>
                   {% endif %}
               </li>
             {% endfor %}
@@ -79,7 +79,7 @@
       </div>
 
       {% if cover.cover_image %}
-        <div id="issue-cover">{{ thumbnail(cover.cover_image.url, "320x464") }}</div>
+        <div id="issue-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div>
 
       {% else %}
         <div id="issue-cover" class="no-image"></div>
@@ -91,15 +91,15 @@
 
 {% block script %}
     <script>
-                 
+
         function showCoverInfo(){
             $("#cover-info").css("display","inline-block");
-            
+
         }
-        
+
         function hideCoverInfo(){
             $("#cover-info").css("display", "none");
-            
+
         }
     </script>
 {% endblock %}

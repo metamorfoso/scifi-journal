@@ -55,7 +55,7 @@
     <p class="panel-heading">Current Issue</p>
 
    {% if cover %}
-      <a href="{{ url('current') }}"><div id="current-cover">{{ thumbnail(cover.cover_image.url, "320x464") }}</div></a>
+      <a href="{{ url('current') }}"><div id="current-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div></a>
 
     {% else %}
       <div id="current-cover"></div>
