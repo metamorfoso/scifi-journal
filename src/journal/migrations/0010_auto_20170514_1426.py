@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='Cover',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cover_image', models.ImageField(blank=True, upload_to=b'cover_image_uploads/')),
+                ('cover_image', models.ImageField(blank=True, upload_to='cover_image_uploads/')),
                 ('title', models.CharField(max_length=100)),
                 ('artist', models.CharField(max_length=100)),
                 ('artist_url', models.CharField(max_length=100)),
