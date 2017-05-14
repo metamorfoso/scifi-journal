@@ -2,6 +2,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters
 from django.conf import settings
+from sorl.thumbnail import get_thumbnail
 
 from jinja2 import Environment, Markup
 
@@ -23,6 +24,7 @@ def environment(**options):
     env.globals.update({
         'static': staticfiles_storage.url,
         'url': url,
+        'get_thumbnail': get_thumbnail
     })
     for setting in ('STATIC_URL', 'DEBUG', 'TAKING_SUBMISSIONS', 'PREPARING_NEXT_ISSUE'):
         env.globals.update({setting: getattr(settings, setting)})

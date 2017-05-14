@@ -1,4 +1,5 @@
 {% extends "nav.html" %}
+{% from "_common.html" import thumbnail %}
 
 {% block content %}
 
@@ -69,15 +70,20 @@
 
   <div class="cover-panel" onmouseover="showCoverInfo()" onmouseout="hideCoverInfo()"  >
     <p class="panel-heading">{{ issue.pretty_name }}</p>
+
     {% if cover %}
       <div id="cover-info">
         <p id="cover-title">{{cover.title}}</p>
         <p id="cover-artist">{{cover.artist}}</p>
         <p><a href="mailto:{{cover.artist_url}}">{{cover.artist_url}}</a></p>
       </div>
-      <img id="issue-cover" src="{{ cover.cover_image.url }}"/>
-    {% else %}
-      <div id="issue-cover"></div>
+
+      {% if cover.cover_image %}
+        <div id="issue-cover">{{ thumbnail(cover.cover_image.url, "320x464") }}</div>
+
+      {% else %}
+        <div id="issue-cover" class="no-image"></div>
+      {% endif %}
     {% endif %}
   </div>
 

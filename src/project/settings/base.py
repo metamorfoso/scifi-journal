@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     # Libraries
+    'sorl.thumbnail',
     'raven.contrib.django.raven_compat',
     'memoize',
     'pipeline',
