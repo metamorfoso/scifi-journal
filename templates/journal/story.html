@@ -4,7 +4,7 @@
 
   <div id="story-panel" class="panel-outer">
     <p class="panel-heading-title">{{ story.title.upper() }}</p>
-    <p class="panel-heading-author">{{ story.author }}</p>
+    <p class="panel-heading-author"><a href="{{story.author.url}}">{{ story.author }}</a></p>
     <div class="panel-inner">
       <div class="panel-content">      
         {{ story.content | safe }}    
@@ -20,12 +20,22 @@
           <ul>
             {% for iterated_story in stories_in_issue %}
               <li class="{% if iterated_story == story %}current-story{% endif %}">
-                <a href="{{ iterated_story.get_absolute_url() }}"><div class="story-title">
-                  <i>{{ iterated_story }}</i>
-                </div>
-                <div class="story-author">
-                  {{ iterated_story.author }}
-                </div></a>
+                <a href="{{ iterated_story.get_absolute_url() }}">
+                    <div class="story-title">
+                      <i>{{ iterated_story }}</i>
+                    </div>
+                </a>
+                {% if iterated_story.author.url %}
+                <a href="{{iterated_story.author.url}}">
+                    <div class="story-author">
+                      {{ iterated_story.author }}
+                    </div>
+                </a>
+                {% else %}
+                    <div class="story-author">
+                      {{ iterated_story.author }}
+                    </div>                
+                {% endif %}
               </li>
             {% endfor %}
           </ul>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Issue, Story, Author
+from .models import Issue, Story, Author, Cover
 from utilities.admin_shortcuts import inline_factory, single_page_admin
 
 ISSUE_FIELDS = [
@@ -40,3 +40,5 @@ admin.site.register(
     inlines=[StoryInline],
     # **single_page_admin(Issue)
 )
+
+admin.site.register(Cover)
