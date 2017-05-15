@@ -67,6 +67,13 @@
     {% block logo %}{% endblock %}
 
     <footer id="footer">
+      <div id="subscribe">
+        <form action="/subscribe/" method="post">
+            <p>Subscribe to our mailing list</p>            
+                {{ form.email }}
+            <button>Subscribe</button>
+        </form>
+      </div>
       <div id="signature">
         <ul id="license" class="unformatted">
           <li><h1>Sponge, 2017</h1></li>

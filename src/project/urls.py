@@ -11,7 +11,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^404$', page_not_found),
     url(r'^', include("journal.urls")),
-    url(r'^', include("submissions.urls"))
+    url(r'^', include("submissions.urls")),
+    url(r'^', include("subscription.urls"))
 ]
 
 urlpatterns += static(

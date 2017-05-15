@@ -149,7 +149,8 @@ INSTALLED_APPS = (
 
     # Our apps
     'journal',
-    'submissions'
+    'submissions',
+    'subscription'
 )
 
 # RAVEN_CONFIG = {

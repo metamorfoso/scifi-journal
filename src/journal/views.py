@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from .models import Issue, Story, Cover
 from num2words import num2words
+from subscription.forms import SubscriptionForm
 
 
 @render("index.html")
@@ -25,13 +26,16 @@ def index(request):
         forthcoming_issue = One
         stories = None
         cover = None
+        
+    form = SubscriptionForm()
 
     return dict(
         current_issue=current_issue,
         forthcoming_issue=forthcoming_issue,
         stories=stories,
         landing_page=True,
-        cover = cover
+        cover = cover,
+        form = form
     )
 
 
