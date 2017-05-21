@@ -1,0 +1,21 @@
+{% extends "nav.html" %}
+
+{% block content %}
+
+<div class="panel-outer">
+    <div class="panel-heading">Unsubscribe</div>
+    <div class="panel-inner">
+        <div class="panel-content">
+            <p>Please enter your email address below to unsubscribe from Sponge.</p>
+            <form action="/unsubscribe" method="post">
+                {{ csrf_input }}
+                {{form.email}}
+                <button>Unsubscribe</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
