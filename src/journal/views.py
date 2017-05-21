@@ -1,6 +1,6 @@
 from utilities.render import render
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from .models import Issue, Story, Cover
 from num2words import num2words
 
@@ -65,6 +65,9 @@ def single_issue(request, issue_number):
     cover = Cover.objects.filter(issue=requested_issue).first()
     story_set = requested_issue.get_story_set().order_by('number')
 
+    if not requested_issue.published:
+        raise Http404()
+
     return dict(
         issue=requested_issue,
         stories=story_set,
@@ -121,6 +124,8 @@ def view_story(request, slug):
     """
     story = Story.objects.get(slug=slug)
     issue = story.issue
+    if not issue.published:
+        raise Http404
     story_set = issue.story_set.all().order_by('number')
 
     return dict(

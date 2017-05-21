@@ -6,8 +6,8 @@
     <p class="panel-heading-title">{{ story.title.upper() }}</p>
     <p class="panel-heading-author"><a href="{{story.author.url}}">{{ story.author }}</a></p>
     <div class="panel-inner">
-      <div class="panel-content">      
-        {{ story.content | safe }}    
+      <div class="panel-content">
+        {{ story.content | safe }}
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
                 {% else %}
                     <div class="story-author">
                       {{ iterated_story.author }}
-                    </div>                
+                    </div>
                 {% endif %}
               </li>
             {% endfor %}
