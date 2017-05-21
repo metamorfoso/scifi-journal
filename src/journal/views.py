@@ -49,9 +49,11 @@ def issue_archive(request):
     """
 
     issues = Issue.objects.filter(published=True).order_by('-pub_date')
-
+    form = SubscriptionForm()
+    
     return dict(
-        issues=issues
+        issues=issues,
+        form=form
     )
 
 
@@ -70,11 +72,14 @@ def single_issue(request, issue_number):
     cover = Cover.objects.get(issue=issue_number)    
 
     story_set = requested_issue.get_story_set().order_by('number')
-
+    
+    form = SubscriptionForm()
+    
     return dict(
         issue=requested_issue,
         stories=story_set,
-        cover = cover
+        cover = cover,
+        form=form
     )
 
 
@@ -108,11 +113,13 @@ def current(request):
     current_issue = Issue.objects.filter(published=True).latest('pub_date')
     stories = current_issue.story_set.all().order_by('number')
     cover = Cover.objects.get(issue = current_issue)
-
+    form = SubscriptionForm()
+    
     return dict(
         issue=current_issue,
         stories=stories,
-        cover = cover
+        cover = cover,
+        form=form
     )
 
 
@@ -128,9 +135,11 @@ def view_story(request, slug):
     story = Story.objects.get(slug=slug)
     issue = story.issue    
     story_set = issue.story_set.all().order_by('number')
-
+    form = SubscriptionForm()
+    
     return dict(
         story=story,
         issue=issue,        
-        stories_in_issue=story_set
+        stories_in_issue=story_set,
+        form=form
     )

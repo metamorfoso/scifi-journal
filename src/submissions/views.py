@@ -6,6 +6,7 @@ from django.db.models import Q
 
 from .models import Submission, Submitter
 from .forms import SubmissionForm, SubmitterForm
+from subscription.forms import SubscriptionForm
 
 
 @render("submissions/submissions.html")
@@ -20,7 +21,8 @@ def submissions(request):
     # Default context: empty forms for the Submission and Submitter
     context = dict(
         submitter_form=SubmitterForm(),
-        submission_form=SubmissionForm()
+        submission_form=SubmissionForm(),
+        form = SubscriptionForm()
     )
 
     # Handle form submission

@@ -68,10 +68,11 @@
 
     <footer id="footer">
       <div id="subscribe">
-        <form action="/subscribe/" method="post">
+        <form action="/subscribe" method="post">
+        {{ csrf_input }}
             <p>Subscribe to our mailing list</p>            
-                {{ form.email }}
-            <button>Subscribe</button>
+                {{form.email}}
+            <input type="submit" value="Subscribe"/>
         </form>
       </div>
       <div id="signature">
