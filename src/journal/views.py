@@ -62,7 +62,7 @@ def single_issue(request, issue_number):
     """
 
     requested_issue = get_object_or_404(Issue, number=issue_number)
-    cover = Cover.objects.filter(issue=issue_number).first()
+    cover = Cover.objects.filter(issue=requested_issue).first()
     story_set = requested_issue.get_story_set().order_by('number')
 
     return dict(
