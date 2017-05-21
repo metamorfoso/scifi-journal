@@ -80,10 +80,10 @@
 
       {% if cover.cover_image %}
         <div id="issue-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div>
-
-      {% else %}
-        <div id="issue-cover" class="no-image"></div>
       {% endif %}
+
+    {% else %}
+      <div id="issue-cover" class="no-image"></div>
     {% endif %}
   </div>
 

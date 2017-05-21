@@ -17,7 +17,7 @@ def index(request):
     published_issues = Issue.objects.filter(published=True)
     if published_issues.exists():
         current_issue = published_issues.latest('pub_date')
-        cover = Cover.objects.get(issue=current_issue)
+        cover = Cover.objects.filter(issue=current_issue).first()
         forthcoming_issue = num2words(current_issue.number + 1).title()
         stories = current_issue.story_set.all()
     else:
@@ -31,7 +31,7 @@ def index(request):
         forthcoming_issue=forthcoming_issue,
         stories=stories,
         landing_page=True,
-        cover = cover
+        cover=cover
     )
 
 
@@ -62,15 +62,13 @@ def single_issue(request, issue_number):
     """
 
     requested_issue = get_object_or_404(Issue, number=issue_number)
-        
-    cover = Cover.objects.get(issue=issue_number)    
-
+    cover = Cover.objects.filter(issue=issue_number).first()
     story_set = requested_issue.get_story_set().order_by('number')
 
     return dict(
         issue=requested_issue,
         stories=story_set,
-        cover = cover
+        cover=cover
     )
 
 
@@ -103,12 +101,12 @@ def current(request):
 
     current_issue = Issue.objects.filter(published=True).latest('pub_date')
     stories = current_issue.story_set.all().order_by('number')
-    cover = Cover.objects.get(issue = current_issue)
+    cover = Cover.objects.filter(issue=current_issue).first()
 
     return dict(
         issue=current_issue,
         stories=stories,
-        cover = cover
+        cover=cover
     )
 
 
@@ -122,11 +120,11 @@ def view_story(request, slug):
     :return:
     """
     story = Story.objects.get(slug=slug)
-    issue = story.issue    
+    issue = story.issue
     story_set = issue.story_set.all().order_by('number')
 
     return dict(
         story=story,
-        issue=issue,        
+        issue=issue,
         stories_in_issue=story_set
     )
