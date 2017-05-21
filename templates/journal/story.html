@@ -4,7 +4,7 @@
 
   <div id="story-panel" class="panel-outer">
     <p class="panel-heading-title">{{ story.title.upper() }}</p>
-    <p class="panel-heading-author"><a href="{{story.author.url}}">{{ story.author }}</a></p>
+    <p class="panel-heading-author"><a target="_blank" href="{{ story.author.url }}">{{ story.author }}</a></p>
     <div class="panel-inner">
       <div class="panel-content">
         {{ story.content | safe }}
