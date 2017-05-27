@@ -23,7 +23,7 @@ def index(request):
         stories = current_issue.story_set.all()
     else:
         current_issue = None
-        forthcoming_issue = One
+        forthcoming_issue = 'One'
         stories = None
         cover = None
 
@@ -34,8 +34,8 @@ def index(request):
         forthcoming_issue=forthcoming_issue,
         stories=stories,
         landing_page=True,
-        cover = cover,
-        form = form
+        cover=cover,
+        form=form
     )
 
 
@@ -68,7 +68,7 @@ def single_issue(request, issue_number):
     """
 
     requested_issue = get_object_or_404(Issue, number=issue_number)
-    cover = Cover.objects.filter(issue=current_issue).first()
+    cover = Cover.objects.filter(issue=requested_issue).first()
     story_set = requested_issue.get_story_set().order_by('number')
 
     form = SubscriptionForm()
@@ -78,7 +78,7 @@ def single_issue(request, issue_number):
     return dict(
         issue=requested_issue,
         stories=story_set,
-        cover = cover,
+        cover=cover,
         form=form
     )
 
@@ -118,7 +118,7 @@ def current(request):
     return dict(
         issue=current_issue,
         stories=stories,
-        cover = cover,
+        cover=cover,
         form=form
     )
 
