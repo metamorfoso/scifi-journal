@@ -67,14 +67,16 @@
     {% block logo %}{% endblock %}
 
     <footer id="footer">
+      {% if request %}
       <div id="subscribe">
         <form action="/subscribe" method="post">
-        {{ csrf_input }}
-            <p>Subscribe to our mailing list</p>            
+          {{ csrf_input }}
+            <p>Subscribe to our mailing list</p>
                 {{form.email}}
             <button>Subscribe</button>
-        </form>
+        </form>        
       </div>
+      {% endif %}
       <div id="signature">
         <ul id="license" class="unformatted">
           <li><h1>Sponge, 2017</h1></li>
