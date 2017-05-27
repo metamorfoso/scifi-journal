@@ -75,15 +75,15 @@
       <div id="cover-info">
         <p id="cover-title">{{cover.title}}</p>
         <p id="cover-artist">{{cover.artist}}</p>
-        <p><a href="mailto:{{cover.artist_url}}">{{cover.artist_url}}</a></p>
+        <p><a target="_blank" href="mailto:{{ cover.artist_url }}">{{ cover.artist_url }}</a></p>
       </div>
 
       {% if cover.cover_image %}
         <div id="issue-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div>
-
-      {% else %}
-        <div id="issue-cover" class="no-image"></div>
       {% endif %}
+
+    {% else %}
+      <div id="issue-cover" class="no-image"></div>
     {% endif %}
   </div>
 

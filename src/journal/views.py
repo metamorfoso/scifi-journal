@@ -1,6 +1,6 @@
 from utilities.render import render
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from .models import Issue, Story, Cover
 from num2words import num2words
 from subscription.forms import SubscriptionForm
@@ -18,7 +18,7 @@ def index(request):
     published_issues = Issue.objects.filter(published=True)
     if published_issues.exists():
         current_issue = published_issues.latest('pub_date')
-        cover = Cover.objects.get(issue=current_issue)
+        cover = Cover.objects.filter(issue=current_issue).first()
         forthcoming_issue = num2words(current_issue.number + 1).title()
         stories = current_issue.story_set.all()
     else:
@@ -68,12 +68,12 @@ def single_issue(request, issue_number):
     """
 
     requested_issue = get_object_or_404(Issue, number=issue_number)
-        
-    cover = Cover.objects.get(issue=issue_number)    
-
+    cover = Cover.objects.filter(issue=requested_issue).first()
     story_set = requested_issue.get_story_set().order_by('number')
     
     form = SubscriptionForm()
+    if not requested_issue.published:
+      raise Http404()
     
     return dict(
         issue=requested_issue,
@@ -112,7 +112,7 @@ def current(request):
 
     current_issue = Issue.objects.filter(published=True).latest('pub_date')
     stories = current_issue.story_set.all().order_by('number')
-    cover = Cover.objects.get(issue = current_issue)
+    cover = Cover.objects.get(issue = current_issue).first()
     form = SubscriptionForm()
     
     return dict(
@@ -133,7 +133,9 @@ def view_story(request, slug):
     :return:
     """
     story = Story.objects.get(slug=slug)
-    issue = story.issue    
+    issue = story.issue
+    if not issue.published:
+        raise Http404
     story_set = issue.story_set.all().order_by('number')
     form = SubscriptionForm()
     

@@ -4,10 +4,10 @@
 
   <div id="story-panel" class="panel-outer">
     <p class="panel-heading-title">{{ story.title.upper() }}</p>
-    <p class="panel-heading-author"><a href="{{story.author.url}}">{{ story.author }}</a></p>
+    <p class="panel-heading-author"><a target="_blank" href="{{ story.author.url }}">{{ story.author }}</a></p>
     <div class="panel-inner">
-      <div class="panel-content">      
-        {{ story.content | safe }}    
+      <div class="panel-content">
+        {{ story.content | safe }}
       </div>
     </div>
   </div>
@@ -26,7 +26,7 @@
                     </div>
                 </a>
                 {% if iterated_story.author.url %}
-                <a href="{{iterated_story.author.url}}">
+                <a target="_blank" href="{{ iterated_story.author.url }}">
                     <div class="story-author">
                       {{ iterated_story.author }}
                     </div>
@@ -34,7 +34,7 @@
                 {% else %}
                     <div class="story-author">
                       {{ iterated_story.author }}
-                    </div>                
+                    </div>
                 {% endif %}
               </li>
             {% endfor %}
