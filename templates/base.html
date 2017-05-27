@@ -68,29 +68,9 @@
 
     <footer id="footer">
       {% if request %}
-      <div id="subscribe">
-        <form action="/subscribe" method="post">
-          {{ csrf_input }}
-            <p>Subscribe to our mailing list</p>
-                {{form.email}}
-            <button>Subscribe</button>
-        </form>        
-      </div>
+        {% include "subscribe/_subscribe_form.html" %}
       {% endif %}
-      <div id="signature">
-        <ul id="license" class="unformatted">
-          <li><h1>Sponge, 2017</h1></li>
-          <li>Christchurch, New Zealand</li>
-        </ul>
-        <ul id="contact" class="unformatted">
-          <li><h3>Contact:</h3></li>
-          <li><a href="mailto:editor@sponge.nz">editor@sponge.nz</a></li>
-        </ul>
-        <ul id="credits" class="unformatted">
-          <li>Concept: L-J. E. Walsh</li>
-          <li>Development: <a target="_blank" href="https://metamorfoso.github.io">I. Ignatov</a></li>
-        </ul>
-      </div>
+      {% include "_signature.html" %}
     </footer>
   </div>
 </div>

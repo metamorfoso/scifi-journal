@@ -1,0 +1,8 @@
+<div id="subscribe">
+  <form action="{{ url('subscribe') }}" method="post">
+    {{ csrf_input }}
+      <p>Subscribe to our mailing list</p>
+          {{form.email}}
+      <button>Subscribe</button>
+  </form>
+</div>
