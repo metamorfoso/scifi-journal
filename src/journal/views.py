@@ -26,7 +26,7 @@ def index(request):
         forthcoming_issue = One
         stories = None
         cover = None
-        
+
     form = SubscriptionForm()
 
     return dict(
@@ -50,7 +50,7 @@ def issue_archive(request):
 
     issues = Issue.objects.filter(published=True).order_by('-pub_date')
     form = SubscriptionForm()
-    
+
     return dict(
         issues=issues,
         form=form
@@ -68,13 +68,13 @@ def single_issue(request, issue_number):
     """
 
     requested_issue = get_object_or_404(Issue, number=issue_number)
-    cover = Cover.objects.filter(issue=requested_issue).first()
+    cover = Cover.objects.filter(issue=current_issue).first()
     story_set = requested_issue.get_story_set().order_by('number')
-    
+
     form = SubscriptionForm()
     if not requested_issue.published:
       raise Http404()
-    
+
     return dict(
         issue=requested_issue,
         stories=story_set,
@@ -112,9 +112,9 @@ def current(request):
 
     current_issue = Issue.objects.filter(published=True).latest('pub_date')
     stories = current_issue.story_set.all().order_by('number')
-    cover = Cover.objects.get(issue = current_issue).first()
+    cover = Cover.objects.filter(issue=current_issue).first()
     form = SubscriptionForm()
-    
+
     return dict(
         issue=current_issue,
         stories=stories,
@@ -138,10 +138,10 @@ def view_story(request, slug):
         raise Http404
     story_set = issue.story_set.all().order_by('number')
     form = SubscriptionForm()
-    
+
     return dict(
         story=story,
-        issue=issue,        
+        issue=issue,
         stories_in_issue=story_set,
         form=form
     )
