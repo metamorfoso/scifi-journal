@@ -13,38 +13,43 @@
       </div>
     </div>
   </div>
-
   <div id="contents-actions-container">
-    <div class="panel-outer contents-panel">
-      <div class="panel-inner">
-        <div style="top:0px" class="panel-content">
-          <p class="issue-heading">{{issue.pretty_name}}</p>
-          <ul>
-            {% for iterated_story in stories_in_issue %}
-              <li class="{% if iterated_story == story %}current-story{% endif %}">
-                <a href="{{ iterated_story.get_absolute_url() }}">
-                    <div class="story-title">
-                      <i>{{ iterated_story }}</i>
-                    </div>
-                </a>
-                {% if iterated_story.author.url %}
-                <a target="_blank" href="{{ iterated_story.author.url }}">
-                    <div class="story-author">
-                      {{ iterated_story.author }}
-                    </div>
-                </a>
-                {% else %}
-                    <div class="story-author">
-                      {{ iterated_story.author }}
-                    </div>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
+    <div>
+      <div class="panel-outer contents-panel">
+        <div class="panel-inner">
+          <div style="top:0px" class="panel-content">
+            <p style="padding: 1rem 1rem 0 1rem" class="issue-heading">{{issue.pretty_name}}</p>
+            <ul>
+              {% for iterated_story in stories_in_issue %}
+                <li class="{% if iterated_story == story %}current-story{% endif %}">
+                  <a href="{{ iterated_story.get_absolute_url() }}">
+                      <div class="story-title">
+                        <i>{{ iterated_story }}</i>
+                      </div>
+                  </a>
+                  {% if iterated_story.author.url %}
+                  <a target="_blank" href="{{ iterated_story.author.url }}">
+                      <div class="story-author">
+                        {{ iterated_story.author }}
+                      </div>
+                  </a>
+                  {% else %}
+                      <div class="story-author">
+                        {{ iterated_story.author }}
+                      </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+      {% if story.bandcamp_track_id %}
+      <div class="audio-player">
+        <iframe style="border: 0; width: calc(100% - 2em); height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=small/bgcol=ffffff/linkcol=333333/artwork=none/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}">Sponge: Issue 1 by Jenna Heller</a></iframe>
+      </div>
+      {% endif %}
   </div>
-
+</div>
 
 {% endblock %}
