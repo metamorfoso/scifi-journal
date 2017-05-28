@@ -56,7 +56,7 @@ class Story(models.Model):
     content = models.TextField(max_length=30000, blank=True)
     author_notes = models.TextField(blank=True, max_length=3000)
     number = models.IntegerField()
-    bandcamp_track_id = models.IntegerField(blank=True)
+    bandcamp_track_id = models.IntegerField(blank=True,null=True)
 
     slug = AutoSlugField(
         populate_from=autoslug_populate_from,
