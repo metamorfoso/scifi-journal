@@ -134,10 +134,24 @@
     order: 10
     text-align: center
     height: auto
+    width: 100vw
     #signature, #subscribe
+      min-width: none
+      float: none
       display: inline-block
       padding: 3rem
       #credits, #license, #contact
         display: block
         width: auto
         margin: 2rem 0
+    #signature
+      input
+        width: auto
+        min-width: none
+    #subscribe
+      width: auto
+      form
+        text-align: center
+        #id_email
+          min-width: none
+          width: 50%
