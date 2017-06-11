@@ -49,8 +49,6 @@ $mobi-button-colour: #006b00
     
 
 #contents-actions-container
-  position: absolute
-  background-color: #b693ff
   z-index: 0
   .download-btn-wrapper
     text-align: left
@@ -86,6 +84,16 @@ $mobi-button-colour: #006b00
         border-top: 1px solid $panel-color
         border-bottom: 1px solid $panel-color
 
+      .button-text
+        font-size: 1.6rem
+        font-family: Vanadine
+        //font-weight: 600
+        top: 25%
+        position: relative
+        &.small
+          font-size: 1.2rem
+
 #audio-player
   margin-top: 1rem
   position: absolute
+  width: 100%
