@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     'memoize',
     'pipeline',
     'num2words',
+    'verified_email_field',
 
     # Our apps
     'journal',
