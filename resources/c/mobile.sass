@@ -53,7 +53,7 @@
         a
           text-decoration: none
 
-  .panel-outer
+  .panel-outer, .issue-panel-outer
     display: inline-block
     width: 100vw
     min-width: 0
@@ -102,7 +102,7 @@
     // for some panels (those without headings), so as to not meld with
     // the fixed nav-block and look bad when scrolling.
     .contents-panel
-      .panel-inner
+      .panel-inner, .issue-panel-inner
         margin-top: 0
 
     #story-panel
@@ -112,7 +112,7 @@
       .story-paragraph
         margin: 0 1rem
 
-    #contents-actions-container
+    #contents-actions-container, #issue-panel
       position: relative
       left: 0
       right: 0
@@ -125,10 +125,18 @@
       .contents-item
         padding: 0.5rem 0
 
+
     // Override specific panel widths
     #guidelines-panel, #story-panel, #contents-actions-container
       width: 100%
       max-width: 100%
+
+  .audio-player
+    width: 100vw
+    position: relative
+    text-align: center
+    margin-top: 1rem
+
 
   #footer
     order: 10
