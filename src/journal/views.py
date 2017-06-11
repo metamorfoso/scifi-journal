@@ -18,6 +18,7 @@ def index(request):
 
     about = About.objects.first()
 
+
     published_issues = Issue.objects.filter(published=True)
     if published_issues.exists():
         current_issue = published_issues.latest('pub_date')

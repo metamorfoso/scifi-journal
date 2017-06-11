@@ -10,7 +10,9 @@
     <p class="panel-heading">About</p>
     <div class="panel-inner">
       <div class="panel-content">
-        {{about.contents| safe}}
+          {% if about.contents %}
+            {{about.contents| safe}}
+          {% endif %}
       </div>
     </div>
   </div>

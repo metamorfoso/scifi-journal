@@ -10,17 +10,28 @@
     </p>
     <div class="panel-inner">
       <div class="panel-content">
-        {{ guidelines.general| safe }}
+          {% if guidelines.general %}
+            {{ guidelines.general| safe }}
+          {% endif %}
+       {% if guidelines.submissions %}
         <p class="sub-heading">Submissions</p>
+
             {{ guidelines.submissions| safe }}
+      {% endif %}
+      {% if guidelines.formatting %}
   		  <p class="sub-heading">Formatting</p>
   		  {{ guidelines.formatting| safe }}
+      {% endif %}
+      {% if guidelines.content %}
 	      <p class="sub-heading">Content</p>
         {{ guidelines.content| safe }}
+      {% endif %}
         <p class="sub-heading">Submission Area</p>
         <img class="map" src="{{ static('images/map.jpg') }}"/>
+      {% if guidelines.contact %}
         <p class="sub-heading">Contact</p>
 	      {{ guidelines.contact| safe }}
+      {% endif %}
       </div>
     </div>
   </div>
