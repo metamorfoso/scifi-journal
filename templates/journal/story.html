@@ -46,7 +46,7 @@
       </div>
       {% if story.bandcamp_track_id %}
       <div class="audio-player">
-        <iframe style="border: 0; width: calc(100% - 2em); height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=small/bgcol=ffffff/linkcol=333333/artwork=none/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}">Sponge: Issue 1 by Jenna Heller</a></iframe>
+        <iframe style="border: 0; width: calc(100% - 2em); height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=small/bgcol=ffffff/linkcol=333333/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}">Sponge: Issue 1 by {{story.author}}</a></iframe>
       </div>
       {% endif %}
   </div>

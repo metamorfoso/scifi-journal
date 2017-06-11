@@ -48,8 +48,31 @@ $mobi-button-colour: #006b00
       font-style: italic
     
     
-#contents-actions-container
+#issue-panel
   z-index: 0
+  min-width: 22.5rem
+  width: 37vw
+  display: inline-block
+  margin-top: 5rem
+  text-align: center
+
+  position: absolute
+  right: 2vw
+  z-index: 1
+
+  .issue-panel-outer
+    width: calc(100% - 2rem)
+    background-color: #3f1ca2
+    text-align: left
+    margin-top: 4rem
+    position: relative
+    padding: 1rem
+    line-height: 1.5em
+
+  .issue-panel-inner
+    background-color: #ffffff
+    padding: 1rem
+
   .download-btn-wrapper
     text-align: left
     padding: 0 1rem 1rem 1rem
@@ -92,3 +115,6 @@ $mobi-button-colour: #006b00
         position: relative
         &.small
           font-size: 1.2rem
+
+#audio-player
+  margin-top: 1rem
