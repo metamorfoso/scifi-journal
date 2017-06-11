@@ -2,6 +2,7 @@ from utilities.render import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse, Http404
 from .models import Issue, Story, Cover
+from site_content.models import About
 from num2words import num2words
 from subscription.forms import SubscriptionForm
 
@@ -14,6 +15,8 @@ def index(request):
     :param request:
     :return: dict of current issue and qs of its stories:
     """
+
+    about = About.objects.first()
 
     published_issues = Issue.objects.filter(published=True)
     if published_issues.exists():
@@ -30,6 +33,7 @@ def index(request):
     form = SubscriptionForm()
 
     return dict(
+        about=about,
         current_issue=current_issue,
         forthcoming_issue=forthcoming_issue,
         stories=stories,
