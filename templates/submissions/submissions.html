@@ -10,13 +10,12 @@
     </p>
     <div class="panel-inner">
       <div class="panel-content">
-          {% if guidelines.general %}
-            {{ guidelines.general| safe }}
-          {% endif %}
-       {% if guidelines.submissions %}
+      {% if guidelines.general %}
+        {{ guidelines.general| safe }}
+      {% endif %}
+      {% if guidelines.submissions %}
         <p class="sub-heading">Submissions</p>
-
-            {{ guidelines.submissions| safe }}
+        {{ guidelines.submissions| safe }}
       {% endif %}
       {% if guidelines.formatting %}
   		  <p class="sub-heading">Formatting</p>

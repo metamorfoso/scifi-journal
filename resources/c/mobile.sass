@@ -135,23 +135,28 @@
     text-align: center
     height: auto
     width: 100vw
-    #signature, #subscribe
+    #footer-block-one, #footer-block-two
       min-width: none
       float: none
       display: inline-block
       padding: 3rem
-      #credits, #license, #contact
-        display: block
+      height: auto
+
+    #footer-block-one
+      text-align: center
+      #subscribe
         width: auto
-        margin: 2rem 0
-    #signature
-      input
-        width: auto
-        min-width: none
-    #subscribe
-      width: auto
-      form
-        text-align: center
-        #id_email
+        form
+          #id_email
+            min-width: none
+            width: 50%
+
+    #footer-block-two
+      #signature
+        #credits, #license, #contact
+          display: block
+          width: auto
+          margin: 2rem 0
+        input
+          width: auto
           min-width: none
-          width: 50%
