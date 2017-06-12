@@ -12,7 +12,7 @@
           {% if issue.introduction %}
             <p>{{ issue.introduction }}</p>
           {% endif %}
-          <ul class="contents-list">
+          <ol class="contents-list">
             {% for story in stories %}
               <li>
                   <a href="{{ story.get_absolute_url() }}">
@@ -33,7 +33,7 @@
                   {% endif %}
               </li>
             {% endfor %}
-          </ul>
+          </ol>
 
           <div class="download-btn-wrapper">
             {#  Only make download buttons active if there are files to download  #}

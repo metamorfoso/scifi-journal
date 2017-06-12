@@ -12,6 +12,7 @@ whitenoise==2.0.6
 django-pipeline
 Wand
 sorl-thumbnail
+django-froala-editor
 
 # Production ------------------------------------------------------------------
 psycopg2

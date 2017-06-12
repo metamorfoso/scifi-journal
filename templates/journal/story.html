@@ -19,7 +19,7 @@
         <div class="panel-inner">
           <div style="top:0px" class="panel-content">
             <p style="padding: 1rem 1rem 0 1rem" class="issue-heading">{{issue.pretty_name}}</p>
-            <ul>
+            <ol>
               {% for iterated_story in stories_in_issue %}
                 <li class="{% if iterated_story == story %}current-story{% endif %}">
                   <a href="{{ iterated_story.get_absolute_url() }}">
@@ -40,7 +40,7 @@
                   {% endif %}
                 </li>
               {% endfor %}
-            </ul>
+            </ol>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ class Issue(models.Model):
     pub_date = models.DateField(verbose_name="issue publication date", blank=True, null=True)
     number = models.IntegerField(verbose_name="issue number")
     introduction = models.TextField(max_length=500, blank=True)
-    bandcamp_album_id = models.IntegerField(blank=True)
+    bandcamp_album_id = models.IntegerField(blank=True, null=True)
     bandcamp_album_url = models.CharField(max_length=100,blank=True)
 
     pdf = models.FileField(verbose_name="issue as PDF document", blank=True, null=True)
