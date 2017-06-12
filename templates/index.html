@@ -10,48 +10,9 @@
     <p class="panel-heading">About</p>
     <div class="panel-inner">
       <div class="panel-content">
-        <p>
-          Sponge is an online journal for science fiction and speculative fiction, based in the
-          post-apocalpytic city of Christchurch, New Zealand. We publish short stories, poetry,
-          and reviews of science fiction from New Zealand and Pacific writers, with a particular
-          focus on new and emerging writers.
-        </p>
-        <p>
-          Our first issue is finally here! You can read it online or download it as a PDF, MOBI, or EPUB.
-          We also releasing an audio version of the issue as our talented authors record it. You can listen
-            to this on our site, or download it for free on our  <a style="text-decoration:underline" href="https://spongenz.bandcamp.com/releases">Band Camp page</a>.
-        </p>
-        <p>
-          <span class="bold">
-            {% if not TAKING_SUBMISSIONS %}
-              Sponge is currently closed for submissions.
-            {% else %}
-              Sponge is currently open for submissions.
-            {% endif %}
-        </p>
-          <p><span class="bold">Deadline:</span> 30 June 2017</p>
-        <p>
-          {% if PREPARING_NEXT_ISSUE and not TAKING_SUBMISSIONS %}
-            At the moment we are working through the stories that we recieved during our
-            submissions call for Issue {{ forthcoming_issue }}. We hope to have it
-            available to you in early-to-mid April.
-          {% else %}
-            Please submit your stories, poetry, or reviews through the
-            <a style="text-decoration:underline" href="{{ url('submissions') }}">submissions page</a>.
+          {% if about.contents %}
+            {{about.contents| safe}}
           {% endif %}
-        </p>
-	      <p>
-         You can subscribe to our mailing list in the footer of the website. We
-              will keep you up to date with issue releases and when we open
-              for submissions. For more regular updates, please follow us on <a style="text-decoration:underline" href="https://twitter.com/Sponge_NZ">Twitter</a>.
-          </p>
-          <p>If you
-          have any questions please contact <a style="text-decoration:underline" href="mailto:editor@sponge.nz">editor@sponge.nz</a>.
-        </p>
-        <p>
-          Special thanks to Ivan Ignatov for designing and building this website and to Ben Uffindell
-          for coming up with the name.
-        </p>
       </div>
     </div>
   </div>
