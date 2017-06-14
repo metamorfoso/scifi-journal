@@ -67,10 +67,15 @@
     {% block logo %}{% endblock %}
 
     <footer id="footer">
-      {% if request %}
-        {% include "subscribe/_subscribe_form.html" %}
-      {% endif %}
-      {% include "_signature.html" %}
+      <div id="footer-block-one">
+        {% if request %}
+          {% include "subscribe/_subscribe_form.html" %}
+        {% endif %}
+        {% include "_twitter.html" %}
+      </div>
+      <div id="footer-block-two">
+        {% include "_signature.html" %}
+      </div>
     </footer>
   </div>
 </div>
@@ -86,6 +91,7 @@
 </script>
 {% javascript "app" %}
 
-{% block script %}{% endblock %}
+{% block script %}
+{% endblock %}
 
 </body>
