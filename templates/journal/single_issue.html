@@ -5,7 +5,7 @@
 
 {% block content %}
 
-  <div id="contents-actions-container" style="position:absolute">
+  <div id="contents-actions-container">
     <div>
     {% if issue.bandcamp_album_id %}
             <div id="audio-player">
@@ -15,7 +15,7 @@
         <div class="panel-outer">
           <div class="panel-inner">
             <div style="top:0px" class="panel-content">
-              <ul class="contents-list">
+              <ol class="contents-list">
                 {% for story in stories %}
                   <li>
                       <a href="{{ story.get_absolute_url() }}">
@@ -36,7 +36,7 @@
                       {% endif %}
                   </li>
                 {% endfor %}
-              </ul>
+              </ol>
 
               <div class="download-btn-wrapper">
                 {#  Only make download buttons active if there are files to download  #}
