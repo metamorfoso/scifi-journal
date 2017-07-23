@@ -9,7 +9,7 @@
     <p class="panel-heading-author"><a target="_blank" href="{{ story.author.url }}">{{ story.author }}</a></p>
        <div>
           {% if story.bandcamp_track_id %}
-              <div style="background-color: #b693ff">
+              <div>
                   <div id="audio-player-story">
                     <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=small/bgcol=ffffff/linkcol=333333/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}">Sponge: Issue 1 by {{story.author}}</a></iframe>
                   </div>

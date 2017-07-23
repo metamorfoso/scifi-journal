@@ -76,11 +76,6 @@ def single_issue(request, issue_number):
     cover = Cover.objects.filter(issue=requested_issue).first()
     story_set = requested_issue.get_story_set().order_by('number')
 
-    height_of_bandcamp_plugin = 120
-    for story in story_set:
-        if story.bandcamp_track_id:
-            height_of_bandcamp_plugin += 40
-
     form = SubscriptionForm()
     if not requested_issue.published:
       raise Http404()
@@ -89,8 +84,7 @@ def single_issue(request, issue_number):
         issue=requested_issue,
         stories=story_set,
         cover=cover,
-        form=form,
-        height_of_bandcamp_plugin=str(height_of_bandcamp_plugin) + "px"
+        form=form
     )
 
 
