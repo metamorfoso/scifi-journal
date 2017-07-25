@@ -4,8 +4,11 @@
 {% block title %}Sponge - {{ issue.pretty_name }}{% endblock %}
 
 {% block content %}
-
   <div id="contents-actions-container">
+      <div class="tab">
+        <button class="active" id="contents-tab" onclick="openTab('contents')">Contents</button>
+        <button class="inactive" id="audio-tab" onclick="openTab('audio')">Audio</button>
+      </div>
     <div>
         {% if issue.bandcamp_album_id %}
             {% set height_of_bandcamp_plugin = [120] %}
@@ -115,5 +118,21 @@
             $("#cover-info").css("display", "none");
 
         }
+
+        function openTab(tab){
+            if (tab == 'audio'){
+                $('#audio-tab').toggleClass('inactive active');
+                $('#contents-tab').toggleClass('active inactive');
+                $('#audio-player').css('display', 'block');
+                $('.panel-outer').css('display', 'none');
+            }
+            else {
+                $('#audio-tab').toggleClass('active inactive');
+                $('#contents-tab').toggleClass('inactive active');
+                $('#audio-player').css('display', 'none');
+                $('.panel-outer').css('display', 'block');
+            }
+        }
+
     </script>
 {% endblock %}
