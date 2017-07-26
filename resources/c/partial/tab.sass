@@ -1,29 +1,34 @@
 
 div.tab
   float: left
-  width: 30%
   position: absolute
   right: 33vw
   border: 1px $panel-color
+  width: 10%
+  height: 70vh
+  padding-top: 1rem
 
 div.tab button
   display: block
   color: white
-  padding: 22px 16px
-  width: 150px
-  border: none
+  width: 100%
+  height: 30%
   outline: none
   text-align: center
   cursor: pointer
   transition: 0.3s
   font-family: Vanadine
-
-.active
   background-color: #3f1ca2
+  border: 2px solid #b693ff
+  border-right: none
+
+div.tab button span
+  display: inline-block
+  transform: rotate(-90deg)
+  width: 50px
 
 .inactive
-  background-color: #b693ff
-  color: #3f1ca2
+  opacity: .6
 
 
 .tabcontent
@@ -33,3 +38,9 @@ div.tab button
   width: 70%
   border-left: none
   height: 300px
+
+#contents-tab
+  border-radius: 1rem 0 0 0
+
+#audio-tab
+  border-radius: 0 0 0 1rem
