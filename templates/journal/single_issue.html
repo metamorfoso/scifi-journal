@@ -23,7 +23,7 @@
                     <iframe style="border: 0; width: 100%; height: {{height_of_bandcamp_plugin}}" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}}}/size=large/bgcol=ffffff/linkcol=3f1ca2/artwork=small/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}}}">Sponge: {{issue.pretty_name}}</a></iframe>
                  </div>
         {% endif %}
-        <div class="panel-outer">
+        <div class="panel-outer contents-panel">
           <div class="panel-inner">
             <div style="top:0px" class="panel-content">
               <ol class="contents-list">
@@ -117,26 +117,6 @@
         function hideCoverInfo(){
             $("#cover-info").css("display", "none");
 
-        }
-
-        var activeTab = 'contents'
-
-        function openTab(tab){
-            if (tab !== activeTab) {
-                if (tab == 'audio'){
-                    $('#audio-tab').toggleClass('inactive active');
-                    $('#contents-tab').toggleClass('active inactive');
-                    $('#audio-player').css('display', 'block');
-                    $('.panel-outer').css('display', 'none');
-                }
-                else {
-                    $('#audio-tab').toggleClass('active inactive');
-                    $('#contents-tab').toggleClass('inactive active');
-                    $('#audio-player').css('display', 'none');
-                    $('.panel-outer').css('display', 'block');
-                }
-                activeTab = tab
-            }
         }
 
     </script>
