@@ -6,15 +6,15 @@
 {% block content %}
   <div id="contents-actions-container">
         {% if issue.bandcamp_album_id %}
-            {% set height_of_bandcamp_plugin = [120] %}
+            {% set height_of_bandcamp_plugin = [142] %}
                 {% for story in stories %}
                     {% if story.bandcamp_track_id %}
-                        {% if height_of_bandcamp_plugin.append(height_of_bandcamp_plugin.pop() + 40) %}
+                        {% if height_of_bandcamp_plugin.append(height_of_bandcamp_plugin.pop() + 33) %}
                         {% endif %}
                     {% endif %}
                 {% endfor %}
             {% set height_of_bandcamp_plugin = height_of_bandcamp_plugin.pop()| string + 'px' %}
-            <div style="height:{{height_of_bandcamp_plugin}}" class="tab">
+            <div style="height:calc({{height_of_bandcamp_plugin}} + 1rem + 4px)" class="tab">
                 <button class="active" id="contents-tab" onclick="openTab('contents')"><span>Contents</span></button>
                 <button class="inactive" id="audio-tab" onclick="openTab('audio')"><span>Audio</span></button>
             </div>
