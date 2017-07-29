@@ -29,8 +29,7 @@
                 <button class="active" id="contents-tab" onclick="openTab('contents')"><span>Contents</span></button>
                 <button class="inactive" id="audio-tab" onclick="openTab('audio')"><span>Audio</span></button>
             </div>
-            <div>
-                <div id="audio-player">
+                <div class="desktop" id="audio-player">
                     <iframe style="border: 0; width: 100%; height: {{height_of_bandcamp_plugin}}" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}}}/size=large/bgcol=ffffff/linkcol=3f1ca2/artwork=small/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}}}">Sponge: {{issue.pretty_name}}</a></iframe>
                  </div>
                 {% endif %}
@@ -64,6 +63,5 @@
         </div>
       </div>
   </div>
-</div>
 
 {% endblock %}
