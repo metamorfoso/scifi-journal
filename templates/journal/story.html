@@ -7,9 +7,12 @@
   <div id="story-panel" class="panel-outer">
     <p class="panel-heading-title">{{ story.title.upper() }}</p>
     <p class="panel-heading-author"><a target="_blank" href="{{ story.author.url }}">{{ story.author }}</a></p>
+      <div class="panel-content">
+                  <div class="mobile-audio-player" id="mobile">
+                <iframe style="border: 0; width: 100%; height: 42px" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=small/bgcol=ffffff/linkcol=0687f5/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}">Sponge: {{issue.pretty_name}}</a></iframe>
+            </div>
        <div>
             <div class="panel-inner">
-              <div class="panel-content">
                 {{ story.content | safe }}
               </div>
             </div>
@@ -29,7 +32,7 @@
                 <button class="active" id="contents-tab" onclick="openTab('contents')"><span>Contents</span></button>
                 <button class="inactive" id="audio-tab" onclick="openTab('audio')"><span>Audio</span></button>
             </div>
-                <div class="desktop" id="audio-player">
+                <div class="audio-player" id="desktop">
                     <iframe style="border: 0; width: 100%; height: {{height_of_bandcamp_plugin}}" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}}}/size=large/bgcol=ffffff/linkcol=3f1ca2/artwork=small/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}}}">Sponge: {{issue.pretty_name}}</a></iframe>
                  </div>
                 {% endif %}

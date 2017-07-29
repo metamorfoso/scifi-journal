@@ -84,12 +84,12 @@ var openTab = function openTab(tab){
         if (tab == 'audio'){
             $('#audio-tab').toggleClass('inactive active');
             $('#contents-tab').toggleClass('active inactive');
-            $('#audio-player').css('display', 'block');
+            $('.audio-player').css('display', 'block');
             $('.contents-panel').css('display', 'none');
         } else {
             $('#audio-tab').toggleClass('active inactive');
             $('#contents-tab').toggleClass('inactive active');
-            $('#audio-player').css('display', 'none');
+            $('.audio-player').css('display', 'none');
             $('.contents-panel').css('display', 'block');
         }
         activeTab = tab
