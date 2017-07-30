@@ -120,11 +120,18 @@ def current(request):
     cover = Cover.objects.filter(issue=current_issue).first()
     form = SubscriptionForm()
 
+    height_of_bandcamp_plugin = 120
+    for story in stories:
+        if story.bandcamp_track_id:
+            height_of_bandcamp_plugin += 40
+
+
     return dict(
         issue=current_issue,
         stories=stories,
         cover=cover,
-        form=form
+        form=form,
+        height_of_bandcamp_plugin=str(height_of_bandcamp_plugin) + "px"
     )
 
 

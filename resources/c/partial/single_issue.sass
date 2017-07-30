@@ -43,9 +43,11 @@ $mobi-button-colour: #006b00
     #cover-title
       font-style: italic
     
-    
+
 #contents-actions-container
   z-index: 0
+  .panel-outer
+    margin-top: 0rem
   .download-btn-wrapper
     text-align: left
     padding: 0 1rem 1rem 1rem
@@ -90,8 +92,18 @@ $mobi-button-colour: #006b00
           font-size: 1.2rem
 
 
+
 .pdfobject-container
   width: 80vh
   height: 80vh
+
 .pdfobject
   border: 1px solid #666
+
+.audio-player
+  padding: 1rem
+  width: calc(100% - 2rem)
+  z-index: 3
+  background-color: $panel-color
+  display: none
+
