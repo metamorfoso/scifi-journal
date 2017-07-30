@@ -70,23 +70,22 @@
     </div>
   </div>
 
-  <div class="cover-panel" onmouseover="showCoverInfo()" onmouseout="hideCoverInfo()"  >
-    <p class="panel-heading">{{ issue.pretty_name }}</p>
+  <div class="cover-panel">
+    <p style="margin-bottom: 1.8rem" class="panel-heading">{{ issue.pretty_name }}</p>
 
-    {% if cover %}
-      <div id="cover-info">
-        <p id="cover-title">{{cover.title}}</p>
-        <p id="cover-artist">{{cover.artist}}</p>
-        <p><a target="_blank" href="mailto:{{ cover.artist_url }}">{{ cover.artist_url }}</a></p>
-      </div>
 
-      {% if cover.cover_image %}
+      {% if issue.pdf %}
+    <div id="issue-pdf"></div>
+
+
+      {% elif issue.cover %}
         <div id="issue-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div>
-      {% endif %}
+
 
     {% else %}
       <div id="issue-cover" class="no-image"></div>
     {% endif %}
+
   </div>
 
 {% endblock %}
@@ -103,5 +102,8 @@
             $("#cover-info").css("display", "none");
 
         }
+
+        PDFObject.embed("{{issue.pdf.url}}", "#issue-pdf", {pdfOpenParams: { view: 'FitW', scrollbar: '1', toolbar: '0', statusbar: '1', messages: '0', navpanes: '1' }});
+
     </script>
 {% endblock %}
