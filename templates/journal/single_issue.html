@@ -19,7 +19,7 @@
                 <button class="inactive" id="audio-tab" onclick="openTab('audio')"><span>Audio</span></button>
             </div>
             <div class="audio-player" id="desktop">
-                <iframe style="border: 0; width: 100%; height: {{height_of_bandcamp_plugin}}" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=large/bgcol=ffffff/linkcol=3f1ca2/artwork=small/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}">Sponge: {{issue.pretty_name}}</a></iframe>
+                <iframe style="border: 0; width: 100%; height: {{height_of_bandcamp_plugin}}" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=large/bgcol=ffffff/linkcol=3f1ca2/artwork=small/transparent=true/"><a href="{{issue.bandcamp_album_url}}">Sponge: {{issue.pretty_name}}</a></iframe>
             </div>
         {% endif %}
         <div class="panel-outer contents-panel">
@@ -88,9 +88,10 @@
 
       {% if issue.pdf %}
     <div id="issue-pdf"></div>
+      {% endif %}
 
 
-      {% elif issue.cover %}
+      {% if cover %}
         <div id="issue-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div>
 
 
@@ -105,16 +106,9 @@
 {% block script %}
     <script>
 
-        function showCoverInfo(){
-            $("#cover-info").css("display","inline-block");
-
-        }
-
-        function hideCoverInfo(){
-            $("#cover-info").css("display", "none");
-
-        }
-
+if(PDFObject.supportsPDFs === false){
+   $("#issue-pdf").css("display","none");
+}
 
         PDFObject.embed("{{issue.pdf.url}}", "#issue-pdf", {pdfOpenParams: { view: 'FitW', scrollbar: '1', toolbar: '0', statusbar: '1', messages: '0', navpanes: '1' }});
 
