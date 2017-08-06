@@ -44,6 +44,9 @@ class Issue(models.Model):
     def get_story_set(self):
         return self.story_set.all()
 
+    def has_pdf(self):
+        return self.pdf == True
+
 
 def autoslug_populate_from(instance):
     return instance.title
