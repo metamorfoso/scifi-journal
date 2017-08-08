@@ -6,24 +6,7 @@
 {% block content %}
   <div id="contents-actions-container">
         {% if issue.bandcamp_album_id %}
-            {% set height_of_bandcamp_plugin = [142] %}
-                {% for story in stories %}
-                    {% if story.bandcamp_track_id %}
-                        {% if height_of_bandcamp_plugin.append(height_of_bandcamp_plugin.pop() + 33) %}
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-            {% set height_of_bandcamp_plugin = height_of_bandcamp_plugin.pop()| string + 'px' %}
-            <div style="height:calc({{height_of_bandcamp_plugin}} + 1rem + 4px)" class="tab">
-                <button class="active" id="contents-tab" onclick="openTab('contents')"><img class="tab-icon" src="{{static('images/content_icon.png')}}"/></button>
-                <button class="inactive" id="audio-tab" onclick="openTab('audio')"><img class="tab-icon" src="{{static('images/player_icon.png')}}"/></button>
-            </div>
-            <div class="audio-player" id="desktop">
-                <iframe style="border: 0; width: 100%; height: {{height_of_bandcamp_plugin}}" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=large/bgcol=ffffff/linkcol=3f1ca2/artwork=small/transparent=true/"><a href="{{issue.bandcamp_album_url}}">Sponge: {{issue.pretty_name}}</a></iframe>
-            </div>
-            <div class="mobile-audio-player" id="mobile">
-                <iframe style="border: 0; width: 100%; height: {{height_of_bandcamp_plugin}}" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=large/bgcol=ffffff/linkcol=3f1ca2/artwork=small/transparent=true/"><a href="{{issue.bandcamp_album_url}}">Sponge: {{issue.pretty_name}}</a></iframe>
-            </div>
+            {% include "/journal/issue_audio.html" %}
         {% endif %}
         <div class="panel-outer contents-panel">
           <div class="panel-inner">
