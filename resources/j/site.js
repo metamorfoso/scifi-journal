@@ -77,21 +77,27 @@ menuButton.addEventListener('click', function (e) {
   e.preventDefault();
 });
 
-var activeTab = 'contents'
+// Audio player display
+var contentsTab = document.getElementById('contents-tab')
+var audioTab = document.getElementById('audio-tab')
+var audioPlayer = document.getElementsByClassName('audio-player')[0]
+var contentsPanel = document.getElementsByClassName('contents-panel')[0]
 
-var openTab = function openTab(tab){
-    if (tab !== activeTab) {
-        if (tab == 'audio'){
-            $('#audio-tab').toggleClass('inactive active');
-            $('#contents-tab').toggleClass('active inactive');
-            $('.audio-player').css('display', 'block');
-            $('.contents-panel').css('display', 'none');
-        } else {
-            $('#audio-tab').toggleClass('active inactive');
-            $('#contents-tab').toggleClass('inactive active');
-            $('.audio-player').css('display', 'none');
-            $('.contents-panel').css('display', 'block');
-        }
-        activeTab = tab
-    }
-}
+contentsTab.addEventListener('click', function (e) {
+  contentsTab.classList.remove('inactive')
+  audioTab.classList.add('inactive')
+
+  audioPlayer.style.display = 'none'
+  contentsPanel.style.display = 'block'
+
+  e.preventDefault()
+})
+audioTab.addEventListener('click', function (e) {
+  audioTab.classList.remove('inactive')
+  contentsTab.classList.add('inactive')
+
+  contentsPanel.style.display = 'none'
+  audioPlayer.style.display = 'block'
+
+  e.preventDefault()
+})
