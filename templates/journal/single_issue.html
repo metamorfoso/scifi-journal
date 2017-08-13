@@ -4,104 +4,93 @@
 {% block title %}Sponge - {{ issue.pretty_name }}{% endblock %}
 
 {% block content %}
-
   <div id="contents-actions-container">
-    <div class="panel-outer contents-panel">
-      <div class="panel-inner">
-        <div style="top:0px" class="panel-content">
-          {% if issue.introduction %}
-            <p>{{ issue.introduction }}</p>
-          {% endif %}
-          <ol class="contents-list">
-            {% for story in stories %}
-              <li>
-                  <a href="{{ story.get_absolute_url() }}">
-                      <div class="story-title">
-                        <i>{{ story }}</i>
-                      </div>
-                  </a>
-                  {% if story.author.url %}
-                  <a href="{{story.author.url}}">
-                      <div class="story-author">
-                        {{ story.author }}
-                      </div>
-                  </a>
-                  {% else %}
-                    <div class="story-author">
-                        {{ story.author }}
-                    </div>
-                  {% endif %}
-              </li>
-            {% endfor %}
-          </ol>
+        {% if issue.bandcamp_album_id %}
+            {% include "/journal/issue_audio.html" %}
+        {% endif %}
+        <div class="panel-outer contents-panel">
+          <div class="panel-inner">
+            <div style="top:0px" class="panel-content">
+              <ol class="contents-list">
+                {% for story in stories %}
+                  <li>
+                      <a href="{{ story.get_absolute_url() }}">
+                          <div class="story-title">
+                            <i>{{ story }}</i>
+                          </div>
+                      </a>
+                      {% if story.author.url %}
+                      <a href="{{story.author.url}}">
+                          <div class="story-author">
+                            {{ story.author }}
+                          </div>
+                      </a>
+                      {% else %}
+                        <div class="story-author">
+                            {{ story.author }}
+                        </div>
+                      {% endif %}
+                  </li>
+                {% endfor %}
+              </ol>
 
-          <div class="download-btn-wrapper">
-            {#  Only make download buttons active if there are files to download  #}
-            {%- if issue.pdf %}
-              {#-  -#}
-              <a href="{{ url('download_issue', issue.number, 'pdf') }}"
-              ><div class="download edge pdf nodrag"><span class="button-text">PDF</span></div></a>
-              {#-  -#}
-            {% else -%}
-              <div class="download edge greyedout nodrag"><span class="button-text">PDF</span></div>
-              {#-  -#}
-            {% endif -%}
-            {% if issue.mobi %}
-              {#-  -#}
-              <a href="{{ url('download_issue', issue.number, 'mobi') }}"
-              ><div class="download centre mobi nodrag"><span class="button-text">MOBI</span></div></a>
-              {#-  -#}
-            {% else -%}
-              <div class="download centre greyedout nodrag"><span class="button-text">MOBI</span></div>
-              {#-  -#}
-            {% endif -%}
-            {%- if issue.epub %}{#-  -#}
-              <a href="{{ url('download_issue', issue.number, 'epub') }}"
-              ><div class="download edge epub nodrag"><span class="button-text">EPUB</span></div></a>
-              {#-  -#}
-            {% else -%}
-              <div class="download edge greyedout nodrag"><span class="button-text">EPUB</span></div>
-              {#-  -#}
-            {% endif -%}
+              <div class="download-btn-wrapper">
+                {#  Only make download buttons active if there are files to download  #}
+                {%- if issue.pdf %}
+                  {#-  -#}
+                  <a href="{{ url('download_issue', issue.number, 'pdf') }}"
+                  ><div class="download edge pdf nodrag"><span class="button-text">PDF</span></div></a>
+                  {#-  -#}
+                {% else -%}
+                  <div class="download edge greyedout nodrag"><span class="button-text">PDF</span></div>
+                  {#-  -#}
+                {% endif -%}
+                {% if issue.mobi %}
+                  {#-  -#}
+                  <a href="{{ url('download_issue', issue.number, 'mobi') }}"
+                  ><div class="download centre mobi nodrag"><span class="button-text">MOBI</span></div></a>
+                  {#-  -#}
+                {% else -%}
+                  <div class="download centre greyedout nodrag"><span class="button-text">MOBI</span></div>
+                  {#-  -#}
+                {% endif -%}
+                {%- if issue.epub %}{#-  -#}
+                  <a href="{{ url('download_issue', issue.number, 'epub') }}"
+                  ><div class="download edge epub nodrag"><span class="button-text">EPUB</span></div></a>
+                  {#-  -#}
+                {% else -%}
+                  <div class="download edge greyedout nodrag"><span class="button-text">EPUB</span></div>
+                  {#-  -#}
+                {% endif -%}
+                </div>
+            </div>
           </div>
-
         </div>
-      </div>
     </div>
-  </div>
 
-  <div class="cover-panel" onmouseover="showCoverInfo()" onmouseout="hideCoverInfo()"  >
-    <p class="panel-heading">{{ issue.pretty_name }}</p>
-
-    {% if cover %}
-      <div id="cover-info">
-        <p id="cover-title">{{cover.title}}</p>
-        <p id="cover-artist">{{cover.artist}}</p>
-        <p><a target="_blank" href="mailto:{{ cover.artist_url }}">{{ cover.artist_url }}</a></p>
-      </div>
-
-      {% if cover.cover_image %}
-        <div id="issue-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div>
+  <div class="cover-panel">
+    <p style="margin-bottom: 1.8rem" class="panel-heading">{{ issue.pretty_name }}</p>
+      {% if issue.pdf %}
+        <div id="issue-pdf"></div>
       {% endif %}
 
-    {% else %}
-      <div id="issue-cover" class="no-image"></div>
-    {% endif %}
+      {% if cover %}
+        <div id="issue-cover">{{ thumbnail(cover.cover_image, "320x464") }}</div>
+      {% else %}
+        <div id="issue-cover" class="no-image"></div>
+      {% endif %}
   </div>
 
 {% endblock %}
 
 {% block script %}
-    <script>
+{% if issue.pdf %}
+  <script>
+    if(PDFObject.supportsPDFs === false){
+       $("#issue-pdf").css("display","none");
+    }
 
-        function showCoverInfo(){
-            $("#cover-info").css("display","inline-block");
-
-        }
-
-        function hideCoverInfo(){
-            $("#cover-info").css("display", "none");
-
-        }
-    </script>
+    PDFObject.embed("{{issue.pdf.url}}", "#issue-pdf", {pdfOpenParams: { view: 'FitW', scrollbar: '1', toolbar: '0', statusbar: '1', messages: '0', navpanes: '1' }});
+  </script>
+{% endif %}
 {% endblock %}

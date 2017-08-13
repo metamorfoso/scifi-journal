@@ -192,7 +192,8 @@ PIPELINE = dict(
                 'j/lib/jquery.js',
                 'j/lib/raven.js',
                 'j/lib/slick.js',
-                'j/site.js',
+                'j/lib/pdfobject.js',
+                'j/site.js'
             ),
             'output_filename': 'j/app.js'
         }

@@ -7,14 +7,18 @@
   <div id="story-panel" class="panel-outer">
     <p class="panel-heading-title">{{ story.title.upper() }}</p>
     <p class="panel-heading-author"><a target="_blank" href="{{ story.author.url }}">{{ story.author }}</a></p>
-    <div class="panel-inner">
-      <div class="panel-content">
-        {{ story.content | safe }}
-      </div>
-    </div>
+       <div>
+            <div class="panel-inner">
+              <div class="panel-content">
+                {{ story.content | safe }}
+              </div>
+            </div>
+       </div>
   </div>
   <div id="contents-actions-container">
-    <div>
+     {% if story.bandcamp_track_id %}
+        {% include "/journal/story_audio.html" %}
+     {% endif %}
       <div class="panel-outer contents-panel">
         <div class="panel-inner">
           <div style="top:0px" class="panel-content">
@@ -44,12 +48,6 @@
           </div>
         </div>
       </div>
-      {% if story.bandcamp_track_id %}
-      <div class="audio-player">
-        <iframe style="border: 0; width: calc(100% - 2em); height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album={{issue.bandcamp_album_id}}/size=small/bgcol=ffffff/linkcol=333333/artwork=none/track={{story.bandcamp_track_id}}/transparent=true/" seamless><a href="{{issue.bandcamp_album_url}}">Sponge: Issue 1 by Jenna Heller</a></iframe>
-      </div>
-      {% endif %}
   </div>
-</div>
 
 {% endblock %}

@@ -3,23 +3,19 @@ $epub-button-colour: #006ce6
 $mobi-button-colour: #006b00
 
 .cover-panel
-  width: 60vh
+  width: 80vh
   height: auto
   background-color: $panel-color
 
   display: block
-  position: relative
+  position: fixed
   margin: 0
-  left: 15vw
+  left: 10vw
   text-align: center
   z-index: 5
 
   // instead of margin, which affects the nav's position
   transform: translateY(5rem)
-
-  .panel-heading
-    margin: 0
-    padding: 2rem
 
   #issue-cover
     z-index: -1
@@ -27,11 +23,11 @@ $mobi-button-colour: #006b00
     display: inline-block
     margin: 0 1rem 1rem 1rem
     // height: calc(100vh - 2rem)
-    width: calc(60vh - 2rem)
+    width: calc(80vh - 2rem)
     &.no-image
       height: calc(100vh - 2rem)
       background-color: red
-    
+
   #cover-info
     position: absolute
     display: none
@@ -43,46 +39,37 @@ $mobi-button-colour: #006b00
     color: white
     opacity: 0.8
     padding-top: 1rem
-    
+
     #cover-title
       font-style: italic
-    
-    
+
+
 #contents-actions-container
   z-index: 0
+  .panel-outer
+    margin-top: 0rem
   .download-btn-wrapper
     text-align: left
-    padding: 0 1rem 1rem 1rem
+    padding: 1rem
     .download
       height: 40px
-      width: 33.3%
+      width: 30%
       display: inline-block
       padding: 0 0 0.5rem 0
       text-align: center
       box-sizing: border-box
-
+      background-color: #b693ff
       color: white
-      &.pdf
-        background-color: $pdf-button-colour
-        &:hover
-          background-color: lighten($pdf-button-colour, 20)
-      &.epub
-        background-color: $epub-button-colour
-        &:hover
-          background-color: lighten($epub-button-colour, 20)
-      &.mobi
-        background-color: $mobi-button-colour
-        &:hover
-          background-color: lighten($mobi-button-colour, 10)
 
       &.greyedout
         background-color: darkgrey
 
-      &.edge
-        border: 1px solid $panel-color
       &.centre
-        border-top: 1px solid $panel-color
-        border-bottom: 1px solid $panel-color
+        margin: 0 5%
+
+      &.pdf, &.epub, &.mobi
+        &:hover
+          background-color: $panel-color
 
       .button-text
         font-size: 1.6rem
@@ -92,3 +79,29 @@ $mobi-button-colour: #006b00
         position: relative
         &.small
           font-size: 1.2rem
+
+
+      .button-text
+        font-size: 1.6rem
+        font-family: Vanadine
+        //font-weight: 600
+        top: 25%
+        position: relative
+        &.small
+          font-size: 1.2rem
+
+
+
+.pdfobject-container
+  width: 80vh
+  height: 80vh
+
+.pdfobject
+  border: 1px solid #666
+
+.audio-player
+  padding: 1rem
+  width: calc(100% - 2rem)
+  z-index: 3
+  background-color: $panel-color
+  display: none
