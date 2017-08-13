@@ -18,16 +18,23 @@
   {% block meta %}
     <meta property="og:type" content="website">
 
-    <title>{{ title() }}</title>
-    <meta property="og:title" content="{{ title() }}">
+    <title>Sponge NZ</title>
 
-    <meta name="description" content="{{ description() }}">
-    <meta property="og:description" content="{{ description() }}">
+    <meta name="description" content="Sponge is an online journal for science
+     fiction and speculative fiction. We publish short stories, poetry, and
+     reviews of science fiction from New Zealand and Pacific writers, with a
+     particular focus on new and emerging writers.">
+
 
     <meta name="keywords"
           content="">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <meta property="og:url" content="http://sponge.nz" />
+
+      <meta property="og:image" content="{{ static('images/Sponge Facebook Image.jpg') }}" />
+
   {% endblock %}
 
   <link rel="apple-touch-icon" sizes="57x57" href="{{ static('images/favicons/apple-icon-57x57.png') }}">
