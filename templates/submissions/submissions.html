@@ -3,7 +3,6 @@
 {% block title %}Sponge - Submissions{% endblock %}
 
 {% block content %}
-
   <div id="guidelines-panel" class="panel-outer">
     <p class="panel-heading">
       Submission Guidelines
@@ -62,11 +61,11 @@
               {% endfor %}
             </div>
             <input
-              {% if not TAKING_SUBMISSIONS %}disabled {% endif %}
+              {% if not open_for_submissions  %}disabled {% endif %}
               type="submit"
               name="story_submission"
-              value="{% if not TAKING_SUBMISSIONS %}SUBMISSIONS CURRENTLY CLOSED{% else %}SUBMIT{% endif %}"
-              class="submit button {% if not TAKING_SUBMISSIONS %}submissions-closed{% endif %}"
+              value="{% if not open_for_submissions  %}SUBMISSIONS CURRENTLY CLOSED{% else %}SUBMIT{% endif %}"
+              class="submit button {% if not open_for_submissions %}submissions-closed{% endif %}"
             />
           </form>
         </div>
