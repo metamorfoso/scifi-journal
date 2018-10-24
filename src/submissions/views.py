@@ -21,7 +21,6 @@ def submissions(request):
     """
     guidelines = Submission_Guidelines.objects.first()
     open_issues = Issue.objects.filter(openForSubmissions=True)
-    print len(open_issues)
     # Default context: empty forms for the Submission and Submitter
     context = dict(
         guidelines = guidelines,
