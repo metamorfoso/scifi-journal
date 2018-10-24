@@ -26,7 +26,7 @@ def environment(**options):
         'url': url,
         'get_thumbnail': get_thumbnail
     })
-    for setting in ('STATIC_URL', 'DEBUG', 'TAKING_SUBMISSIONS', 'PREPARING_NEXT_ISSUE'):
+    for setting in ('STATIC_URL', 'DEBUG', 'PREPARING_NEXT_ISSUE'):
         env.globals.update({setting: getattr(settings, setting)})
 
     env.filters.update({
