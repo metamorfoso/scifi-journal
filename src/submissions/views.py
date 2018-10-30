@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from .models import Submission, Submitter
+from journal.models import Issue
 from site_content.models import Submission_Guidelines
 from .forms import SubmissionForm, SubmitterForm
 from subscription.forms import SubscriptionForm
@@ -19,13 +20,14 @@ def submissions(request):
     :return:
     """
     guidelines = Submission_Guidelines.objects.first()
-
+    open_issues = Issue.objects.filter(openForSubmissions=True)
     # Default context: empty forms for the Submission and Submitter
     context = dict(
         guidelines = guidelines,
         submitter_form=SubmitterForm(),
         submission_form=SubmissionForm(),
-        form = SubscriptionForm()
+        form = SubscriptionForm(),
+        open_for_submissions = len(open_issues) > 0
     )
 
     # Handle form submission

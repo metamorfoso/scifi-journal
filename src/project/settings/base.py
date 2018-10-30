@@ -3,7 +3,6 @@ from functools import partial
 import raven
 
 # ############################ Journal Settings ############################# #
-TAKING_SUBMISSIONS = True
 PREPARING_NEXT_ISSUE = True
 
 # ########################### Application Settings ########################## #

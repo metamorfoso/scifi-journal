@@ -15,6 +15,7 @@ class Author(models.Model):
 
 
 class Issue(models.Model):
+    openForSubmissions = models.BooleanField(default=False)
     published = models.BooleanField(default=False)
     pub_date = models.DateField(verbose_name="issue publication date", blank=True, null=True)
     number = models.IntegerField(verbose_name="issue number")
