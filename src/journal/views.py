@@ -22,7 +22,6 @@ def get_recent_instagram_post():
     link = data['link']
     image = data['images']['standard_resolution']['url']
     formatted_created_at = datetime.utcfromtimestamp(int(created_at)).strftime('%Y-%m-%dT%H:%M:%SZ')
-    print formatted_created_at
     return dict(
             caption = caption,
             created_at = created_at,
