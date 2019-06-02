@@ -9,6 +9,7 @@ class Author(models.Model):
     last_name = models.CharField(max_length=40)
     bio = models.TextField(max_length=250, blank=True)
     url = models.CharField(max_length=100, blank=True)
+    country_of_origin = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return "%s %s" % (self.first_name, self.last_name)
