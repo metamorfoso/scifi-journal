@@ -1,28 +1,28 @@
 @media screen and (min-width: 1081px)
   // Give enough space to scroll through
   #content-block.landing
-    min-height: 85rem
+    min-height: 90rem
 
   #about-panel
     width: $about-panel-width
     margin-right: 1vw
 
   #current-panel
-    width: 22rem
+    width: 33vw
     height: auto
     background-color: $panel-color
 
     display: inline-block
     position: fixed
-    margin: 5rem 6vw 0 6vw
-    left: 33vw
+    margin: 5rem 1vw 0 1vw
+    left: 32vw
     text-align: center
 
     #current-cover
       display: inline-block
       margin: auto 1rem 1rem 1rem
-      width: 20rem
-      height: 29rem
+      width: calc(33vw - 2rem)
+      height: 40rem
       background-color: red
 
     &:hover
@@ -33,18 +33,16 @@
       top: 550px
       z-index: 3
 
-  #large-logo-panel
-    top: 12rem
+  #latest-instagram-panel
+    top: 10rem
 
     width: 31vw
-    margin: 0 1vw
-    height: 12rem
+    padding: 1vw 1vw 0 1vw
     right: 0
 
     display: inline-block
     position: absolute
-    text-align: center
-    background-color: transparent
+    background-color: #3f1ca2
 
     // Hide it behind the nav on scrolldown
     z-index: 1

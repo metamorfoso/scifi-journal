@@ -124,17 +124,18 @@ p
   font-family: Vanadine
   text-align: right
   background-color: $panel-color
+  display: flex
+  flex-direction: row
 
   #footer-block-one, #footer-block-two
-    display: inline-block
     width: 49%
-    margin: 10rem 0 5rem 0
+    margin: 2rem 0 2rem 0
     color: white
     text-align: left
 
   #footer-block-one
     box-sizing: border-box
-    padding-left: 15%
+    padding-left: 2rem
     #subscribe
       p
         color: white
@@ -147,23 +148,13 @@ p
         color: white
         border-color: #e62400
 
-    #twitter
-      display: inline-block
-      text-align: left
-      padding: 2rem 0
-      color: #ffffff
-      font-size: 1.3rem
-      img
-        width: 2rem
-        transform: translateY(0.5rem)
-
   #footer-block-two
     #signature
       font-size: 1.3rem
       font-weight: 900
       #credits, #license, #contact
         display: inline-block
-        width: 30%
+        float: right
         margin: 0
 
         li

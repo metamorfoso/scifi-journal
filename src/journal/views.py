@@ -5,7 +5,30 @@ from .models import Issue, Story, Cover
 from site_content.models import About
 from num2words import num2words
 from subscription.forms import SubscriptionForm
+import requests
+from datetime import datetime
 
+def get_recent_instagram_post():
+    url = 'https://api.instagram.com/v1/users/13938718211/media/recent'
+    params = {
+        "access_token": '13938718211.473bf93.990be13111e047f89dc528820097681d',
+        "count": 1
+    }
+    response = requests.get(url, params=params)
+    json = response.json()
+    data = json['data'][0]
+    caption = data['caption']['text']
+    created_at = data['caption']['created_time']
+    link = data['link']
+    image = data['images']['standard_resolution']['url']
+    formatted_created_at = datetime.utcfromtimestamp(int(created_at)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    print formatted_created_at
+    return dict(
+            caption = caption,
+            created_at = created_at,
+            link = link,
+            image = image
+            )
 
 @render("index.html")
 def index(request):
@@ -17,7 +40,6 @@ def index(request):
     """
 
     about = About.objects.first()
-
 
     published_issues = Issue.objects.filter(published=True)
     if published_issues.exists():
@@ -40,8 +62,9 @@ def index(request):
         stories=stories,
         landing_page=True,
         cover=cover,
-        form=form
-    )
+        form=form,
+        recent_instagram_post = get_recent_instagram_post()
+        )
 
 
 @render("journal/issue_archive.html")
